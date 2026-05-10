@@ -327,8 +327,9 @@ script ow_Intro_PokemonCenter_EventScript_PerfectIVsPushDisable {
 script ow_Intro_PokemonCenter_EventScript_PerfectIVsToggle {
     goto_if_set(FLAG_PERFECT_IVS_MODE, ow_Intro_PokemonCenter_EventScript_PerfectIVsDisable)
     setflag(FLAG_PERFECT_IVS_MODE)
+    special(MaxPartyIVs)
     playse(SE_PC_ON)
-    msgbox(format("Perfect IVs mode is now ON. Every wild and gift Pokémon will have flawless stats."))
+    msgbox(format("Perfect IVs mode is now ON. Every Pokémon in your party - and every one you find or receive from now on - will have flawless stats."))
     setspeaker(NULL)
     release
     end
