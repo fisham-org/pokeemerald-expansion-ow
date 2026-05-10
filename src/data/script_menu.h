@@ -1093,13 +1093,6 @@ static const struct MenuAction MultichoiceList_Exit[] =
     {gText_Exit},
 };
 
-static const struct MenuAction MultichoiceList_Starter[] =
-{
-    {COMPOUND_STRING("TREECKO")},
-    {COMPOUND_STRING("TORCHIC")},
-    {COMPOUND_STRING("MUDKIP")},
-};
-
 struct MultichoiceListStruct
 {
     const struct MenuAction *list;
@@ -1117,7 +1110,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_BASE_PC_WITH_REGISTRY]      = MULTICHOICE(MultichoiceList_BasePCWithRegistry),
     [MULTI_REGISTER_MENU]              = MULTICHOICE(MultichoiceList_RegisterMenu),
     [MULTI_SSTIDAL_LILYCOVE]           = MULTICHOICE(MultichoiceList_Exit),
-    [MULTI_STARTER]                    = MULTICHOICE(MultichoiceList_Starter),
+    [MULTI_UNUSED_9]                   = MULTICHOICE(MultichoiceList_Exit),
     [MULTI_UNUSED_10]                  = MULTICHOICE(MultichoiceList_Exit),
     [MULTI_FRONTIER_PASS_INFO]         = MULTICHOICE(MultichoiceList_FrontierPassInfo),
     [MULTI_BIKE]                       = MULTICHOICE(MultichoiceList_Bike),
