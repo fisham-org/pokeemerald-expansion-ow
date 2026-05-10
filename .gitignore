@@ -70,3 +70,8 @@ CLAUDE.md
 .claude/*
 private-notes/*
 .map_version
+tools/poryscript/poryscript
+data/maps/**/scripts.inc
+CLAUDE.md
+.claude/*
+private-notes/*
