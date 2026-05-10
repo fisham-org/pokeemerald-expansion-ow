@@ -1,0 +1,68 @@
+mapscripts ow_Kolchavi_PokemonCenter_MapScripts {}
+
+script ow_Kolchavi_PokemonCenter_EventScript_Nurse {
+    lock
+    faceplayer
+    goto_if_set(FLAG_SYS_POKEMON_GET, LilycoveCity_PokemonCenter_1F_EventScript_Nurse)
+    setspeaker("Nurse")
+    msgbox(format("Welcome! Once you've got a Pokémon of your own, I can take care of it for you."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+script ow_Kolchavi_PokemonCenter_EventScript_LeagueRep {
+    lock
+    faceplayer
+    goto_if_set(FLAG_SYS_POKEMON_GET, ow_Kolchavi_PokemonCenter_EventScript_LeagueRepDone)
+    setspeaker("Steven")
+    msgbox(format("{PLAYER}! Glad you made it."))
+    msgbox(format("I'm with the Pokémon League. Here to get you set up before you head out into Kavora."))
+    msgbox(format("First - your partner. Pick whichever feels right."))
+    multichoice(0, 0, MULTI_STARTER, TRUE)
+    switch (var(VAR_RESULT)) {
+        case 0: givemon(SPECIES_TREECKO, 5)
+        case 1: givemon(SPECIES_TORCHIC, 5)
+        case 2: givemon(SPECIES_MUDKIP, 5)
+    }
+    setflag(FLAG_SYS_POKEMON_GET)
+    msgbox(format("Good pick."))
+    msgbox("Would you like to give a nickname to \Nyour new Pokémon?", MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        call(Common_EventScript_GetGiftMonPartySlot)
+        call(Common_EventScript_NameReceivedPartyMon)
+    }
+    msgbox(format("Here are some supplies, and your Pokédex."))
+    giveitem(ITEM_POKE_BALL, 10)
+    giveitem(ITEM_POTION, 3)
+    setflag(FLAG_SYS_POKEDEX_GET)
+    setflag(FLAG_SYS_B_DASH)
+    msgbox(format("Good luck out there, {PLAYER}!"))
+    setspeaker(NULL)
+    setvar(VAR_TRAINER_REGISTRATION, 1)
+    release
+    end
+}
+
+script ow_Kolchavi_PokemonCenter_EventScript_LeagueRepDone {
+    setspeaker("Steven")
+    msgbox(format("Take care out there."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+script ow_Kolchavi_PokemonCenter_EventScript_BlockExit {
+    lockall
+    applymovement(LOCALID_PLAYER, ow_Kolchavi_PokemonCenter_Movement_PlayerStepBack)
+    waitmovement(0)
+    setspeaker("Steven")
+    msgbox(format("Hang on - grab a partner first!"))
+    setspeaker(NULL)
+    releaseall
+    end
+}
+
+movement ow_Kolchavi_PokemonCenter_Movement_PlayerStepBack {
+    walk_up
+}

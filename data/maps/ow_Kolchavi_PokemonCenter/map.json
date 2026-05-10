@@ -25,7 +25,21 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LilycoveCity_PokemonCenter_1F_EventScript_Nurse",
+      "script": "ow_Kolchavi_PokemonCenter_EventScript_Nurse",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_KOLCHAVI_PC_LEAGUE_REP",
+      "graphics_id": "OBJ_EVENT_GFX_STEVEN",
+      "x": 8,
+      "y": 7,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ow_Kolchavi_PokemonCenter_EventScript_LeagueRep",
       "flag": "0"
     }
   ],
@@ -45,6 +59,25 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TRAINER_REGISTRATION",
+      "var_value": "0",
+      "script": "ow_Kolchavi_PokemonCenter_EventScript_BlockExit"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TRAINER_REGISTRATION",
+      "var_value": "0",
+      "script": "ow_Kolchavi_PokemonCenter_EventScript_BlockExit"
+    }
+  ],
   "bg_events": []
 }
