@@ -114,7 +114,7 @@ static void SetDefaultOptions(void)
     VarSet(VAR_BATTLE_SPEED, gSaveBlock2Ptr->optionsBattleSpeed);  // Initialize runtime variable
 #endif
 #if OPT_AUTORUN == TRUE
-    gSaveBlock2Ptr->optionsAutoRun = FALSE;  // Default to OFF (classic behavior)
+    gSaveBlock2Ptr->optionsAutoRun = TRUE;
 #endif
 }
 
