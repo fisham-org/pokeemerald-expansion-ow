@@ -9628,7 +9628,7 @@
       "id": "LAYOUT_OW_SOWBACK_CAVE_1F",
       "name": "ow_SowbackCave_1F_Layout",
       "width": 44,
-      "height": 38,
+      "height": 44,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/ow_SowbackCave_1F/border.bin",
