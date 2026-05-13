@@ -110,20 +110,6 @@
       "notes": "trainer"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_BRENDAN_NORMAL",
-      "x": 22,
-      "y": 30,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0",
-      "notes": "trainer"
-    },
-    {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
       "x": 22,
       "y": 25,
@@ -163,6 +149,7 @@
       "flag": "FLAG_TEMP_6"
     },
     {
+      "local_id": "LOCALID_SOWBACK_CAVE_B1F_NADIA_BAG",
       "graphics_id": "OBJ_EVENT_GFX_BIRCHS_BAG",
       "x": 23,
       "y": 29,
@@ -173,8 +160,37 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0",
-      "notes": "trainer"
+      "flag": "FLAG_HIDE_SOWBACK_B1F_NADIA",
+      "notes": "Nadia's field-camp satchel"
+    },
+    {
+      "local_id": "LOCALID_SOWBACK_CAVE_B1F_NADIA",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
+      "x": 22,
+      "y": 29,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ow_SowbackCave_B1F_EventScript_Nadia",
+      "flag": "FLAG_HIDE_SOWBACK_B1F_NADIA",
+      "quest_id": "QUEST_ZELKOVA"
+    },
+    {
+      "local_id": "LOCALID_SOWBACK_CAVE_B1F_NOSEPASS",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(NOSEPASS)",
+      "x": 24,
+      "y": 28,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ow_SowbackCave_B1F_EventScript_Nosepass",
+      "flag": "FLAG_HIDE_SOWBACK_B1F_NADIA"
     }
   ],
   "warp_events": [

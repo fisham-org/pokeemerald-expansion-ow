@@ -4,6 +4,8 @@ mapscripts ow_Kolchavi_Lab_2F_MapScripts {}
 // PROFESSOR ZELKOVA
 // ============================================================
 
+// note for future: when we expand on this quest, implement a variable to track quest state and a mapscript to conditionally show/hide NPCs in the office based on quest var.
+
 script ow_Kolchavi_Lab_2F_EventScript_Zelkova {
     lock
     faceplayer
@@ -15,9 +17,13 @@ script ow_Kolchavi_Lab_2F_EventScript_Zelkova {
 
 script ow_Kolchavi_Lab_2F_EventScript_Zelkova_Intro {
     setspeaker("Prof. Zelkova")
-    msgbox(format("You're new here. I don't take many walk-ins.\pI'm Professor Zelkova. I study anthropokology - the mutual impact humans and Pokémon have on each other's biology and culture. Most people find the title confusing. The work speaks for itself."))
-    msgbox(format("I've been investigating something. The best timber near the Route 6 cave consistently grows above where the cave system runs underground. My hypothesis: a Diglett population inside is aerating and enriching the soil.\pI sent my assistant Nadia in three days ago to document the population and collect samples."))
-    msgbox(format("She gets absorbed. But three days without word is long, even for Nadia.\pWould you go in and check on her - and bring back whatever she's found?"))
+    msgbox(format("You're not one of my students, aren't you?"))
+    msgbox(format("I'm Professor Zelkova.\pI study anthropokology - how humans and Pokémon have shaped each other, biologically and culturally."))
+    msgbox(format("I've begun a new study recently, investigating the relationship between Pokémon, humans, and our nearby forests."))
+    msgbox(format("We are proud of our large forests, and producing the best timber in all of Kavora.\pBut what makes our forests special?"))
+    msgbox(format("My hypothesis: to the north is a large cave system named Sowback Cave, which extends under the forest.\pSomehow, the trees are being fed from below."))
+    msgbox(format("I sent my assistant Nadia in three days ago to investigate.\pShe was well prepared, but three days is long - even for her."))
+    msgbox(format("Would you head in after her?\NBring back whatever she's found."))
     setspeaker(NULL)
     setflag(FLAG_CULTURE_ZELKOVA_MET)
     call_if_quest_not_active(QUEST_ZELKOVA, ow_Kolchavi_Lab_2F_EventScript_Zelkova_StartQuest)
@@ -27,23 +33,115 @@ script ow_Kolchavi_Lab_2F_EventScript_Zelkova_Intro {
 
 script ow_Kolchavi_Lab_2F_EventScript_Zelkova_StartQuest {
     startquest(QUEST_ZELKOVA)
+    clearflag(FLAG_HIDE_SOWBACK_B1F_NADIA)
     return
 }
 
 script ow_Kolchavi_Lab_2F_EventScript_Zelkova_Active {
     setspeaker("Prof. Zelkova")
-    msgbox(format("Nadia is somewhere inside the Route 6 cave. She'll have her field satchel and her notes.\pThe Diglett cluster near the richer soil seams - follow the burrowing sounds if you lose the path."))
+    msgbox(format("Nadia's somewhere inside Sowback Cave.\NShe'll have her satchel and her notes."))
+    msgbox(format("Follow the churned earth.\pThe Drilbur cluster near the richer seams - she'll be wherever they are."))
     setspeaker(NULL)
     release
     end
 }
 
 script ow_Kolchavi_Lab_2F_EventScript_Zelkova_Reward {
+    lock
     setspeaker("Prof. Zelkova")
-    msgbox(format("You found her. Good. And these samples-"))
-    msgbox(format("These minerals aren't local. Swamp sediment. Volcanic sand from the east. Someone carried these in deliberately.\pThe Diglett didn't come to this cave on their own. They were directed here - using materials from across the region as markers and incentives."))
-    msgbox(format("The forest above is a consequence of that arrangement. The foresters have been harvesting the benefit for generations without knowing the cause.\pThat is exactly what I study."))
+    msgbox(format("You're back."))
+    msgbox(format("Did you find her?"))
     setspeaker(NULL)
+    delay(20)
+    playse(SE_DOOR)
+    clearflag(FLAG_HIDE_KOLCHAVI_LAB_2F_NADIA)
+    addobject(LOCALID_KOLCHAVI_LAB_2F_NADIA)
+    addobject(LOCALID_KOLCHAVI_LAB_2F_NOSEPASS)
+    delay(150)
+    moveobjecttocoords(LOCALID_KOLCHAVI_LAB_2F_NADIA, 6, 6, DIR_NORTH)
+    waitmovement
+    applymovement(LOCALID_KOLCHAVI_LAB_2F_ZELKOVA, Common_Movement_FaceRight)
+    waitmovement(0)
+    setspeaker("Nadia")
+    msgbox(format("Hi, Professor. Sorry for my delay."))
+    msgbox(format("At first, I was just observing the local Drillbur population, digging and playing amongst themselves."))
+    msgbox(format("But I noticed there were small flecks of something metallic in the nearby cave walls."))
+    msgbox(format("One of the Drillbur dug was playing with a small chunk of iron!\pIt looks like it came from the swamp."))
+    setspeaker("Prof. Zelkova")
+    msgbox(format("But Drillbur don't like the damp swamp.\NHow did they find bog iron?"))
+    setspeaker("Nadia")
+    msgbox(format("I think something has placed it there deliberately to encourage the Drillbur to dig deeper caves!"))
+    setspeaker("Prof. Zelkova")
+    msgbox(format("Which aerates and adds nutrients to the soil... Directly below the Floran forests!"))
+    msgbox(format("That must be it! But how did the iron get there in the first place?\NNadia, do you have anything else?"))
+    setspeaker("Nadia")
+    msgbox(format("Not yet, prof. But I'm on the case!"))
+    setspeaker("Prof. Zelkova")
+    applymovement(LOCALID_KOLCHAVI_LAB_2F_ZELKOVA, Common_Movement_FacePlayer)
+    msgbox(format("Thank you, you two. This is a great discovery."))
+    msgbox(format("But one warren doesn't explain itself.\pSomeone moved the iron and left it there. We've found the arrangement - not who built it."))
+    msgbox(format("If you're willing, I'd like you to keep looking. Anywhere in Kavora that the land doesn't quite add up - tell me."))
+    msgbox(format("Before you go - take one of these.\NA field assistant of your own."))
+    setspeaker(NULL)
+    closemessage
+    goto(ow_Kolchavi_Lab_2F_EventScript_Zelkova_GiftSelect)
+}
+
+script ow_Kolchavi_Lab_2F_EventScript_Zelkova_GiftSelect {
+    dynmultipush("SENTRET", 0)
+    dynmultipush("BIDOOF", 1)
+    dynmultistack(0, 0, TRUE, 2, FALSE, 0, DYN_MULTICHOICE_CB_NONE)
+    switch (var(VAR_RESULT)) {
+        case 0: goto(ow_Kolchavi_Lab_2F_EventScript_Zelkova_ConfirmFurret)
+        case 1: goto(ow_Kolchavi_Lab_2F_EventScript_Zelkova_ConfirmBidoof)
+    }
+    end
+}
+
+script ow_Kolchavi_Lab_2F_EventScript_Zelkova_ConfirmFurret {
+    showmonpic(SPECIES_SENTRET, 10, 3)
+    playmoncry(SPECIES_SENTRET, CRY_MODE_NORMAL)
+    bufferspeciesname(STR_VAR_1, SPECIES_SENTRET)
+    msgbox(format("Are you sure you want {STR_VAR_1}?"), MSGBOX_YESNO)
+    waitmoncry
+    hidemonpic
+    if (var(VAR_RESULT) == NO) {
+        closemessage
+        goto(ow_Kolchavi_Lab_2F_EventScript_Zelkova_GiftSelect)
+    }
+    msgbox(format("{PLAYER} received {STR_VAR_1}!"))
+    playfanfare(MUS_OBTAIN_ITEM)
+    waitfanfare
+    givemon(SPECIES_SENTRET, 5)
+    closemessage
+    goto(ow_Kolchavi_Lab_2F_EventScript_Zelkova_AfterGift)
+}
+
+script ow_Kolchavi_Lab_2F_EventScript_Zelkova_ConfirmBidoof {
+    showmonpic(SPECIES_BIDOOF, 10, 3)
+    playmoncry(SPECIES_BIDOOF, CRY_MODE_NORMAL)
+    bufferspeciesname(STR_VAR_1, SPECIES_BIDOOF)
+    msgbox(format("Are you sure you want {STR_VAR_1}?"), MSGBOX_YESNO)
+    waitmoncry
+    hidemonpic
+    if (var(VAR_RESULT) == NO) {
+        closemessage
+        goto(ow_Kolchavi_Lab_2F_EventScript_Zelkova_GiftSelect)
+    }
+    msgbox(format("{PLAYER} received {STR_VAR_1}!"))
+    playfanfare(MUS_OBTAIN_ITEM)
+    waitfanfare
+    givemon(SPECIES_BIDOOF, 5)
+    closemessage
+    goto(ow_Kolchavi_Lab_2F_EventScript_Zelkova_AfterGift)
+}
+
+script ow_Kolchavi_Lab_2F_EventScript_Zelkova_AfterGift {
+    setspeaker("Prof. Zelkova")
+    msgbox(format("Good. Take care of it."))
+    msgbox(format("And keep your eyes open out there.\NTell me what you find."))
+    setspeaker(NULL)
+    setflag(FLAG_HIDE_SOWBACK_B1F_NADIA)
     completequest(QUEST_ZELKOVA)
     release
     end
@@ -51,7 +149,9 @@ script ow_Kolchavi_Lab_2F_EventScript_Zelkova_Reward {
 
 script ow_Kolchavi_Lab_2F_EventScript_Zelkova_Complete {
     setspeaker("Prof. Zelkova")
-    msgbox(format("What we found in that cave predates anything in my collection by at least two centuries.\pSomeone directed those Diglett through a specific route using markers and material incentives. The arrangement outlasted everyone who designed it. The foresters still benefit. They just don't know why."))
+    msgbox(format("Sowback's only the first one."))
+    msgbox(format("Somebody, somewhere, set that arrangement up. They didn't only do it once."))
+    msgbox(format("Anywhere in Kavora the land doesn't quite add up - bring it to me."))
     setspeaker(NULL)
     release
     end
@@ -66,7 +166,7 @@ script ow_Kolchavi_Lab_2F_EventScript_RecordKeeper {
     faceplayer
     goto_if_quest_complete(QUEST_ZELKOVA, ow_Kolchavi_Lab_2F_EventScript_RecordKeeper_PostQuest)
     goto_if_quest_active(QUEST_ZELKOVA, ow_Kolchavi_Lab_2F_EventScript_RecordKeeper_Active)
-    setspeaker("Research Assistant")
+    setspeaker("Assistant")
     msgbox(format("Nadia's still out in the field - longer than planned.\pProfessor Zelkova says our job is to document change, not prevent it."))
     setspeaker(NULL)
     release
@@ -74,20 +174,46 @@ script ow_Kolchavi_Lab_2F_EventScript_RecordKeeper {
 }
 
 script ow_Kolchavi_Lab_2F_EventScript_RecordKeeper_Active {
-    setspeaker("Research Assistant")
-    msgbox(format("You're heading into the Route 6 cave? The Diglett concentrations shift near the older burrowed sections - Nadia will be wherever the most interesting thing is. That's how you find her."))
+    setspeaker("Assistant")
+    msgbox(format("You're heading into Sowback Cave? The Drilbur concentrations shift near the older worked sections - Nadia will be wherever the most interesting thing is. That's how you find her."))
     setspeaker(NULL)
     release
     end
 }
 
 script ow_Kolchavi_Lab_2F_EventScript_RecordKeeper_PostQuest {
-    setspeaker("Research Assistant")
-    msgbox(format("I've been cross-referencing Nadia's soil samples with the pre-port land survey records.\pI think there are at least three other sites in the region with similar patterns. Professor Zelkova says to finish the Route 6 analysis before drawing conclusions."))
+    setspeaker("Assistant")
+    msgbox(format("I've been cross-referencing Nadia's soil samples with the pre-port land survey records.\pI think there are at least three other sites in the region with similar patterns. Professor Zelkova says to finish the Sowback analysis before drawing conclusions."))
     setspeaker(NULL)
     release
     end
 }
+
+// ============================================================
+// NADIA (post-quest, in the lab with her Pokemon)
+// ============================================================
+
+script ow_Kolchavi_Lab_2F_EventScript_Nadia {
+    lock
+    faceplayer
+    setspeaker("Nadia")
+    msgbox(format("I owe you a coffee."))
+    msgbox(format("And the Professor too, I suppose.\NBut you first."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+script ow_Kolchavi_Lab_2F_EventScript_Nosepass {
+    lock
+    faceplayer
+    playmoncry(SPECIES_NOSEPASS, CRY_MODE_NORMAL)
+    msgbox(format("Nooose."), MSGBOX_DEFAULT)
+    waitmoncry
+    release
+    end
+}
+
 
 // ============================================================
 // LAB WORKERS
@@ -157,7 +283,7 @@ script ow_Kolchavi_Lab_2F_Sign_Bookshelf1 {
     dynmultistack(0, 0, FALSE, 4, FALSE, 0, DYN_MULTICHOICE_CB_NONE)
     switch (var(VAR_RESULT)) {
         case 0:
-            msgbox(format("'Diglett Distribution and Soil Enrichment Across Kavora.'\pZelkova argues the richest western timber consistently grows above Diglett populations, and that the relationship is older than the foresters realise.\pA pencilled annotation in the margin reads: 'Arrangement outlasts designer. Cf. r6.'"))
+            msgbox(format("'Drilbur Distribution and Soil Enrichment Across Kavora.'\pZelkova argues the richest western timber consistently grows above Drilbur warrens, and that the relationship is older than the foresters realise.\pA pencilled annotation in the margin reads: 'Arrangement outlasts designer. Cf. Sowback.'"))
         case 1:
             msgbox(format("'Galarian Corsola: Rapid Adaptation, or Collapse?'\pYou flip to a folded plate. A bleached white Corsola is photographed beside a healthy pink one. The caption is one line:\p'A regional form is a record of survival. Galar's Corsola left no record.'"))
         case 2:

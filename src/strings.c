@@ -1276,7 +1276,7 @@ const u8 gText_QuestComplete[] =_("complete");
 const u8 gText_QuestActive[] =_("active");
 
 //names
-const u8 gText_SideQuestName_1[] = _("temp_Zelkova");
+const u8 gText_SideQuestName_1[] = _("The Sowback Warren");
 const u8 gText_SideQuestName_2[] = _("Side Quest 2");
 const u8 gText_SideQuestName_3[] = _("Side Quest 3");
 const u8 gText_SideQuestName_4[] = _("Side Quest 4");
@@ -1340,7 +1340,7 @@ const u8 gText_SideQuestDesc_29[] = _("Description 29");
 const u8 gText_SideQuestDesc_30[] = _("Description 30");
 
 //completed quest description
-const u8 gText_SideQuestDoneDesc_1[] = _("Ancient Diglett were guided\nthrough the Route 6 cave\lto enrich the forest above.\lForesters still benefit\lwithout knowing why.");
+const u8 gText_SideQuestDoneDesc_1[] = _("Ancient communities directed\nDrilbur into Sowback Cave\lwith bog iron to enrich the\lforest above. Foresters still\lbenefit without knowing why.");
 const u8 gText_SideQuestDoneDesc_2[] = _("Completed Quest 2");
 const u8 gText_SideQuestDoneDesc_3[] = _("Completed Quest 3");
 const u8 gText_SideQuestDoneDesc_4[] = _("Completed Quest 4");
