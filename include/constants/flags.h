@@ -55,12 +55,12 @@
 #define FLAG_POKEMON_FOLLOWERS       0x21
 #define FLAG_NUZLOCKE_SKIP_ENCOUNTER 0x22 // Set by scripts around boss wild battles to exclude them from Nuzlocke tracking
 #define FLAG_PERFECT_IVS_MODE        0x23 // All wild & gift Pokémon get 6x31 IVs while set
-#define FLAG_EXP_SHARE_ENABLED     0x24 // Unused Flag
-#define FLAG_DEXNAV_SEARCHING     0x25 // Unused Flag
-#define FLAG_DEXNAV_GET     0x26 // Unused Flag
-#define FLAG_DEXNAV_DETECTOR     0x27 // Unused Flag
-#define FLAG_UNUSED_0x028    0x28 // Unused Flag
-#define FLAG_UNUSED_0x029    0x29 // Unused Flag
+#define FLAG_EXP_SHARE_ENABLED     0x24
+#define FLAG_DEXNAV_SEARCHING     0x25
+#define FLAG_DEXNAV_GET     0x26
+#define FLAG_DEXNAV_DETECTOR     0x27
+#define FLAG_VISITED_KOLCHAVI    0x28
+#define FLAG_VISITED_FLORAN    0x29 // Unused Flag
 #define FLAG_UNUSED_0x02A    0x2A // Unused Flag
 #define FLAG_UNUSED_0x02B    0x2B // Unused Flag
 #define FLAG_UNUSED_0x02C    0x2C // Unused Flag
