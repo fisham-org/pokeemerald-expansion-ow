@@ -65,7 +65,7 @@
 #define B_WILD_SCALING_LEVEL_VARIATION_PCT  15      // Random level reduction as % of base (0 = none)
                                                      // Example: 15 means up to 15% reduction
                                                      //          At level 10 → up to 1-2 levels, level 50 → up to 7-8
-#define B_WILD_SCALING_MIN_LEVEL            0       // Minimum level (0 = no minimum)
+#define B_WILD_SCALING_MIN_LEVEL            2       // Minimum level (0 = no minimum)
 #define B_WILD_SCALING_MAX_LEVEL            0       // Maximum level (0 = no maximum)
 #define B_WILD_SCALING_MANAGE_EVOLUTIONS    TRUE    // Auto-devolve wild Pokémon if level too low
 #define B_WILD_SCALING_EXCLUDE_FAINTED      FALSE    // Exclude fainted Pokémon from PARTY_* calculations

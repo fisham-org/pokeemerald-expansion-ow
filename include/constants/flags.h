@@ -55,10 +55,10 @@
 #define FLAG_POKEMON_FOLLOWERS       0x21
 #define FLAG_NUZLOCKE_SKIP_ENCOUNTER 0x22 // Set by scripts around boss wild battles to exclude them from Nuzlocke tracking
 #define FLAG_PERFECT_IVS_MODE        0x23 // All wild & gift Pokémon get 6x31 IVs while set
-#define FLAG_CULTURE_ZELKOVA_MET                   0x25
-#define FLAG_UNUSED_0x024    0x24 // Unused Flag
-#define FLAG_HIDE_SOWBACK_B1F_NADIA  0x26
-#define FLAG_HIDE_KOLCHAVI_LAB_2F_NADIA  0x27
+#define FLAG_EXP_SHARE_ENABLED     0x24 // Unused Flag
+#define FLAG_DEXNAV_SEARCHING     0x25 // Unused Flag
+#define FLAG_DEXNAV_GET     0x26 // Unused Flag
+#define FLAG_DEXNAV_DETECTOR     0x27 // Unused Flag
 #define FLAG_UNUSED_0x028    0x28 // Unused Flag
 #define FLAG_UNUSED_0x029    0x29 // Unused Flag
 #define FLAG_UNUSED_0x02A    0x2A // Unused Flag
@@ -67,9 +67,9 @@
 #define FLAG_UNUSED_0x02D    0x2D // Unused Flag
 #define FLAG_UNUSED_0x02E    0x2E // Unused Flag
 #define FLAG_UNUSED_0x02F    0x2F // Unused Flag
-#define FLAG_UNUSED_0x030    0x30 // Unused Flag
-#define FLAG_UNUSED_0x031    0x31 // Unused Flag
-#define FLAG_UNUSED_0x032    0x32 // Unused Flag
+#define FLAG_CULTURE_ZELKOVA_MET    0x30
+#define FLAG_HIDE_SOWBACK_B1F_NADIA    0x31
+#define FLAG_HIDE_KOLCHAVI_LAB_2F_NADIA    0x32
 #define FLAG_UNUSED_0x033    0x33 // Unused Flag
 #define FLAG_UNUSED_0x034    0x34 // Unused Flag
 #define FLAG_UNUSED_0x035    0x35 // Unused Flag
