@@ -67,9 +67,9 @@
 #define FLAG_UNUSED_0x02D    0x2D // Unused Flag
 #define FLAG_UNUSED_0x02E    0x2E // Unused Flag
 #define FLAG_UNUSED_0x02F    0x2F // Unused Flag
-#define FLAG_CULTURE_ZELKOVA_MET    0x30
-#define FLAG_HIDE_SOWBACK_B1F_NADIA    0x31
-#define FLAG_HIDE_KOLCHAVI_LAB_2F_NADIA    0x32
+#define FLAG_UNUSED_0x030    0x30 // Unused Flag
+#define FLAG_UNUSED_0x031    0x31 // Unused Flag
+#define FLAG_UNUSED_0x032    0x32 // Unused Flag
 #define FLAG_UNUSED_0x033    0x33 // Unused Flag
 #define FLAG_UNUSED_0x034    0x34 // Unused Flag
 #define FLAG_UNUSED_0x035    0x35 // Unused Flag
@@ -1640,7 +1640,18 @@
 #define NUM_DAILY_FLAGS                             (DAILY_FLAGS_END - DAILY_FLAGS_START + 1)
 
 // Custom flags for open world romhack content
+// Add new flags here using (OW_FLAGS_START + N), incrementing N for each new flag.
 #define OW_FLAGS_START                              (DAILY_FLAGS_END + 1)
+#define FLAG_CULTURE_ZELKOVA_MET                    (OW_FLAGS_START + 0)
+#define FLAG_HIDE_SOWBACK_B1F_NADIA                 (OW_FLAGS_START + 1)
+#define FLAG_HIDE_KOLCHAVI_LAB_2F_NADIA             (OW_FLAGS_START + 2)
+#define FLAG_HIDE_OW_R6_SURVEYOR_BLOCK_1            (OW_FLAGS_START + 3)
+#define FLAG_HIDE_OW_R6_SURVEYOR_BLOCK_2            (OW_FLAGS_START + 4)
+#define FLAG_HIDE_OW_R6_SURVEYOR_BLOCK_3            (OW_FLAGS_START + 5)
+#define FLAG_HIDE_OW_R6_SURVEYOR_BLOCK_4            (OW_FLAGS_START + 6)
+#define FLAG_HIDE_OW_R6_SURVEYOR_TRAINER            (OW_FLAGS_START + 7)
+#define FLAG_RECEIVED_R3_PAINTER_REWARD             (OW_FLAGS_START + 8)
+#define FLAG_RECEIVED_R3_MYSTIC_WATER               (OW_FLAGS_START + 9)
 #define OW_FLAGS_END                                (OW_FLAGS_START + 199)
 
 #define FLAGS_COUNT (OW_FLAGS_END + 1)

@@ -859,10 +859,17 @@
 #define TRAINER_LEAF                        852
 #define TRAINER_BRENDAN_PLACEHOLDER         853
 #define TRAINER_MAY_PLACEHOLDER             854
+#define TRAINER_OW_R3_WOODCUTTER_1          855
+#define TRAINER_OW_R3_WOODCUTTER_2          856
+#define TRAINER_OW_R3_TUBER_BEACHBOY        857
+#define TRAINER_OW_R3_SAILOR                858
+#define TRAINER_OW_R3_BEACH_FATHER          859
+#define TRAINER_OW_R6_SURVEYOR              860
+#define TRAINER_OW_R6_BUG_CATCHER          861
 
 // NOTE: MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space (1 bit per trainer in SaveBlock1)
 
-#define TRAINERS_COUNT_EMERALD     855
+#define TRAINERS_COUNT_EMERALD     862
 #define MAX_TRAINERS_COUNT_EMERALD 1300
 
 #if IS_FRLG
