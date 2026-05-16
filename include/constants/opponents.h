@@ -863,7 +863,7 @@
 // NOTE: MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space (1 bit per trainer in SaveBlock1)
 
 #define TRAINERS_COUNT_EMERALD     855
-#define MAX_TRAINERS_COUNT_EMERALD 1280
+#define MAX_TRAINERS_COUNT_EMERALD 1300
 
 #if IS_FRLG
 #define TRAINERS_COUNT                      TRAINERS_COUNT_FRLG

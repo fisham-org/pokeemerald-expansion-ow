@@ -1639,7 +1639,11 @@
 #define DAILY_FLAGS_END                             (FLAG_UNUSED_0x95F + (7 - FLAG_UNUSED_0x95F % 8))
 #define NUM_DAILY_FLAGS                             (DAILY_FLAGS_END - DAILY_FLAGS_START + 1)
 
-#define FLAGS_COUNT (DAILY_FLAGS_END + 1)
+// Custom flags for open world romhack content
+#define OW_FLAGS_START                              (DAILY_FLAGS_END + 1)
+#define OW_FLAGS_END                                (OW_FLAGS_START + 199)
+
+#define FLAGS_COUNT (OW_FLAGS_END + 1)
 
 // Special Flags (Stored in EWRAM (sSpecialFlags), not in the SaveBlock)
 #define SPECIAL_FLAGS_START                     0x4000
