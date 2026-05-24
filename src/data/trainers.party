@@ -17707,3 +17707,123 @@ EVs: 4 HP / 252 Atk / 252 Spe
 - Rock Slide
 - Earthquake
 - Iron Head
+
+=== TRAINER_OW_R10_PICNICKER ===
+Name: LENNI
+Class: Picnicker
+Pic: Picnicker
+Gender: Female
+Music: Female
+Double Battle: No
+Party Size: 1
+AI: Check Bad Move
+
+Hoppip
+Level: 100
+Ability: Chlorophyll
+Nature: Timid
+EVs: 252 HP / 4 SpA / 252 Spe
+- Splash
+- Tackle
+- Synthesis
+- Sleep Powder
+
+=== TRAINER_OW_R10_BLACKBELT ===
+Name: ROMAN
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Music: Male
+Double Battle: No
+Party Size: 1
+AI: Check Bad Move
+
+Makuhita
+Level: 100
+Ability: Guts
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 Def
+- Arm Thrust
+- Fake Out
+- Knock Off
+- Bulk Up
+
+=== TRAINER_OW_R10_LUMBERJACK_F1 ===
+Name: BREN
+Class: OW Lumberjack F
+Pic: OW Lumberjack F
+Gender: Female
+Music: Female
+Double Battle: No
+Party Size: 1
+AI: Check Bad Move
+
+Sewaddle
+Level: 100
+Ability: Swarm
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 Def
+- Bug Bite
+- Tackle
+- String Shot
+- Razor Leaf
+
+=== TRAINER_OW_R10_LUMBERJACK_F2 ===
+Name: TESSA
+Class: OW Lumberjack F
+Pic: OW Lumberjack F
+Gender: Female
+Music: Female
+Double Battle: No
+Party Size: 1
+AI: Check Bad Move
+
+Timburr
+Level: 100
+Ability: Guts
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 Def
+- Low Sweep
+- Rock Throw
+- Wake-Up Slap
+- Bulk Up
+
+=== TRAINER_OW_R10_LUMBERJACK_M1 ===
+Name: HOLD
+Class: Lumberjack
+Pic: Lumberjack
+Gender: Male
+Music: Male
+Double Battle: No
+Party Size: 1
+AI: Check Bad Move
+
+Bidoof
+Level: 100
+Ability: Simple
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 Def
+- Body Slam
+- Super Fang
+- Headbutt
+- Crunch
+
+=== TRAINER_OW_R10_LUMBERJACK_M2 ===
+Name: ARDIN
+Class: Lumberjack
+Pic: Lumberjack
+Gender: Male
+Music: Male
+Double Battle: No
+Party Size: 1
+AI: Check Bad Move
+
+Mudbray
+Level: 100
+Ability: Stamina
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 Def
+- Mud-Slap
+- Stomp
+- Rock Smash
+- Bulldoze

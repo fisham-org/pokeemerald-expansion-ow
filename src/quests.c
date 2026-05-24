@@ -561,6 +561,28 @@ static const struct SubQuest sSubQuests2[QUEST_2_SUB_COUNT] =
 
 };
 
+static const struct SubQuest sSubQuests_Honey[QUEST_HONEY_SUB_COUNT] =
+{
+	sub_quest(
+	      SUB_QUEST_HONEY_HERACROSS,
+	      gText_SubQuestHoney_NameHeracross,
+	      gText_SubQuestHoney_DescHeracross,
+	      gText_SideQuestMap_Honey,
+	      SPECIES_HERACROSS,
+	      PKMN,
+	      sText_Found
+	),
+	sub_quest(
+	      SUB_QUEST_HONEY_COMBEE,
+	      gText_SubQuestHoney_NameCombee,
+	      gText_SubQuestHoney_DescCombee,
+	      gText_SideQuestMap_Honey,
+	      SPECIES_COMBEE,
+	      PKMN,
+	      sText_Found
+	),
+};
+
 ////////////////////////END SUBQUEST CUSTOMIZATION/////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -580,6 +602,16 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 	      OBJECT,
 	      NULL,
 	      0
+	),
+	side_quest(
+	      gText_SideQuestName_Honey,
+	      gText_SideQuestDesc_Honey,
+	      gText_SideQuestDoneDesc_Honey,
+	      gText_SideQuestMap_Honey,
+	      OBJ_EVENT_GFX_OW_BEEKEEPER_M,
+	      OBJECT,
+	      sSubQuests_Honey,
+	      QUEST_HONEY_SUB_COUNT
 	),
 	side_quest(
 	      gText_SideQuestName_2,

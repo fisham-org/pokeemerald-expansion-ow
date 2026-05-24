@@ -61,7 +61,7 @@
 #define FLAG_DEXNAV_DETECTOR     0x27
 #define FLAG_VISITED_KOLCHAVI    0x28
 #define FLAG_VISITED_FLORAN    0x29 // Unused Flag
-#define FLAG_UNUSED_0x02A    0x2A // Unused Flag
+#define FLAG_NO_CATCHING_BOSS    0x2A // Set by scripts around boss wild battles to disable catching
 #define FLAG_UNUSED_0x02B    0x2B // Unused Flag
 #define FLAG_UNUSED_0x02C    0x2C // Unused Flag
 #define FLAG_UNUSED_0x02D    0x2D // Unused Flag
@@ -1659,6 +1659,17 @@
 #define FLAG_HIDDEN_ITEM_OW_SOWBACK_1F_GREAT_BALL   (OW_FLAGS_START + 14)
 #define FLAG_HIDDEN_ITEM_OW_SOWBACK_B1F_ULTRA_BALL  (OW_FLAGS_START + 15)
 #define FLAG_HIDDEN_ITEM_OW_SOWBACK_B1F_STARDUST    (OW_FLAGS_START + 16)
+#define FLAG_HIDE_R10_HERACROSS                     (OW_FLAGS_START + 17)
+#define FLAG_HIDE_R10_COMBEE_1                      (OW_FLAGS_START + 18)
+#define FLAG_HIDE_R10_COMBEE_2                      (OW_FLAGS_START + 19)
+#define FLAG_HIDE_R10_COMBEE_3                      (OW_FLAGS_START + 20)
+#define FLAG_HIDE_R10_COMBEE_4                      (OW_FLAGS_START + 21)
+#define FLAG_HIDE_R10_COMBEE_5                      (OW_FLAGS_START + 22)
+#define FLAG_HIDE_R10_COMBEE_6                      (OW_FLAGS_START + 23)
+#define FLAG_R10_HONEY_TRADED                       (OW_FLAGS_START + 24)
+#define FLAG_R10_CAMPER_GIFT                        (OW_FLAGS_START + 25)
+#define FLAG_R10_HONEY_THANKED                      (OW_FLAGS_START + 26)
+#define FLAG_HIDE_R10_AMBIENT_COMBEE                (OW_FLAGS_START + 27)
 #define OW_FLAGS_END                                (OW_FLAGS_START + 199)
 
 #define FLAGS_COUNT (OW_FLAGS_END + 1)
