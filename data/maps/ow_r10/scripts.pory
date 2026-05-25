@@ -15,11 +15,12 @@ script ow_r10_EventScript_Combeekeeper {
 }
 
 script ow_r10_EventScript_Combeekeeper_Intro {
-    msgbox(format("Oh, thank goodness someone walked by.\pA Heracross has broken into the apiary and it's tearing through the honey stores."))
-    msgbox(format("The bees scattered the moment it came crashing in. I can't get close enough to do anything about it myself."))
-    msgbox(format("Could you drive it off? My Combee will come home once it's gone - they always do."))
+    msgbox(format("A powerful Heracross has broken into the apiary - it's tearing through the honey stores!"))
+    msgbox(format("The bees scattered the moment it came crashing in.\NI tried to fend it off, but I'm not strong enough."))
+    msgbox(format("Could you drive it off? My Combee won't return until it's gone."))
     setspeaker(NULL)
     startquest(QUEST_HONEY)
+    subquestmenu(QUEST_MENU_UNLOCK_QUEST, QUEST_HONEY, SUB_QUEST_HONEY_HERACROSS)
     clearflag(FLAG_HIDE_R10_HERACROSS)
     release
     end
@@ -33,16 +34,17 @@ script ow_r10_EventScript_Combeekeeper_Active {
 
 script ow_r10_EventScript_Combeekeeper_HeracrossDown {
     goto_if_set(FLAG_R10_HONEY_THANKED, ow_r10_EventScript_Combeekeeper_CombeePending)
-    msgbox(format("Oh, thank you. Truly.\pI heard the commotion from out here.\NYou actually drove it off."))
-    msgbox(format("But the hives are still empty.\pMy Combee scattered when the brute came crashing in - they're somewhere out on the route. Could you help me find them?"))
+    msgbox(format("Oh, thank you. Truly.\NYou actually drove it off."))
+    msgbox(format("But the hives are still empty.\pMy Combee scattered when it came crashing in - they'll be in the nearby fields. Could you help me find them?"))
     setflag(FLAG_R10_HONEY_THANKED)
+    subquestmenu(QUEST_MENU_UNLOCK_QUEST, QUEST_HONEY, SUB_QUEST_HONEY_COMBEE)
     setspeaker(NULL)
     release
     end
 }
 
 script ow_r10_EventScript_Combeekeeper_HeracrossPending {
-    msgbox(format("The Heracross is still rattling around the hives.\NIt's east of here, past the climb."))
+    msgbox(format("The Heracross is still rattling around the hives.\NIt's just south of here."))
     setspeaker(NULL)
     release
     end
@@ -50,7 +52,7 @@ script ow_r10_EventScript_Combeekeeper_HeracrossPending {
 
 script ow_r10_EventScript_Combeekeeper_CombeePending {
     buffernumberstring(STR_VAR_1, VAR_R10_HONEY_COMBEE)
-    msgbox(format("You've brought {STR_VAR_1} of my Combee back so far.\pTouch the rest and they'll find their way home - they just need someone to nudge them in the right direction."))
+    msgbox(format("You've brought {STR_VAR_1} of my Combee back so far.\pThey need someone to nudge them in the right direction to come home."))
     setspeaker(NULL)
     release
     end
@@ -99,14 +101,14 @@ script ow_r10_EventScript_AmbientCombee {
 }
 
 script ow_r10_EventScript_Combeekeeper_Done {
-    msgbox(format("The hives are settled. The honey will keep flowing.\NThank you - genuinely."))
+    msgbox(format("The hives are settled. The honey will keep flowing.\NThank you."))
     setspeaker(NULL)
     release
     end
 }
 
 // ============================================================
-// COMBEEKEEPER (apiary flavour duplicate) - LOCALID_R10_COMBEEKEEPER_APIARY
+// COMBEEKEEPER (apiary) - LOCALID_R10_COMBEEKEEPER_APIARY
 // ============================================================
 
 script ow_r10_EventScript_CombeekeeperApiary {
@@ -114,7 +116,7 @@ script ow_r10_EventScript_CombeekeeperApiary {
     faceplayer
     setspeaker("Combeekeeper")
     goto_if_quest_complete(QUEST_HONEY, ow_r10_EventScript_CombeekeeperApiary_Done)
-    msgbox(format("My poor bees. They're scattered all over the route - I can hear them buzzing in the trees but they won't come home."))
+    msgbox(format("My poor bees.\NThey're scattered all over the route."))
     setspeaker(NULL)
     release
     end
@@ -146,10 +148,13 @@ script ow_r10_EventScript_Heracross {
     dowildbattle
     clearflag(FLAG_NO_CATCHING_BOSS)
     clearflag(FLAG_NUZLOCKE_SKIP_ENCOUNTER)
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    goto_if_ne(VAR_RESULT, B_OUTCOME_WON, ow_r10_EventScript_Heracross_NotDefeated)
     fadescreen(FADE_TO_BLACK)
     setflag(FLAG_HIDE_R10_HERACROSS)
     removeobject(LOCALID_R10_HERACROSS)
     fadescreen(FADE_FROM_BLACK)
+    msgbox(format("The Heracross ran away and dropped some honey!"), MSGBOX_DEFAULT)
     giveitem(ITEM_HONEY)
     completesubquest(QUEST_HONEY, SUB_QUEST_HONEY_HERACROSS)
     clearflag(FLAG_HIDE_R10_COMBEE_1)
@@ -164,6 +169,11 @@ script ow_r10_EventScript_Heracross {
     addobject(LOCALID_R10_COMBEE_4)
     addobject(LOCALID_R10_COMBEE_5)
     addobject(LOCALID_R10_COMBEE_6)
+    release
+    end
+}
+
+script ow_r10_EventScript_Heracross_NotDefeated {
     release
     end
 }

@@ -96,7 +96,7 @@
       "notes": "trainer - female runner/athlete moving up/down 4 tiles. running to keep pace while her partner catches up."
     },
     {
-      "local_id": "LOCALID_R10_SOIL_2",
+      "local_id": "LOCALID_R8_PECHA_1",
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
       "x": 21,
       "y": 2,
@@ -105,13 +105,13 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "BERRY_TREE_OW_R10_SOIL_2",
+      "trainer_sight_or_berry_tree_id": "BERRY_TREE_OW_R8_PECHA_1",
       "script": "BerryTreeScript",
       "flag": "0",
       "notes": "berry tree - pecha"
     },
     {
-      "local_id": "LOCALID_R10_SOIL_2",
+      "local_id": "LOCALID_R8_PERSIM_1",
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
       "x": 22,
       "y": 2,
@@ -120,13 +120,13 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "BERRY_TREE_OW_R10_SOIL_2",
+      "trainer_sight_or_berry_tree_id": "BERRY_TREE_OW_R8_PERSIM_1",
       "script": "BerryTreeScript",
       "flag": "0",
       "notes": "berry tree - persim"
     },
     {
-      "local_id": "LOCALID_R10_SOIL_2",
+      "local_id": "LOCALID_R8_SOIL_1",
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
       "x": 23,
       "y": 2,
@@ -135,7 +135,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "BERRY_TREE_OW_R10_SOIL_2",
+      "trainer_sight_or_berry_tree_id": "BERRY_TREE_OW_R8_SOIL_1",
       "script": "BerryTreeScript",
       "flag": "0",
       "notes": "berry tree - fertile soil"

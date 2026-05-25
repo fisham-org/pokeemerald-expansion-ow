@@ -564,21 +564,21 @@ static const struct SubQuest sSubQuests2[QUEST_2_SUB_COUNT] =
 static const struct SubQuest sSubQuests_Honey[QUEST_HONEY_SUB_COUNT] =
 {
 	sub_quest(
-	      SUB_QUEST_HONEY_HERACROSS,
+	      30,
 	      gText_SubQuestHoney_NameHeracross,
 	      gText_SubQuestHoney_DescHeracross,
 	      gText_SideQuestMap_Honey,
-	      SPECIES_HERACROSS,
-	      PKMN,
+	      OBJ_EVENT_GFX_SPECIES(HERACROSS),
+	      OBJECT,
 	      sText_Found
 	),
 	sub_quest(
-	      SUB_QUEST_HONEY_COMBEE,
+	      31,
 	      gText_SubQuestHoney_NameCombee,
 	      gText_SubQuestHoney_DescCombee,
 	      gText_SideQuestMap_Honey,
-	      SPECIES_COMBEE,
-	      PKMN,
+	      OBJ_EVENT_GFX_SPECIES(COMBEE),
+	      OBJECT,
 	      sText_Found
 	),
 };
@@ -1687,6 +1687,12 @@ u8 QuestMenu_GetSetSubquestState(u8 quest, u8 caseId, u8 childQuest)
 			return gSaveBlock2Ptr->subQuests[index] & mask;
 		case FLAG_SET_COMPLETED:
 			gSaveBlock2Ptr->subQuests[index] |= mask;
+			gSaveBlock2Ptr->subQuestsUnlocked[index] |= mask;
+			return 1;
+		case FLAG_GET_UNLOCKED:
+			return gSaveBlock2Ptr->subQuestsUnlocked[index] & mask;
+		case FLAG_SET_UNLOCKED:
+			gSaveBlock2Ptr->subQuestsUnlocked[index] |= mask;
 			return 1;
 	}
 
@@ -1949,7 +1955,8 @@ void PopulateQuestName(u8 countQuest)
 
 void PopulateSubquestName(u8 parentQuest, u8 countQuest)
 {
-	if (IsSubquestCompletedState(countQuest))
+	if (IsSubquestCompletedState(countQuest)
+	        || QuestMenu_GetSetSubquestState(parentQuest, FLAG_GET_UNLOCKED, countQuest))
 	{
 		questNamePointer = StringAppend(questNamePointer,
 		                                sSideQuests[parentQuest].subquests[countQuest].name);
@@ -2090,7 +2097,8 @@ void GenerateQuestFlavorText(s32 questId)
 	}
 	else
 	{
-		if (IsSubquestCompletedState(questId) == TRUE)
+		if (IsSubquestCompletedState(questId) == TRUE
+		        || QuestMenu_GetSetSubquestState(sStateDataPtr->parentQuest, FLAG_GET_UNLOCKED, questId))
 		{
 			StringCopy(gStringVar1,
 			           sSideQuests[sStateDataPtr->parentQuest].subquests[questId].desc);
@@ -2199,7 +2207,8 @@ void DetermineSpriteType(s32 questId)
 		QuestMenu_CreateSprite(spriteId, sStateDataPtr->spriteIconSlot,
 		                       spriteType);
 	}
-	else if (IsSubquestCompletedState(questId) == TRUE)
+	else if (IsSubquestCompletedState(questId) == TRUE
+	        || QuestMenu_GetSetSubquestState(sStateDataPtr->parentQuest, FLAG_GET_UNLOCKED, questId))
 	{
 		spriteId =
 		      sSideQuests[sStateDataPtr->parentQuest].subquests[questId].sprite;
@@ -2852,6 +2861,8 @@ void QuestMenu_ResetMenuSaveData(void)
 	       sizeof(gSaveBlock2Ptr->questData));
 	memset(&gSaveBlock2Ptr->subQuests, 0,
 	       sizeof(gSaveBlock2Ptr->subQuests));
+	memset(&gSaveBlock2Ptr->subQuestsUnlocked, 0,
+	       sizeof(gSaveBlock2Ptr->subQuestsUnlocked));
 }
 
 void HandleQuestIconForSingleObjectEvent(struct ObjectEvent *objectEvent, u32 objectEventId)

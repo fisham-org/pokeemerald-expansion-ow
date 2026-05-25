@@ -79,8 +79,10 @@
 #define SUB_QUEST_28        27
 #define SUB_QUEST_29        28
 #define SUB_QUEST_30        29
-#define SUB_QUEST_HONEY_HERACROSS 30
-#define SUB_QUEST_HONEY_COMBEE    31
+// Local indices into sSubQuests_Honey (the parent is QUEST_HONEY). Their
+// .id field assigns the global bit position used in SaveBlock2 (30, 31).
+#define SUB_QUEST_HONEY_HERACROSS 0
+#define SUB_QUEST_HONEY_COMBEE    1
 
 #define QUEST_1_SUB_COUNT 10
 #define QUEST_2_SUB_COUNT 20
