@@ -151,6 +151,7 @@ enum __attribute__((__packed__)) Flavor
 #define BERRY_TREE_OW_R3_SOIL_2   94
 
 // OW Route 10
+#define BERRY_TREE_OW_R10_SOIL_1  95
 #define BERRY_TREE_OW_R10_SOIL_2  96
 #define BERRY_TREE_OW_R10_LUM_1   97
 #define BERRY_TREE_OW_R10_SOIL_3  98

@@ -60,20 +60,6 @@
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_R10_SOIL_1",
-      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 20,
-      "y": 3,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "BERRY_TREE_OW_R10_SOIL_1",
-      "script": "BerryTreeScript",
-      "flag": "0"
-    },
-    {
       "local_id": "LOCALID_R10_HIKER_HILLTOP",
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
       "x": 31,
@@ -472,7 +458,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_5"
+      "flag": "FLAG_TEMP_6"
     },
     {
       "local_id": "LOCALID_R10_AMBIENT_COMBEE_1",
@@ -557,6 +543,130 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ow_r10_EventScript_AmbientCombee",
       "flag": "FLAG_HIDE_R10_AMBIENT_COMBEE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(FARFETCHD_GALAR)",
+      "x": 25,
+      "y": 39,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0",
+      "notes": "farfetchd working to cut logs"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SCYTHER)",
+      "x": 39,
+      "y": 42,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0",
+      "notes": "scyther working to cut logs"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(FRAXURE)",
+      "x": 32,
+      "y": 38,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0",
+      "notes": "fraxure working to cut logs"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BRENDAN_NORMAL",
+      "x": 30,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
+      "x": 30,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_RockSmash",
+      "flag": "FLAG_TEMP_5"
+    },
+    {
+      "local_id": "LOCALID_R10_ITEM_GREAT_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 26,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 3,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_GREAT_BALL",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_OW_R10_GREAT_BALL"
+    },
+    {
+      "local_id": "LOCALID_R10_ITEM_SUPER_POTION",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 32,
+      "y": 27,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_SUPER_POTION",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_OW_R10_SUPER_POTION"
+    },
+    {
+      "local_id": "LOCALID_R10_ITEM_PP_UP",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 37,
+      "y": 36,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_PP_UP",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_OW_R10_PP_UP"
+    },
+    {
+      "local_id": "LOCALID_R10_VESPIQUEN",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(VESPIQUEN)",
+      "x": 44,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_DOWN_AND_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 11,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ow_r10_EventScript_Vespiquen",
+      "flag": "FLAG_HIDE_R10_AMBIENT_COMBEE"
     }
   ],
   "warp_events": [
@@ -569,5 +679,38 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "hidden_item",
+      "x": 28,
+      "y": 22,
+      "elevation": 0,
+      "item": "ITEM_ELIXIR",
+      "flag": "FLAG_HIDDEN_ITEM_OW_R10_ELIXIR"
+    },
+    {
+      "type": "hidden_item",
+      "x": 31,
+      "y": 37,
+      "elevation": 0,
+      "item": "ITEM_TINY_MUSHROOM",
+      "flag": "FLAG_HIDDEN_ITEM_OW_R10_TINY_MUSHROOM_1"
+    },
+    {
+      "type": "hidden_item",
+      "x": 39,
+      "y": 38,
+      "elevation": 0,
+      "item": "ITEM_BIG_MUSHROOM",
+      "flag": "FLAG_HIDDEN_ITEM_OW_R10_BIG_MUSHROOM"
+    },
+    {
+      "type": "hidden_item",
+      "x": 14,
+      "y": 38,
+      "elevation": 0,
+      "item": "ITEM_TINY_MUSHROOM",
+      "flag": "FLAG_HIDDEN_ITEM_OW_R10_TINY_MUSHROOM_2"
+    }
+  ]
 }

@@ -82,6 +82,7 @@ script ow_r10_EventScript_Combeekeeper_Reward {
 
 script ow_r10_EventScript_RevealAmbientCombee {
     clearflag(FLAG_HIDE_R10_AMBIENT_COMBEE)
+    addobject(LOCALID_R10_VESPIQUEN)
     addobject(LOCALID_R10_AMBIENT_COMBEE_1)
     addobject(LOCALID_R10_AMBIENT_COMBEE_2)
     addobject(LOCALID_R10_AMBIENT_COMBEE_3)
@@ -89,6 +90,20 @@ script ow_r10_EventScript_RevealAmbientCombee {
     addobject(LOCALID_R10_AMBIENT_COMBEE_5)
     addobject(LOCALID_R10_AMBIENT_COMBEE_6)
     return
+}
+
+// ============================================================
+// VESPIQUEN (Melli's queen) - LOCALID_R10_VESPIQUEN
+// ============================================================
+
+script ow_r10_EventScript_Vespiquen {
+    lock
+    faceplayer
+    playmoncry(SPECIES_VESPIQUEN, CRY_MODE_NORMAL)
+    waitmoncry
+    msgbox(format("The Vespiquen watches you steadily.\NShe doesn't move."))
+    release
+    end
 }
 
 script ow_r10_EventScript_AmbientCombee {
@@ -137,7 +152,7 @@ script ow_r10_EventScript_Heracross {
     lock
     faceplayer
     playmoncry(SPECIES_HERACROSS, CRY_MODE_ENCOUNTER)
-    msgbox(format("The Heracross is gorging on honey.\NIt rounds on you, horn lowered."), MSGBOX_DEFAULT)
+    msgbox(format("The Heracross attacks!"), MSGBOX_DEFAULT)
     waitmoncry
     closemessage
     delay(30)
@@ -319,7 +334,7 @@ script ow_r10_EventScript_HillTmNpc {
     faceplayer
     setspeaker("Apiary Watcher")
     goto_if_set(FLAG_R10_HONEY_TRADED, ow_r10_EventScript_HillTmNpc_Done)
-    msgbox(format("Smell that?\NShe's the only keeper in the region who lets her bees forage wild flowers.\pThat's why her honey tastes different. It's the wildflowers."))
+    msgbox(format("Smell that?\NMelli lets her bees forage amongst the wildflowers.\pThat's why her honey tastes different. It's the wildflowers."))
     checkitem(ITEM_HONEY, 1)
     goto_if_eq(VAR_RESULT, FALSE, ow_r10_EventScript_HillTmNpc_NoHoney)
     msgbox(format("Hold on - is that a jar from her apiary?\NWould you part with it? I've something I'd trade for it."), MSGBOX_YESNO)
@@ -348,7 +363,7 @@ script ow_r10_EventScript_HillTmNpc_Declined {
 }
 
 script ow_r10_EventScript_HillTmNpc_Done {
-    msgbox(format("That honey's already paid me back twice over.\NThank you again."))
+    msgbox(format("That honey is delicious.\NThank you again."))
     setspeaker(NULL)
     release
     end
@@ -387,7 +402,7 @@ script ow_r10_EventScript_HikerHilltop {
     lock
     faceplayer
     setspeaker("Hiker")
-    msgbox(format("Going to cut east past the apiary once I catch my breath.\pSaves a good hour over going back through Floran."))
+    msgbox(format("There's a shortcut through the rocks east of the apiary.\NIt'll save a lot of time getting to Mirevari from here."))
     setspeaker(NULL)
     release
     end
@@ -401,7 +416,7 @@ script ow_r10_EventScript_HikerRockface {
     lock
     faceplayer
     setspeaker("Hiker")
-    msgbox(format("That rockface up there - bit too sheer for me.\pBut a Pokémon with the right grip?\NCould scramble straight down. Saves the long way around."))
+    msgbox(format("That rockface up there is a bit too sheer for me.\nBut a Pokémon with the right grip?\NIt could scramble straight past."))
     setspeaker(NULL)
     release
     end
@@ -468,7 +483,7 @@ script ow_r10_EventScript_Blackbelt {
         ow_r10_Text_Blackbelt_Intro,
         ow_r10_Text_Blackbelt_Defeat
     )
-    msgbox(format("The loggers said move, so I moved.\pDoesn't mean I have to like the noise they bring."), MSGBOX_AUTOCLOSE)
+    msgbox(format("The lumberjacks asked me to move.\pPfft!\NI can split wood without their axes."), MSGBOX_AUTOCLOSE)
 }
 
 text ow_r10_Text_Blackbelt_Intro {
@@ -485,15 +500,15 @@ script ow_r10_EventScript_LumberjackF1 {
         ow_r10_Text_LumberjackF1_Intro,
         ow_r10_Text_LumberjackF1_Defeat
     )
-    msgbox(format("The keeper and us, we'll never see eye to eye.\NDoesn't mean we have to swing at each other."), MSGBOX_AUTOCLOSE)
+    msgbox(format("Just three more trees to fell before we can take a break..."), MSGBOX_AUTOCLOSE)
 }
 
 text ow_r10_Text_LumberjackF1_Intro {
-    "We're thinning out the overgrowth on this trail!\pIf you want to clear this pass, you'll need to break\lour wooden defense lines!"
+    format("We're thinning out the overgrowth on this trail!\pIf you want to clear this pass, you'll need to break\lour wooden defense lines!")
 }
 
 text ow_r10_Text_LumberjackF1_Defeat {
-    "Timber! Our defensive wall came crashing down!"
+    "Timber!"
 }
 
 script ow_r10_EventScript_LumberjackF2 {
@@ -506,11 +521,11 @@ script ow_r10_EventScript_LumberjackF2 {
 }
 
 text ow_r10_Text_LumberjackF2_Intro {
-    "You wandered into a cut site, kid.\pStep careful - or step into a battle."
+    "You wandered into a cut site, kid.\pStep carefully - or step into a battle."
 }
 
 text ow_r10_Text_LumberjackF2_Defeat {
-    "Strong arm on you.\nCould use a crew member like that."
+    "You have a strong arm.\nCould use a crew member like that."
 }
 
 script ow_r10_EventScript_LumberjackM1 {
@@ -519,7 +534,7 @@ script ow_r10_EventScript_LumberjackM1 {
         ow_r10_Text_LumberjackM1_Intro,
         ow_r10_Text_LumberjackM1_Defeat
     )
-    msgbox(format("She thinks her bees own this forest.\pTrees were here first."), MSGBOX_AUTOCLOSE)
+    msgbox(format("These Combee keep getting in the way.\pWe need to steer clear of the Vespiquen, though."), MSGBOX_AUTOCLOSE)
 }
 
 text ow_r10_Text_LumberjackM1_Intro {
@@ -536,7 +551,7 @@ script ow_r10_EventScript_LumberjackM2 {
         ow_r10_Text_LumberjackM2_Intro,
         ow_r10_Text_LumberjackM2_Defeat
     )
-    msgbox(format("Truth is, I'd take the keeper's job over mine.\pDon't tell the crew I said that."), MSGBOX_AUTOCLOSE)
+    msgbox(format("Truth is, I'd take the Combeekeeper's job over mine.\pDon't tell the crew I said that."), MSGBOX_AUTOCLOSE)
 }
 
 text ow_r10_Text_LumberjackM2_Intro {
@@ -545,4 +560,35 @@ text ow_r10_Text_LumberjackM2_Intro {
 
 text ow_r10_Text_LumberjackM2_Defeat {
     "Fair fight.\nBack to the saw."
+}
+
+// ============================================================
+// LOGGING CREW POKEMON (silent companions of the lumberjacks)
+// ============================================================
+
+script ow_r10_EventScript_LoggingFarfetchd {
+    lock
+    faceplayer
+    playmoncry(SPECIES_FARFETCHD_GALAR, CRY_MODE_NORMAL)
+    waitmoncry
+    release
+    end
+}
+
+script ow_r10_EventScript_LoggingScyther {
+    lock
+    faceplayer
+    playmoncry(SPECIES_SCYTHER, CRY_MODE_NORMAL)
+    waitmoncry
+    release
+    end
+}
+
+script ow_r10_EventScript_LoggingFraxure {
+    lock
+    faceplayer
+    playmoncry(SPECIES_FRAXURE, CRY_MODE_NORMAL)
+    waitmoncry
+    release
+    end
 }

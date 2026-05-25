@@ -1670,6 +1670,13 @@
 #define FLAG_R10_CAMPER_GIFT                        (OW_FLAGS_START + 25)
 #define FLAG_R10_HONEY_THANKED                      (OW_FLAGS_START + 26)
 #define FLAG_HIDE_R10_AMBIENT_COMBEE                (OW_FLAGS_START + 27)
+#define FLAG_ITEM_OW_R10_GREAT_BALL                 (OW_FLAGS_START + 28)
+#define FLAG_ITEM_OW_R10_SUPER_POTION               (OW_FLAGS_START + 29)
+#define FLAG_ITEM_OW_R10_PP_UP                      (OW_FLAGS_START + 30)
+#define FLAG_HIDDEN_ITEM_OW_R10_ELIXIR              (OW_FLAGS_START + 31)
+#define FLAG_HIDDEN_ITEM_OW_R10_TINY_MUSHROOM_1     (OW_FLAGS_START + 32)
+#define FLAG_HIDDEN_ITEM_OW_R10_BIG_MUSHROOM        (OW_FLAGS_START + 33)
+#define FLAG_HIDDEN_ITEM_OW_R10_TINY_MUSHROOM_2     (OW_FLAGS_START + 34)
 #define OW_FLAGS_END                                (OW_FLAGS_START + 199)
 
 #define FLAGS_COUNT (OW_FLAGS_END + 1)
