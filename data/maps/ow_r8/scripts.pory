@@ -1,0 +1,203 @@
+mapscripts ow_r8_MapScripts {}
+
+// ============================================================
+// FLAVOUR NPCs
+// ============================================================
+
+script ow_r8_EventScript_LumberjackScared {
+    lock
+    faceplayer
+    setspeaker("Lumberjack")
+    msgbox(format("I tried to check out the forest further east, but the old couple got right up in my face! Make sure to steer clear of them."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+script ow_r8_EventScript_HikerSwamp {
+    lock
+    faceplayer
+    setspeaker("Hiker")
+    msgbox(format("Ghahaha! I can climb anything!\NBut this vegetation - I can't cut through it.\pSo I must wade. My boots are ruined."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+script ow_r8_EventScript_HexManiac {
+    lock
+    faceplayer
+    setspeaker("Hex Maniac")
+    msgbox(format("A ring of mushrooms.\NSomething sat here long enough for them to grow."))
+    msgbox(format("I don't think it left."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+script ow_r8_EventScript_RuinManiac {
+    lock
+    faceplayer
+    setspeaker("Ruin Maniac")
+    msgbox(format("I'm pretty sure there's some kind of cavern just below us, but it's too dangerous to scale the path down below."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+// ============================================================
+// TRAINERS
+// ============================================================
+
+script ow_r8_EventScript_ParasolLady {
+    trainerbattle_single(
+        TRAINER_OW_R8_PARASOL,
+        ow_r8_Text_Parasol_Intro,
+        ow_r8_Text_Parasol_Defeat
+    )
+    msgbox(format("The clouds out here roll in fast.\NI like to be ready."), MSGBOX_AUTOCLOSE)
+}
+
+text ow_r8_Text_Parasol_Intro {
+    "Oh, the pressure is dropping!\pPerfect weather for a battle."
+}
+
+text ow_r8_Text_Parasol_Defeat {
+    "You read the weather better\nthan I did. Lovely match!"
+}
+
+script ow_r8_EventScript_RunnerM {
+    trainerbattle_single(
+        TRAINER_OW_R8_RUNNER_M,
+        ow_r8_Text_RunnerM_Intro,
+        ow_r8_Text_RunnerM_Defeat
+    )
+    msgbox(format("If you see a woman running my pace, tell her I'm waiting!"), MSGBOX_AUTOCLOSE)
+}
+
+text ow_r8_Text_RunnerM_Intro {
+    "I've lost my running partner.\pSo I'll burn it off in a battle\linstead. Come on!"
+}
+
+text ow_r8_Text_RunnerM_Defeat {
+    "Phew - good pace.\nNow I really need a sit down."
+}
+
+script ow_r8_EventScript_RunnerF {
+    trainerbattle_single(
+        TRAINER_OW_R8_RUNNER_F,
+        ow_r8_Text_RunnerF_Intro,
+        ow_r8_Text_RunnerF_Defeat
+    )
+    msgbox(format("Stride. Breath. Stride. Breath.\NHe'll catch up eventually."), MSGBOX_AUTOCLOSE)
+}
+
+text ow_r8_Text_RunnerF_Intro {
+    "Keeping my heart rate up while\nmy partner catches up.\pYou'll do as a pacer!"
+}
+
+text ow_r8_Text_RunnerF_Defeat {
+    "Hah - that's a cooldown\nI didn't plan for."
+}
+
+script ow_r8_EventScript_BeekeeperPatrol {
+    trainerbattle_single(
+        TRAINER_OW_R8_BEEKEEPER_PATROL,
+        ow_r8_Text_BeekeeperPatrol_Intro,
+        ow_r8_Text_BeekeeperPatrol_Defeat
+    )
+    msgbox(format("Melli sends me down here to scout.\NThe ground's wrong for hives, but the flowers are good."), MSGBOX_AUTOCLOSE)
+}
+
+text ow_r8_Text_BeekeeperPatrol_Intro {
+    "I'm searching for bees.\pI don't think you're a bee,\nbut you're making some kind of buzz!"
+}
+
+text ow_r8_Text_BeekeeperPatrol_Defeat {
+    "Fair enough.\nMind the hum on your way past."
+}
+
+script ow_r8_EventScript_BeekeeperStuck {
+    trainerbattle_single(
+        TRAINER_OW_R8_BEEKEEPER_STUCK,
+        ow_r8_Text_BeekeeperStuck_Intro,
+        ow_r8_Text_BeekeeperStuck_Defeat
+    )
+    msgbox(format("My boots are full of swamp water.\NMy bees won't come near me.\pAnd now I've lost a fight.\NPerfect day."), MSGBOX_AUTOCLOSE)
+}
+
+text ow_r8_Text_BeekeeperStuck_Intro {
+    "Oh, finally - a person!\pPlease, just battle me so I can\lhave a chance at some kind of success."
+}
+
+text ow_r8_Text_BeekeeperStuck_Defeat {
+    "Of course I lost.\nOf course."
+}
+
+script ow_r8_EventScript_RangerF {
+    trainerbattle_single(
+        TRAINER_OW_R8_RANGER_F,
+        ow_r8_Text_RangerF_Intro,
+        ow_r8_Text_RangerF_Defeat
+    )
+    msgbox(format("Swamps support all kinds of life.\NIt's important to study them."), MSGBOX_AUTOCLOSE)
+}
+
+text ow_r8_Text_RangerF_Intro {
+    "Let's see how your team copes\lwith wet ground."
+}
+
+text ow_r8_Text_RangerF_Defeat {
+    "Tread lightly on your way out."
+}
+
+script ow_r8_EventScript_RangerM {
+    trainerbattle_single(
+        TRAINER_OW_R8_RANGER_M,
+        ow_r8_Text_RangerM_Intro,
+        ow_r8_Text_RangerM_Defeat
+    )
+    msgbox(format("Cut enough trees and the water has nowhere to go.\NIt sits. It rots. You get this."), MSGBOX_AUTOCLOSE)
+}
+
+text ow_r8_Text_RangerM_Intro {
+    "Take a look around. This wasn't\nswamp a generation ago.\pTrain with me - then go look\lat what made it."
+}
+
+text ow_r8_Text_RangerM_Defeat {
+    "Good. Now you've got the legs\nto keep walking and see for yourself."
+}
+
+script ow_r8_EventScript_Camper {
+    trainerbattle_single(
+        TRAINER_OW_R8_CAMPER,
+        ow_r8_Text_Camper_Intro,
+        ow_r8_Text_Camper_Defeat
+    )
+    msgbox(format("Mud washes off.\NA dry tent is overrated."), MSGBOX_AUTOCLOSE)
+}
+
+text ow_r8_Text_Camper_Intro {
+    "I've been practicing here in the bog\lfor hours!."
+}
+
+text ow_r8_Text_Camper_Defeat {
+    "Hah! Knocked clean over.\nAt least I was already filthy."
+}
+
+script ow_r8_EventScript_BugManiac {
+    trainerbattle_single(
+        TRAINER_OW_R8_BUG_MANIAC,
+        ow_r8_Text_BugManiac_Intro,
+        ow_r8_Text_BugManiac_Defeat
+    )
+    msgbox(format("The swamp is a good location to train."), MSGBOX_AUTOCLOSE)
+}
+
+text ow_r8_Text_BugManiac_Intro {
+    "Wahaha! Look out for my bugs!"
+}
+
+text ow_r8_Text_BugManiac_Defeat {
+    "You overcame our offenses..."
+}

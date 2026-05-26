@@ -416,7 +416,7 @@ script ow_r10_EventScript_HikerRockface {
     lock
     faceplayer
     setspeaker("Hiker")
-    msgbox(format("That rockface up there is a bit too sheer for me.\nBut a Pokémon with the right grip?\NIt could scramble straight past."))
+    msgbox(format("That rockface up there is a bit too sheer for me.\NBut a Pokémon with the right grip?\NIt could scramble straight past."))
     setspeaker(NULL)
     release
     end
