@@ -146,32 +146,19 @@
       "notes": "berry tree - fertile soil"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_BRENDAN_NORMAL",
+      "local_id": "LOCALID_R8_PASSERBY",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
       "x": 35,
       "y": 16,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
+      "movement_range_x": 3,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "ow_r8_EventScript_Passerby",
       "flag": "0",
-      "notes": "npc - ignore this for now"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_OW_BEEKEEPER_M",
-      "x": 30,
-      "y": 3,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0",
-      "notes": "npc - a combeekeeper. he tells the player that you can lure combee out of their natural hives by applying honey to the tree. he also says you can use cut to attempt to cut the hive out. either way, a combee will attack."
+      "notes": "npc - passerby wandering the meadow"
     },
     {
       "local_id": "LOCALID_R8_PECHA_2",
@@ -264,6 +251,7 @@
       "notes": "berry tree - fertile soil"
     },
     {
+      "local_id": "LOCALID_R8_FISHERMAN",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
       "x": 59,
       "y": 6,
@@ -273,7 +261,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "ow_r8_EventScript_Fisherman",
       "flag": "0",
       "notes": "npc - fisherman. he wasn't able to fish in the swamp so he made this pond himself and water pokemon have started to live in it."
     },
@@ -351,10 +339,10 @@
     {
       "local_id": "LOCALID_R8_BEEKEEPER_STUCK",
       "graphics_id": "OBJ_EVENT_GFX_OW_BEEKEEPER_M",
-      "x": 81,
-      "y": 9,
+      "x": 79,
+      "y": 8,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -411,7 +399,7 @@
     {
       "local_id": "LOCALID_R8_RANGER_M",
       "graphics_id": "OBJ_EVENT_GFX_OW_RANGER_M",
-      "x": 74,
+      "x": 85,
       "y": 6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -437,21 +425,6 @@
       "script": "ow_r8_EventScript_BugManiac",
       "flag": "0",
       "notes": "trainer - bug maniac. he's on the hunt for big swamp bugs."
-    },
-    {
-      "local_id": "LOCALID_R8_HEX_MANIAC",
-      "graphics_id": "OBJ_EVENT_GFX_HEX_MANIAC",
-      "x": 56,
-      "y": 14,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "ow_r8_EventScript_HexManiac",
-      "flag": "0",
-      "notes": "npc - (someone). comments that there is a mushroom circle here and wonders if it means anything."
     },
     {
       "local_id": "LOCALID_R8_RUIN_MANIAC",
@@ -481,35 +454,17 @@
   "coord_events": [],
   "bg_events": [
     {
-      "type": "sign",
-      "x": 32,
-      "y": 3,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL",
-      "notes": "the signpost representing a hive tree."
-    },
-    {
-      "type": "sign",
-      "x": 31,
-      "y": 3,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL",
-      "notes": "the signpost representing a hive tree."
-    },
-    {
       "type": "hidden_item",
-      "x": 97,
-      "y": 12,
+      "x": 75,
+      "y": 22,
       "elevation": 0,
       "item": "ITEM_TINY_MUSHROOM",
       "flag": "FLAG_HIDDEN_ITEM_OW_R8_TINY_MUSHROOM_1"
     },
     {
       "type": "hidden_item",
-      "x": 58,
-      "y": 12,
+      "x": 84,
+      "y": 22,
       "elevation": 0,
       "item": "ITEM_TINY_MUSHROOM",
       "flag": "FLAG_HIDDEN_ITEM_OW_R8_TINY_MUSHROOM_2"
@@ -532,7 +487,7 @@
     },
     {
       "type": "hidden_item",
-      "x": 84,
+      "x": 97,
       "y": 22,
       "elevation": 0,
       "item": "ITEM_BIG_MUSHROOM",

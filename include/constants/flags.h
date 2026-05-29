@@ -1684,6 +1684,7 @@
 #define FLAG_HIDDEN_ITEM_OW_R8_BIG_MUSHROOM_1       (OW_FLAGS_START + 39)
 #define FLAG_HIDDEN_ITEM_OW_R8_BIG_MUSHROOM_2       (OW_FLAGS_START + 40)
 #define FLAG_ITEM_OW_R8_BIG_ROOT                    (OW_FLAGS_START + 41)
+#define FLAG_R8_HOUSE1_WHITE_HERB_GIVEN             (OW_FLAGS_START + 42)
 #define OW_FLAGS_END                                (OW_FLAGS_START + 199)
 
 #define FLAGS_COUNT (OW_FLAGS_END + 1)

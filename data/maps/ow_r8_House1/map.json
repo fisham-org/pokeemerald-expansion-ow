@@ -15,18 +15,34 @@
   "connections": null,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_BRENDAN_NORMAL",
+      "local_id": "LOCALID_R8_HOUSE1_OLD_LADY",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
       "x": 11,
       "y": 9,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "ow_r8_House1_EventScript_OldLady",
       "flag": "0",
-      "notes": "npc - ignore this for now"
+      "notes": "npc - old lady. gives an item if player has defeated 6+ route trainers."
+    },
+    {
+      "local_id": "LOCALID_R8_HOUSE1_HEALER",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_4",
+      "x": 8,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ow_r8_House1_EventScript_Healer",
+      "flag": "0",
+      "notes": "npc - healer. offers to heal the player's party."
     }
   ],
   "warp_events": [
