@@ -1,0 +1,19 @@
+mapscripts ow_Floran_PokemonCenter_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setrespawn(HEAL_LOCATION_POC_FLORAN)
+        end
+    }
+    MAP_SCRIPT_ON_RESUME {
+        call(CableClub_OnResume)
+        end
+    }
+}
+
+script ow_Floran_PokemonCenter_Nurse {
+    setvar(VAR_0x800B, LOCALID_LILYCOVE_NURSE)
+    call(Common_EventScript_PkmnCenterNurse)
+    waitmessage
+    waitbuttonpress
+    release
+    end
+}

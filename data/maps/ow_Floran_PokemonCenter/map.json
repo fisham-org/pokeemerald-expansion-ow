@@ -34,14 +34,14 @@
       "x": 11,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_OW_KOLCHAVI",
+      "dest_map": "MAP_OW_FLORAN",
       "dest_warp_id": "0"
     },
     {
       "x": 12,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_OW_KOLCHAVI",
+      "dest_map": "MAP_OW_FLORAN",
       "dest_warp_id": "0"
     }
   ],

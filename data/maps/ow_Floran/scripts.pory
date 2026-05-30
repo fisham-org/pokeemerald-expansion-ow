@@ -6,3 +6,360 @@ script ow_Floran_OnTransition {
     setflag(FLAG_VISITED_FLORAN)
     end
 }
+
+// ============================================================
+// TOWNSMAN (south end, worker housing) - LOCALID_FLORAN_TOWNSMAN
+// ============================================================
+
+script ow_Floran_EventScript_Townsman {
+    lock
+    faceplayer
+    setspeaker("Townsman")
+    msgbox(format("Most of the folk who live up this end don't work for Westmark.\pWhen the warehouse expanded, they built new houses for their new employees who moved here."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+// ============================================================
+// BOARDWALK MAN - LOCALID_FLORAN_BOARDWALK_MAN
+// ============================================================
+
+script ow_Floran_EventScript_BoardwalkMan {
+    lock
+    faceplayer
+    setspeaker("Man")
+    msgbox(format("On windy days, the sawdust drifts all the way up to the boardwalk.\NYou can practically taste it, if the wind's right."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+// ============================================================
+// GYM GARDEN MAN (comments on Vesna) - LOCALID_FLORAN_GYM_GARDEN_MAN
+// ============================================================
+
+script ow_Floran_EventScript_GymGardenMan {
+    lock
+    faceplayer
+    setspeaker("Man")
+    msgbox(format("You see this garden beside the gym?"))
+    face_up
+    msgbox(format("Vesna planted every one of those herself.\NSame way she works the wood - nothing rushed, nothing wasted."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+// ============================================================
+// HQ RUMOURS WOMAN - LOCALID_FLORAN_HQ_RUMOURS_WOMAN
+// ============================================================
+
+script ow_Floran_EventScript_HQRumoursWoman {
+    lock
+    faceplayer
+    setspeaker("Woman")
+    msgbox(format("They say the executives run everything from the top floor.\pNone of them ever come down to the lumberyard.\pIt must be a different world up there."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+// ============================================================
+// PIER FISHERMAN (pollution) - LOCALID_FLORAN_PIER_FISHERMAN
+// ============================================================
+
+script ow_Floran_EventScript_PierFisherman {
+    lock
+    faceplayer
+    setspeaker("Fisherman")
+    msgbox(format("I've been fishing this river for twenty years.\pSomething's off with the water now.\NI won't say it's the warehouse for certain, but it probably has something to do with it."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+// ============================================================
+// RUNNER M (boardwalk) - LOCALID_FLORAN_RUNNER_M
+// ============================================================
+
+script ow_Floran_EventScript_RunnerM {
+    lock
+    faceplayer
+    setspeaker("Triathlete")
+    msgbox(format("Best training stretch in the region.\pFlat, long, good sea breeze.\NI come all the way from Kolchavi for it."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+// ============================================================
+// SINTERI SAILOR - LOCALID_FLORAN_SINTERI_SAILOR
+// ============================================================
+
+script ow_Floran_EventScript_SinteriSailor {
+    lock
+    faceplayer
+    setspeaker("Sailor")
+    msgbox(format("Clear day today.\pYou can almost see Sinteri from here if you know where to look.\pEvery timber shipment from this pier ends up there eventually."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+// ============================================================
+// RUNNER F (with Pokemon) - LOCALID_FLORAN_RUNNER_F
+// ============================================================
+
+script ow_Floran_EventScript_RunnerF {
+    lock
+    faceplayer
+    setspeaker("Triathlete")
+    msgbox(format("My Floatzel keeps pace with me on the river stretch.\pI can't shake it... not that I'm trying very hard."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+// ============================================================
+// NORTH FISHERMAN (runners) - LOCALID_FLORAN_NORTH_FISHERMAN
+// ============================================================
+
+script ow_Floran_EventScript_NorthFisherman {
+    lock
+    faceplayer
+    setspeaker("Fisherman")
+    msgbox(format("Those runners thunder back and forth all day.\pDrives the water Pokemon straight down to the riverbed."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+// ============================================================
+// HONEY WOMAN (one-off trade) - LOCALID_FLORAN_HONEY_WOMAN
+// ============================================================
+
+script ow_Floran_EventScript_HoneyWoman {
+    lock
+    faceplayer
+    setspeaker("Woman")
+    goto_if_set(FLAG_FLORAN_HONEY_TRADE_DONE, ow_Floran_EventScript_HoneyWoman_Done)
+    msgbox(format("There used to be a beehive just here.\pThe Combee are gone now - the noise drove them off.\NThis end of town smells of sawdust instead of flowers."))
+    checkitem(ITEM_HONEY, 1)
+    goto_if_eq(VAR_RESULT, FALSE, ow_Floran_EventScript_HoneyWoman_NoHoney)
+    msgbox(format("Hmm, that smell! Is that honey? I haven't seen a jar like that since the apiary moved south..."))
+    msgbox(format("Would you part with it?\NI have a Silver Powder I'd trade you for it."), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, ow_Floran_EventScript_HoneyWoman_Declined)
+    removeitem(ITEM_HONEY, 1)
+    giveitem(ITEM_SILVER_POWDER, 1)
+    setflag(FLAG_FLORAN_HONEY_TRADE_DONE)
+    msgbox(format("Thank you.\pThat's what this whole town used to smell like."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+script ow_Floran_EventScript_HoneyWoman_NoHoney {
+    msgbox(format("If you ever find some honey from down the southern route, come find me.\NI might have something worth trading."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+script ow_Floran_EventScript_HoneyWoman_Declined {
+    msgbox(format("That's ok."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+script ow_Floran_EventScript_HoneyWoman_Done {
+    msgbox(format("Thank you again for the honey. I still miss the Combee, though."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+// ============================================================
+// BOAT LUMBERJACK - LOCALID_FLORAN_BOAT_LUMBERJACK
+// ============================================================
+
+script ow_Floran_EventScript_BoatLumberjack {
+    lock
+    faceplayer
+    setspeaker("Lumberjack")
+    msgbox(format("These logs don't just become planks.\pI rough them out, dry them, plane them down.\NWhen they're ready, I roll them off the ledge onto the beach."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+// ============================================================
+// HOUSING LUMBERJACK - LOCALID_FLORAN_HOUSING_LUMBERJACK
+// ============================================================
+
+script ow_Floran_EventScript_HousingLumberjack {
+    lock
+    faceplayer
+    setspeaker("Lumberjack")
+    msgbox(format("Half the south end was forest two years ago.\pWe cleared it to make space for new worker houses.\NThe town was going to have to expand one way or another."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+// ============================================================
+// MAKUHITA (boat crew) - LOCALID_FLORAN_MAKUHITA
+// ============================================================
+
+script ow_Floran_EventScript_Makuhita {
+    lock
+    faceplayer
+    playmoncry(SPECIES_MAKUHITA, CRY_MODE_NORMAL)
+    waitmoncry
+    msgbox(format("The Makuhita is visibly tired from moving the boats."))
+    release
+    end
+}
+
+// ============================================================
+// SIRFETCHD (lumberyard foreman) - LOCALID_FLORAN_SIRFETCHD
+// ============================================================
+
+script ow_Floran_EventScript_Sirfetchd {
+    lock
+    faceplayer
+    playmoncry(SPECIES_SIRFETCHD, CRY_MODE_NORMAL)
+    waitmoncry
+    msgbox(format("The Sirfetch'd watches the Farfetch'd work with an air of measured authority.\NIt adjusts a stacked log with the flat of its leek without comment."))
+    release
+    end
+}
+
+// ============================================================
+// GALARIAN FARFETCHD 1 - LOCALID_FLORAN_FARFETCHD_GALAR_1
+// ============================================================
+
+script ow_Floran_EventScript_FarfetchdGalar1 {
+    lock
+    faceplayer
+    playmoncry(SPECIES_FARFETCHD_GALAR, CRY_MODE_NORMAL)
+    waitmoncry
+    msgbox(format("The Farfetch'd's leek connects with a log in a clean, downward stroke.\NChips scatter across the dark soil."))
+    release
+    end
+}
+
+// ============================================================
+// GALARIAN FARFETCHD 2 - LOCALID_FLORAN_FARFETCHD_GALAR_2
+// ============================================================
+
+script ow_Floran_EventScript_FarfetchdGalar2 {
+    lock
+    faceplayer
+    playmoncry(SPECIES_FARFETCHD_GALAR, CRY_MODE_NORMAL)
+    waitmoncry
+    msgbox(format("The Farfetch'd stands perfectly still, then drives its leek straight through a length of timber.\NIt shakes the chips free without looking down."))
+    release
+    end
+}
+
+// ============================================================
+// LUMBERYARD SAILOR - LOCALID_FLORAN_LUMBERYARD_SAILOR
+// ============================================================
+
+script ow_Floran_EventScript_LumberyardSailor {
+    lock
+    faceplayer
+    setspeaker("Sailor")
+    msgbox(format("I'm supposed to be observing the Farfetch'd. But the Sirfetch'd does a good enough job by itself - it runs a tight ship! Ha ha!"))
+    setspeaker(NULL)
+    release
+    end
+}
+
+// ============================================================
+// LONELY COMBEE (gated on QUEST_HONEY) - LOCALID_FLORAN_LONELY_COMBEE
+// ============================================================
+
+script ow_Floran_EventScript_LonelyCombee {
+    lock
+    faceplayer
+    goto_if_quest_complete(QUEST_HONEY, ow_Floran_EventScript_LonelyCombee_QuestDone)
+    playmoncry(SPECIES_COMBEE, CRY_MODE_NORMAL)
+    waitmoncry
+    msgbox(format("The Combee hovers in slow circles around the old hive frame.\NIts hum is low and uncertain."))
+    release
+    end
+}
+
+script ow_Floran_EventScript_LonelyCombee_QuestDone {
+    playmoncry(SPECIES_COMBEE, CRY_MODE_NORMAL)
+    waitmoncry
+    msgbox(format("The Combee turns toward you as you approach.\NSomething in its hum shifts."))
+    msgbox(format("The old hive is empty. The apiary on the southern route is full and alive.\pDirect the Combee south?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, ow_Floran_EventScript_LonelyCombee_Stay)
+    applymovement(LOCALID_FLORAN_LONELY_COMBEE, ow_Floran_Movement_CombeeLeave)
+    waitmovement(0)
+    fadescreen(FADE_TO_BLACK)
+    removeobject(LOCALID_FLORAN_LONELY_COMBEE)
+    setflag(FLAG_HIDE_FLORAN_LONELY_COMBEE)
+    fadescreen(FADE_FROM_BLACK)
+    msgbox(format("The Combee turns south and flies off toward the forest route."))
+    release
+    end
+}
+
+script ow_Floran_EventScript_LonelyCombee_Stay {
+    msgbox(format("The Combee resumes its slow orbit of the empty frame."))
+    release
+    end
+}
+
+movement ow_Floran_Movement_CombeeLeave {
+    emote_heart
+    delay_16
+    step_end
+}
+
+// ============================================================
+// GRIMER SCIENTIST - LOCALID_FLORAN_GRIMER_SCIENTIST
+// ============================================================
+
+script ow_Floran_EventScript_GrimerScientist {
+    lock
+    faceplayer
+    setspeaker("Scientist")
+    msgbox(format("We trialled Alolan Grimer to process the organic runoff from the warehouse.\pUnfortunately, they have a strong aversion to salt water.\NAnother hypothesis required!"))
+    setspeaker(NULL)
+    release
+    end
+}
+
+// ============================================================
+// ALOLAN GRIMER (companion) - LOCALID_FLORAN_ALOLAN_GRIMER
+// ============================================================
+
+script ow_Floran_EventScript_AlolanGrimer {
+    lock
+    faceplayer
+    playmoncry(SPECIES_GRIMER_ALOLA, CRY_MODE_NORMAL)
+    waitmoncry
+    msgbox(format("The Grimer makes a sound somewhere between a gurgle and a groan."))
+    release
+    end
+}
+
+// ============================================================
+// NEW BOAT SAILOR - LOCALID_FLORAN_NEW_BOAT_SAILOR
+// ============================================================
+
+script ow_Floran_EventScript_NewBoatSailor {
+    lock
+    faceplayer
+    setspeaker("Sailor")
+    msgbox(format("I've been waiting three weeks for the hull of my new boat to cure properly.\NThe woodworkers doesn't rush anyone - but the result is worth it."))
+    setspeaker(NULL)
+    release
+    end
+}
