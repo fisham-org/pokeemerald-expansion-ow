@@ -92,6 +92,7 @@ gFieldEffectScriptPointers::
 	.4byte gFieldEffectScript_JumpSwampTallGrass        @ FLDEFF_JUMP_SWAMP_TALL_GRASS
 	.4byte gFieldEffectScript_SwampPlants               @ FLDEFF_SWAMP_PLANTS
 	.4byte gFieldEffectScript_JumpSwampPlants           @ FLDEFF_JUMP_SWAMP_PLANTS
+	.4byte gFieldEffectScript_OWE_SpawnAnim				@ FLDEFF_OW_ENCOUNTER_SPAWN_ANIM
 
 gFieldEffectScript_ExclamationMarkIcon1::
 	field_eff_callnative FldEff_ExclamationMarkIcon
@@ -439,4 +440,8 @@ gFieldEffectScript_SwampPlants::
 
 gFieldEffectScript_JumpSwampPlants::
 	field_eff_loadfadedpal_callnative gSpritePalette_SwampPlants, FldEff_JumpSwampPlants
+	field_eff_end
+
+gFieldEffectScript_OWE_SpawnAnim::
+	field_eff_callnative FldEff_OWE_SpawnAnim
 	field_eff_end

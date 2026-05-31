@@ -34,6 +34,7 @@ extern const struct SpriteTemplate gFieldEffectObjectTemplate_AshPuff;
 extern const struct SpriteTemplate gFieldEffectObjectTemplate_AshLaunch;
 extern const struct SpriteTemplate gFieldEffectObjectTemplate_Bubbles;
 extern const struct SpriteTemplate gFieldEffectObjectTemplate_SmallSparkle;
+extern const struct SpriteTemplate gFieldEffectObjectTemplate_ShinySparkle;
 extern const struct SpriteTemplate gFieldEffectObjectTemplate_Rayquaza;
 extern const struct SpriteTemplate gFieldEffectObjectTemplate_BallLight;
 extern const struct SpriteTemplate gFieldEffectObjectTemplate_SlitherTracks;
@@ -99,4 +100,5 @@ const struct SpriteTemplate *const gFieldEffectObjectTemplatePointers[] = {
     [FLDEFFOBJ_JUMP_SWAMP_TALL_GRASS] = &gFieldEffectObjectTemplate_JumpSwampTallGrass,
     [FLDEFFOBJ_SWAMP_PLANTS]          = &gFieldEffectObjectTemplate_SwampPlants,
     [FLDEFFOBJ_JUMP_SWAMP_PLANTS]     = &gFieldEffectObjectTemplate_JumpSwampPlants,
+    [FLDEFFOBJ_SHINY_SPARKLE]         = &gFieldEffectObjectTemplate_ShinySparkle,
 };
