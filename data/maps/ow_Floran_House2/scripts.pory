@@ -1,0 +1,33 @@
+mapscripts ow_Floran_House2_MapScripts {
+}
+
+script ow_Floran_House2_EventScript_OldMan {
+    lock
+    faceplayer
+    setspeaker("Old Man")
+    msgbox(format("The south end of town used to be forest, you know.\NYou could hear the Gogoat bleating as they grazed.\NI miss that."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+script ow_Floran_House2_EventScript_OldWoman {
+    lock
+    faceplayer
+    setspeaker("Old Woman")
+    goto_if_set(FLAG_FLORAN_HOUSE2_PADS_GIVEN, ow_Floran_House2_EventScript_OldWoman_Done)
+    msgbox(format("Oh, a visitor!\pWe don't get many these days.\NYou look like someone who gets into scrapes.\pHere - take these."))
+    giveitem(ITEM_PROTECTIVE_PADS, 1)
+    setflag(FLAG_FLORAN_HOUSE2_PADS_GIVEN)
+    msgbox(format("I don't think they fit my husband anymore.\NThey'll do more good with you."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+script ow_Floran_House2_EventScript_OldWoman_Done {
+    msgbox(format("My husband tells me the town has changed a lot since those young lumberjacks started coming.\NI don't leave the house much anymore, so I'll take his word for it."))
+    setspeaker(NULL)
+    release
+    end
+}

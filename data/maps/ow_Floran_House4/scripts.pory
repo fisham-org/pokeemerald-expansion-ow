@@ -1,0 +1,23 @@
+mapscripts ow_Floran_House4_MapScripts {
+}
+
+script ow_Floran_House4_EventScript_Manager {
+    lock
+    faceplayer
+    setspeaker("Manager")
+    msgbox(format("I was told I would be assigned here for three months.\NI've been here now for almost six."))
+    msgbox(format("Kilowattrel and I used to fly the coast route every morning to commute here. Now I have to dodge wood chips and sawdust to get into our headquarters."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+script ow_Floran_House4_EventScript_Kilowattrel {
+    lock
+    faceplayer
+    playmoncry(SPECIES_KILOWATTREL, CRY_MODE_NORMAL)
+    waitmoncry
+    msgbox(format("Kilowattrel: Kiiiwa!"))
+    release
+    end
+}
