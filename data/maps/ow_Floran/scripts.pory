@@ -44,7 +44,8 @@ script ow_Floran_EventScript_GymGardenMan {
     faceplayer
     setspeaker("Man")
     msgbox(format("You see this garden beside the gym?"))
-    face_up
+    applymovement(LOCALID_FLORAN_GYM_GARDEN_MAN, moves(face_up))
+    waitmovement
     msgbox(format("Vesna planted every one of those herself.\NSame way she works the wood - nothing rushed, nothing wasted."))
     setspeaker(NULL)
     release
@@ -188,7 +189,7 @@ script ow_Floran_EventScript_BoatLumberjack {
     lock
     faceplayer
     setspeaker("Lumberjack")
-    msgbox(format("These logs don't just become planks.\pI rough them out, dry them, plane them down.\NWhen they're ready, I roll them off the ledge onto the beach."))
+    msgbox(format("These boats are ready to be tested in the river. The bay is calmer here, makes for a good maiden voyage."))
     setspeaker(NULL)
     release
     end
@@ -358,7 +359,7 @@ script ow_Floran_EventScript_NewBoatSailor {
     lock
     faceplayer
     setspeaker("Sailor")
-    msgbox(format("I've been waiting three weeks for the hull of my new boat to cure properly.\NThe woodworkers doesn't rush anyone - but the result is worth it."))
+    msgbox(format("I've been waiting three weeks for the hull of my new boat to cure properly.\NVesna promised she wouldn't rush it, but I'm getting impatient."))
     setspeaker(NULL)
     release
     end

@@ -1691,6 +1691,7 @@
 #define FLAG_ITEM_R12_TM_1                          (OW_FLAGS_START + 46)
 #define FLAG_FLORAN_HONEY_TRADE_DONE                (OW_FLAGS_START + 47)
 #define FLAG_HIDE_FLORAN_LONELY_COMBEE              (OW_FLAGS_START + 48)
+#define FLAG_FLORAN_HOUSE2_PADS_GIVEN               (OW_FLAGS_START + 49)
 #define OW_FLAGS_END                                (OW_FLAGS_START + 199)
 
 #define FLAGS_COUNT (OW_FLAGS_END + 1)

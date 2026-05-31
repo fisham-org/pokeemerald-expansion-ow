@@ -1,0 +1,12 @@
+mapscripts ow_Floran_House1_MapScripts {
+}
+
+script ow_Floran_House1_EventScript_BoatBuilder {
+    lock
+    faceplayer
+    setspeaker("Man")
+    msgbox(format("The gym leader of Floran, Vesna, is an expert craftswoman.\NShe sources her own materials and meticulously controls each part of the manufacturing process.\NIt's not often we see that kind of commitment, these days."))
+    setspeaker(NULL)
+    release
+    end
+}
