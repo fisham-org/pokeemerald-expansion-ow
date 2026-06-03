@@ -195,7 +195,7 @@ bool8 PlayerOwnsSpecies(u16 species)
     // Check party
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        u16 partySpecies = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+        u16 partySpecies = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES);
         if (partySpecies != SPECIES_NONE && partySpecies == species)
             return TRUE;
     }
@@ -251,7 +251,7 @@ void NuzlockeHandleWhiteout(void)
     // Mark all party Pokemon as dead
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        struct Pokemon *mon = &gPlayerParty[i];
+        struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][i];
         if (GetMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE && 
             !GetMonData(mon, MON_DATA_SANITY_IS_EGG))
         {
@@ -318,9 +318,9 @@ void NuzlockeOnBattleEnd(void)
         if (!alreadyEncountered)
         {
             // Get wild Pokemon info
-            u16 wildSpecies = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
-            u32 wildPersonality = GetMonData(&gEnemyParty[0], MON_DATA_PERSONALITY);
-            u32 wildOtId = GetMonData(&gEnemyParty[0], MON_DATA_OT_ID);
+            u16 wildSpecies = GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_SPECIES);
+            u32 wildPersonality = GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_PERSONALITY);
+            u32 wildOtId = GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_OT_ID);
             
             // Check if it's a shiny - shiny clause means it doesn't consume the encounter
             u32 shinyValue = ((wildPersonality >> 16) ^ (wildPersonality & 0xFFFF)) ^ ((wildOtId >> 16) ^ (wildOtId & 0xFFFF));
@@ -407,10 +407,10 @@ static u8 CountDeadPartyMons(void)
 
     for (u8 i = 0; i < PARTY_SIZE; i++)
     {
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE
-            && !GetMonData(&gPlayerParty[i], MON_DATA_SANITY_IS_EGG)
-            && GetMonData(&gPlayerParty[i], MON_DATA_HP) == 0
-            && GetMonData(&gPlayerParty[i], MON_DATA_IS_DEAD, NULL))
+        if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES) != SPECIES_NONE
+            && !GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SANITY_IS_EGG)
+            && GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_HP) == 0
+            && GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_IS_DEAD, NULL))
         {
             count++;
         }
@@ -482,13 +482,13 @@ void PrepareNextDeadMonInfo(void)
     // Find first dead party mon
     for (u8 i = 0; i < PARTY_SIZE; i++)
     {
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE
-            && !GetMonData(&gPlayerParty[i], MON_DATA_SANITY_IS_EGG)
-            && GetMonData(&gPlayerParty[i], MON_DATA_HP) == 0
-            && GetMonData(&gPlayerParty[i], MON_DATA_IS_DEAD, NULL))
+        if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES) != SPECIES_NONE
+            && !GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SANITY_IS_EGG)
+            && GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_HP) == 0
+            && GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_IS_DEAD, NULL))
         {
             gSpecialVar_0x8004 = i;
-            GetMonData(&gPlayerParty[i], MON_DATA_NICKNAME, gStringVar1);
+            GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_NICKNAME, gStringVar1);
             return;
         }
     }
@@ -523,8 +523,8 @@ void DepositDeadPartyMonToPC(void)
     }
 
     // Validate that this mon is actually dead (HP = 0 AND dead flag set)
-    if (GetMonData(&gPlayerParty[partySlot], MON_DATA_HP) != 0
-        || !GetMonData(&gPlayerParty[partySlot], MON_DATA_IS_DEAD, NULL))
+    if (GetMonData(&gParties[B_TRAINER_PLAYER][partySlot], MON_DATA_HP) != 0
+        || !GetMonData(&gParties[B_TRAINER_PLAYER][partySlot], MON_DATA_IS_DEAD, NULL))
     {
         gSpecialVar_0x8005 = TOTAL_BOXES_COUNT;
         return;
@@ -537,10 +537,10 @@ void DepositDeadPartyMonToPC(void)
         if (position >= 0)
         {
             // Copy mon to PC box
-            SetBoxMonAt(box, position, &gPlayerParty[partySlot].box);
+            SetBoxMonAt(box, position, &gParties[B_TRAINER_PLAYER][partySlot].box);
 
             // Zero out party slot
-            ZeroMonData(&gPlayerParty[partySlot]);
+            ZeroMonData(&gParties[B_TRAINER_PLAYER][partySlot]);
 
             // Compact party to remove gaps
             CompactPartySlots();
@@ -567,9 +567,9 @@ void IsSelectedPartyMonDead(void)
 {
     u8 slot = gSpecialVar_0x8004;
     if (slot < PARTY_SIZE
-        && GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES) != SPECIES_NONE
-        && !GetMonData(&gPlayerParty[slot], MON_DATA_SANITY_IS_EGG)
-        && GetMonData(&gPlayerParty[slot], MON_DATA_HP) == 0)
+        && GetMonData(&gParties[B_TRAINER_PLAYER][slot], MON_DATA_SPECIES) != SPECIES_NONE
+        && !GetMonData(&gParties[B_TRAINER_PLAYER][slot], MON_DATA_SANITY_IS_EGG)
+        && GetMonData(&gParties[B_TRAINER_PLAYER][slot], MON_DATA_HP) == 0)
     {
         gSpecialVar_Result = TRUE;
     }

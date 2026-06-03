@@ -12,7 +12,7 @@ u16 CheckPartyHasRGBPokemon(void)
 
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+        u16 species = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES);
         if (species == SPECIES_NONE)
             continue;
 
