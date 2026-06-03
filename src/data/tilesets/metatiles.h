@@ -426,3 +426,6 @@ const u16 gMetatileAttributes_Kolchavi_Lab[] = INCBIN_U16("data/tilesets/seconda
 
 const u16 gMetatiles_Kolchavi_Maritime[] = INCBIN_U16("data/tilesets/secondary/kolchavi_maritime/metatiles.bin");
 const u16 gMetatileAttributes_Kolchavi_Maritime[] = INCBIN_U16("data/tilesets/secondary/kolchavi_maritime/metatile_attributes.bin");
+
+const u16 gMetatiles_Floran_Warehouse[] = INCBIN_U16("data/tilesets/secondary/floran_warehouse/metatiles.bin");
+const u16 gMetatileAttributes_Floran_Warehouse[] = INCBIN_U16("data/tilesets/secondary/floran_warehouse/metatile_attributes.bin");

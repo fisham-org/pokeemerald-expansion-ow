@@ -3061,3 +3061,7 @@ static const struct SpriteFrameImage sPicTable_BugmainiacM[] = {
 static const struct SpriteFrameImage sPicTable_ParasolladyF[] = {
     overworld_ascending_frames(gObjectEventPic_ParasolladyF, 2, 4),
 };
+
+static const struct SpriteFrameImage sPicTable_EngineerM[] = {
+    overworld_ascending_frames(gObjectEventPic_EngineerM, 2, 4),
+};

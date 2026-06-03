@@ -9580,7 +9580,7 @@
       "width": 25,
       "height": 25,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Facility",
+      "secondary_tileset": "gTileset_Floran_Warehouse",
       "border_filepath": "data/layouts/ow_Floran_Warehouse/border.bin",
       "blockdata_filepath": "data/layouts/ow_Floran_Warehouse/map.bin"
     },

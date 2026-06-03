@@ -417,6 +417,8 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BugmainiacM
 
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ParasolladyF;
 
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EngineerM;
+
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
     [OBJ_EVENT_GFX_BRENDAN_MACH_BIKE] =        &gObjectEventGraphicsInfo_BrendanMachBike,
@@ -815,6 +817,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_OW_RANGER_F] =               &gObjectEventGraphicsInfo_RangerF,
     [OBJ_EVENT_GFX_BUGMANIAC_M] =               &gObjectEventGraphicsInfo_BugmainiacM,
     [OBJ_EVENT_GFX_PARASOLLADY_F] =               &gObjectEventGraphicsInfo_ParasolladyF,
+    [OBJ_EVENT_GFX_OW_ENGINEER] =               &gObjectEventGraphicsInfo_EngineerM,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

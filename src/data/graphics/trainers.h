@@ -490,6 +490,8 @@ const u8 gTrainerBackPic_Wally[] = INCGFX_U8("graphics/trainers/back_pics/wally.
 const u8 gTrainerBackPic_Steven[] = INCGFX_U8("graphics/trainers/back_pics/steven.png", ".4bpp");
 const u8 gTrainerBackPic_Pokedude[] = INCGFX_U8("graphics/trainers/back_pics/pokedude.png", ".4bpp");
 const u8 gTrainerBackPic_OldMan[] = INCGFX_U8("graphics/trainers/back_pics/old_man.png", ".4bpp");
+const u32 gTrainerFrontPic_EngineerM[] = INCGFX_U32("graphics/trainers/front_pics/engineer_m.png", ".4bpp.smol");
+const u16 gTrainerPalette_EngineerM[] = INCGFX_U16("graphics/trainers/front_pics/engineer_m.png", ".gbapal");
 
 const u16 gTrainerBackPicPalette_Red[] = INCGFX_U16("graphics/trainers/back_pics/red.png", ".gbapal");
 const u16 gTrainerBackPicPalette_Leaf[] = INCGFX_U16("graphics/trainers/back_pics/leaf.png", ".gbapal");
@@ -1251,5 +1253,9 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     [TRAINER_PIC_OW_BEEKEEPER_M] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_BeekeeperM, gTrainerPalette_BeekeeperM),
+    },
+    [TRAINER_PIC_OW_ENGINEER] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_EngineerM, gTrainerPalette_EngineerM),
     },
 };

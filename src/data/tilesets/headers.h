@@ -1607,3 +1607,14 @@ const struct Tileset gTileset_Kolchavi_Maritime =
     .metatileAttributes = gMetatileAttributes_Kolchavi_Maritime,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Floran_Warehouse =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Floran_Warehouse,
+    .palettes = gTilesetPalettes_Floran_Warehouse,
+    .metatiles = gMetatiles_Floran_Warehouse,
+    .metatileAttributes = gMetatileAttributes_Floran_Warehouse,
+    .callback = NULL,
+};
