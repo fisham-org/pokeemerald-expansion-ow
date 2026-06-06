@@ -9565,14 +9565,14 @@
       "blockdata_filepath": "data/layouts/ow_Floran_House5/map.bin"
     },
     {
-      "id": "LAYOUT_POC_FLORAN_WARDEN_GUILD",
-      "name": "ow_Floran_WardenGuild_Layout",
-      "width": 35,
-      "height": 25,
+      "id": "LAYOUT_OW_FLORAN_WESTMARK_HQ",
+      "name": "ow_Floran_WestmarkHq_Layout",
+      "width": 42,
+      "height": 17,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_LilycoveMuseum",
-      "border_filepath": "data/layouts/ow_Floran_WardenGuild/border.bin",
-      "blockdata_filepath": "data/layouts/ow_Floran_WardenGuild/map.bin"
+      "secondary_tileset": "gTileset_Floran_Hq",
+      "border_filepath": "data/layouts/ow_Floran_WestmarkHq/border.bin",
+      "blockdata_filepath": "data/layouts/ow_Floran_WestmarkHq/map.bin"
     },
     {
       "id": "LAYOUT_POC_FLORAN_WAREHOUSE",

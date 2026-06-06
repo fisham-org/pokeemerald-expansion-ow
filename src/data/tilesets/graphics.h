@@ -3181,3 +3181,22 @@ const u16 gTilesetPalettes_Floran_Warehouse[][16] =
 };
 
 const u32 gTilesetTiles_Floran_Warehouse[] = INCBIN_U32("data/tilesets/secondary/floran_warehouse/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Floran_Hq[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/floran_hq/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/floran_hq/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/floran_hq/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/floran_hq/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/floran_hq/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/floran_hq/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/floran_hq/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/floran_hq/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/floran_hq/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/floran_hq/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/floran_hq/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/floran_hq/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/floran_hq/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Floran_Hq[] = INCBIN_U32("data/tilesets/secondary/floran_hq/tiles.4bpp.lz");

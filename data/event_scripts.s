@@ -1935,7 +1935,7 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 
 	.include "data/maps/ow_Floran_House5/scripts.inc"
 
-	.include "data/maps/ow_Floran_WardenGuild/scripts.inc"
+	.include "data/maps/ow_Floran_WestmarkHq/scripts.inc"
 
 	.include "data/maps/ow_Floran_Warehouse/scripts.inc"
 
