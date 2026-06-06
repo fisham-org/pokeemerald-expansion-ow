@@ -255,9 +255,9 @@ void ReducePlayerPartyToSelectedMons(void)
 void SaveSelectMonsParty(void)
 {
     u32 i;
-    sSelectMonsBackupCount = gPlayerPartyCount;
+    sSelectMonsBackupCount = gPartiesCount[B_TRAINER_PLAYER];
     for (i = 0; i < PARTY_SIZE; i++)
-        sSelectMonsBackupParty[i] = gPlayerParty[i];
+        sSelectMonsBackupParty[i] = gParties[B_TRAINER_PLAYER][i];
     sNeedRestorePartyAfterBattle = TRUE;
 }
 
@@ -273,16 +273,16 @@ void LoadSelectMonsParty(void)
 
     // Save the complete battle-affected Pokemon (includes exp, level, evolution, HP, status, PP, etc.)
     // These are in the compacted battle party order (positions 0, 1, 2... up to selected count)
-    for (i = 0; i < MAX_FRONTIER_PARTY_SIZE && i < gPlayerPartyCount; i++)
+    for (i = 0; i < MAX_FRONTIER_PARTY_SIZE && i < gPartiesCount[B_TRAINER_PLAYER]; i++)
     {
         if (gSelectedOrderFromParty[i])
-            battleAffectedMons[i] = gPlayerParty[i];
+            battleAffectedMons[i] = gParties[B_TRAINER_PLAYER][i];
     }
 
     // Restore full party from backup (gets non-selected mons back)
-    gPlayerPartyCount = sSelectMonsBackupCount;
+    gPartiesCount[B_TRAINER_PLAYER] = sSelectMonsBackupCount;
     for (i = 0; i < PARTY_SIZE; i++)
-        gPlayerParty[i] = sSelectMonsBackupParty[i];
+        gParties[B_TRAINER_PLAYER][i] = sSelectMonsBackupParty[i];
 
     // Transfer dead status from battle mons to restored party
     for (i = 0; i < MAX_FRONTIER_PARTY_SIZE; i++)
@@ -293,7 +293,7 @@ void LoadSelectMonsParty(void)
             u8 originalPartyIndex = gSelectedOrderFromParty[i] - 1;
 
             // Replace with battle-affected version (has all changes from battle)
-            gPlayerParty[originalPartyIndex] = battleAffectedMons[i];
+            gParties[B_TRAINER_PLAYER][originalPartyIndex] = battleAffectedMons[i];
         }
     }
 

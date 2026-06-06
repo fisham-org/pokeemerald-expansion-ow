@@ -4594,11 +4594,11 @@ void MaxPartyIVs(void)
     u32 partyCount = CalculatePlayerPartyCount();
     for (i = 0; i < partyCount; i++)
     {
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE)
+        if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES) == SPECIES_NONE)
             continue;
         for (stat = 0; stat < NUM_STATS; stat++)
-            SetMonData(&gPlayerParty[i], MON_DATA_HP_IV + stat, &maxIv);
-        CalculateMonStats(&gPlayerParty[i]);
+            SetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_HP_IV + stat, &maxIv);
+        CalculateMonStats(&gParties[B_TRAINER_PLAYER][i]);
     }
 }
 

@@ -7498,8 +7498,8 @@ static u8 GetMaxBattleEntries(void)
     // If party selection limit is set, use it (but don't exceed actual party size)
     if (sPartySelectionLimit >= 1 && sPartySelectionLimit <= PARTY_SIZE)
     {
-        if (gPlayerPartyCount < sPartySelectionLimit)
-            return gPlayerPartyCount;
+        if (gPartiesCount[B_TRAINER_PLAYER] < sPartySelectionLimit)
+            return gPartiesCount[B_TRAINER_PLAYER];
         return sPartySelectionLimit;
     }
 

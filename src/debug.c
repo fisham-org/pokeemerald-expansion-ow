@@ -4932,7 +4932,7 @@ const struct Trainer* GetDebugAiTrainer(void)
 static void DebugAction_Party_SetParty(u8 taskId)
 {
     ZeroPlayerPartyMons();
-    CreateNPCTrainerPartyFromTrainer(gPlayerParty, &sDebugTrainers[DIFFICULTY_NORMAL][DEBUG_TRAINER_PLAYER], TRUE, BATTLE_TYPE_TRAINER, TRAINER_NONE);
+    CreateNPCTrainerPartyFromTrainer(gParties[B_TRAINER_PLAYER], &sDebugTrainers[DIFFICULTY_NORMAL][DEBUG_TRAINER_PLAYER], TRUE, BATTLE_TYPE_TRAINER, TRAINER_NONE);
     ScriptContext_Enable();
     Debug_DestroyMenu_Full(taskId);
 }
@@ -4941,8 +4941,8 @@ static void DebugAction_Party_BattleSingle(u8 taskId)
 {
     ZeroPlayerPartyMons();
     ZeroEnemyPartyMons();
-    CreateNPCTrainerPartyFromTrainer(gPlayerParty, &sDebugTrainers[DIFFICULTY_NORMAL][DEBUG_TRAINER_PLAYER], TRUE, BATTLE_TYPE_TRAINER, TRAINER_NONE);
-    CreateNPCTrainerPartyFromTrainer(gEnemyParty, GetDebugAiTrainer(), FALSE, BATTLE_TYPE_TRAINER, TRAINER_NONE);
+    CreateNPCTrainerPartyFromTrainer(gParties[B_TRAINER_PLAYER], &sDebugTrainers[DIFFICULTY_NORMAL][DEBUG_TRAINER_PLAYER], TRUE, BATTLE_TYPE_TRAINER, TRAINER_NONE);
+    CreateNPCTrainerPartyFromTrainer(gParties[B_TRAINER_OPPONENT_A], GetDebugAiTrainer(), FALSE, BATTLE_TYPE_TRAINER, TRAINER_NONE);
 
     gBattleTypeFlags = BATTLE_TYPE_TRAINER;
     if (sDebugTrainers[DIFFICULTY_NORMAL][DEBUG_TRAINER_AI].battleType == TRAINER_BATTLE_TYPE_DOUBLES)
@@ -4972,11 +4972,11 @@ void Debug_HealPartyMon(struct ScriptContext *ctx)
     if (slot >= PARTY_SIZE)
         return;
 
-    if (GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES) == SPECIES_NONE)
+    if (GetMonData(&gParties[B_TRAINER_PLAYER][slot], MON_DATA_SPECIES) == SPECIES_NONE)
         return;
 
     // Heal the mon
-    HealPokemon(&gPlayerParty[slot]);
+    HealPokemon(&gParties[B_TRAINER_PLAYER][slot]);
 }
 
 void Debug_MarkPartyMonAsDead(struct ScriptContext *ctx)
@@ -4986,18 +4986,18 @@ void Debug_MarkPartyMonAsDead(struct ScriptContext *ctx)
     if (slot >= PARTY_SIZE)
         return;
 
-    if (GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES) == SPECIES_NONE)
+    if (GetMonData(&gParties[B_TRAINER_PLAYER][slot], MON_DATA_SPECIES) == SPECIES_NONE)
         return;
 
     // Set HP to 0
     u16 hp = 0;
-    SetMonData(&gPlayerParty[slot], MON_DATA_HP, &hp);
+    SetMonData(&gParties[B_TRAINER_PLAYER][slot], MON_DATA_HP, &hp);
 
     // Mark as dead (if Nuzlocke is active)
     if (FlagGet(FLAG_NUZLOCKE))
     {
         u32 deadFlag = 1;
-        SetMonData(&gPlayerParty[slot], MON_DATA_IS_DEAD, &deadFlag);
+        SetMonData(&gParties[B_TRAINER_PLAYER][slot], MON_DATA_IS_DEAD, &deadFlag);
     }
 }
 

@@ -2149,7 +2149,7 @@ void CreateTrainerPartyForPlayer(void)
 
     ZeroPlayerPartyMons();
     gPartnerTrainerId = gSpecialVar_0x8004;
-    CreateNPCTrainerPartyFromTrainer(gPlayerParty, GetTrainerStructFromId(gSpecialVar_0x8004), TRUE, BATTLE_TYPE_TRAINER, gSpecialVar_0x8004);
+    CreateNPCTrainerPartyFromTrainer(gParties[B_TRAINER_PLAYER], GetTrainerStructFromId(gSpecialVar_0x8004), TRUE, BATTLE_TYPE_TRAINER, gSpecialVar_0x8004);
 }
 
 void VBlankCB_Battle(void)
@@ -3734,8 +3734,8 @@ static void DoBattleIntro(void)
         // Show Nuzlocke encounter message for wild battles
         if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER) && IsNuzlockeActive() && FlagGet(FLAG_SYS_POKEDEX_GET))
         {
-            u16 species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
-            u32 personality = GetMonData(&gEnemyParty[0], MON_DATA_PERSONALITY);
+            u16 species = GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_SPECIES);
+            u32 personality = GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_PERSONALITY);
             u32 otId = gSaveBlock2Ptr->playerTrainerId[0] | (gSaveBlock2Ptr->playerTrainerId[1] << 8) | 
                       (gSaveBlock2Ptr->playerTrainerId[2] << 16) | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
             
