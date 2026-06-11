@@ -1956,3 +1956,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/ow_SowbackCave_2F/scripts.inc"
 
 	.include "data/scripts/wild_encounter.inc"
+
+	.include "data/maps/ow_Kolchavi_House5/scripts.inc"

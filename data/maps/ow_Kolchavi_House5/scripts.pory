@@ -1,0 +1,10 @@
+mapscripts ow_Kolchavi_House5_MapScripts {}
+
+script ow_Kolchavi_House5_EventScript_Woman {
+    lock
+    faceplayer
+    msgbox(format("I came over from Khevan for the quiet. A little town on the coast, I thought. How loud could it be?"))
+    msgbox(format("Then I learned a port never sleeps. Sailors at every hour, Wingull always squabbling.\pI've started finding it restful, which honestly worries me."))
+    release
+    end
+}

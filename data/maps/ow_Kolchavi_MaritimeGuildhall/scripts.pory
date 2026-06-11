@@ -1,0 +1,85 @@
+mapscripts ow_Kolchavi_MaritimeGuildhall_MapScripts {}
+
+script ow_Kolchavi_MaritimeGuildhall_EventScript_Leader {
+    lock
+    faceplayer
+    setspeaker("Guild Leader")
+    msgbox(format("I run the Maritime Guild. Every hull that drops anchor on this coast, every crate that moves through Kolchavi - it crosses my desk first."))
+    msgbox(format("Tides, berths, manifests. Get those wrong and the whole western coast backs up behind us."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+script ow_Kolchavi_MaritimeGuildhall_EventScript_Sailor {
+    lock
+    faceplayer
+    msgbox(format("Kavora is a self-sufficient region. We are far away from most other large regions, so we make do with what we have."))
+    release
+    end
+}
+
+script ow_Kolchavi_MaritimeGuildhall_EventScript_Fisherman {
+    lock
+    faceplayer
+    setspeaker("Fisherman")
+    checkitem(ITEM_OLD_ROD, 1)
+    goto_if_eq(VAR_RESULT, FALSE, ow_Kolchavi_MaritimeGuildhall_EventScript_Fisherman_GiveRod)
+    msgbox(format("Tide's on the turn - good time to wet a line off the docks."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+script ow_Kolchavi_MaritimeGuildhall_EventScript_Fisherman_GiveRod {
+    msgbox(format("No rod on you? That won't do, not in a guildhall. Here - this old rod's seen better tides, but it'll still pull something out of the harbour."))
+    giveitem(ITEM_OLD_ROD)
+    goto_if_eq(VAR_RESULT, 0, ow_Kolchavi_MaritimeGuildhall_EventScript_Fisherman_BagFull)
+    msgbox(format("Go on, try it off the end of the dock."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+script ow_Kolchavi_MaritimeGuildhall_EventScript_Fisherman_BagFull {
+    msgbox(format("Your bag's full. Make some room and I'll set you up."))
+    setspeaker(NULL)
+    release
+    end
+}
+
+script ow_Kolchavi_MaritimeGuildhall_EventScript_LaprasOwner {
+    lock
+    faceplayer
+    msgbox(format("Me? No, I'm no sailor. Don't let the company fool you."))
+    msgbox(format("My Lapras just needed to rest out of the swell, and the guild doesn't mind."))
+    release
+    end
+}
+
+script ow_Kolchavi_MaritimeGuildhall_EventScript_ShipDecor {
+    lock
+    faceplayer
+    msgbox(format("The whole hall's built like the inside of a ship - ribbed hull, low rafters, the lot.\pMost of this came from an old ship that was to be decommissioned."))
+    msgbox(format("I think the sailors prefer it like this. They might not always be on the seas, but they can always be on the decks!"))
+    release
+    end
+}
+
+script ow_Kolchavi_MaritimeGuildhall_EventScript_Poliwhirl {
+    lock
+    faceplayer
+    playmoncry(SPECIES_POLIWHIRL, CRY_MODE_NORMAL)
+    msgbox(format("Poli poli!"), MSGBOX_DEFAULT)
+    waitmoncry
+    release
+    end
+}
+
+script ow_Kolchavi_MaritimeGuildhall_EventScript_ChartKeeper {
+    lock
+    faceplayer
+    msgbox(format("Nobody updates the old charts anymore. It's all on the guild's new boards now.\pShame. There's craft in a tide chart drawn by hand."))
+    release
+    end
+}

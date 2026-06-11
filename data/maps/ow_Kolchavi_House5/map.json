@@ -1,7 +1,7 @@
 {
-  "id": "MAP_OW_KOLCHAVI_HOUSE2",
-  "name": "ow_Kolchavi_House2",
-  "layout": "LAYOUT_POC_KOLCHAVI_HOUSE2",
+  "id": "MAP_OW_KOLCHAVI_HOUSE5",
+  "name": "ow_Kolchavi_House5",
+  "layout": "LAYOUT_OW_KOLCHAVI_HOUSE5",
   "music": "MUS_CONTEST",
   "region_map_section": "MAPSEC_OW_KOLCHAVI",
   "requires_flash": false,
@@ -15,35 +15,35 @@
   "connections": null,
   "object_events": [
     {
-      "local_id": "LOCALID_KOLCHAVI_HOUSE2_HERMIT",
-      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
-      "x": 3,
-      "y": 6,
+      "local_id": "LOCALID_KOLCHAVI_HOUSE5_WOMAN",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
+      "x": 10,
+      "y": 8,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ow_Kolchavi_House2_EventScript_Hermit",
+      "script": "ow_Kolchavi_House5_EventScript_Woman",
       "flag": "0",
-      "notes": "npc - the 'hermit'. he warns the player from venturing into the deep forest if he intends to cause it harm."
+      "notes": "npc - lady who moved from khevan for somewhere quieter, wryly notes there are just as many sailors here"
     }
   ],
   "warp_events": [
     {
-      "x": 5,
-      "y": 9,
+      "x": 6,
+      "y": 11,
       "elevation": 0,
       "dest_map": "MAP_OW_KOLCHAVI",
-      "dest_warp_id": "5"
+      "dest_warp_id": "7"
     },
     {
-      "x": 6,
-      "y": 9,
+      "x": 7,
+      "y": 11,
       "elevation": 0,
       "dest_map": "MAP_OW_KOLCHAVI",
-      "dest_warp_id": "5"
+      "dest_warp_id": "7"
     }
   ],
   "coord_events": [],

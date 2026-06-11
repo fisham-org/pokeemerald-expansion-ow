@@ -64,13 +64,13 @@ script ow_Kolchavi_Lab_2F_EventScript_Zelkova_Reward {
     waitmovement(0)
     setspeaker("Nadia")
     msgbox(format("Hi, Professor. Sorry for my delay."))
-    msgbox(format("At first, I was just observing the local Drillbur population, digging and playing amongst themselves."))
+    msgbox(format("At first, I was just observing the local Drilbur population, digging and playing amongst themselves."))
     msgbox(format("But I noticed there were small flecks of something metallic in the nearby cave walls."))
-    msgbox(format("One of the Drillbur dug was playing with a small chunk of iron!\pIt looks like it came from the swamp."))
+    msgbox(format("One of the Drilbur was playing with a small chunk of iron!\pIt looks like it came from the swamp."))
     setspeaker("Prof. Zelkova")
-    msgbox(format("But Drillbur don't like the damp swamp.\NHow did they find bog iron?"))
+    msgbox(format("But Drilbur don't like the damp swamp.\NHow did they find bog iron?"))
     setspeaker("Nadia")
-    msgbox(format("I think something has placed it there deliberately to encourage the Drillbur to dig deeper caves!"))
+    msgbox(format("I think something has placed it there deliberately to encourage the Drilbur to dig deeper caves!"))
     setspeaker("Prof. Zelkova")
     msgbox(format("Which aerates and adds nutrients to the soil... Directly below the Floran forests!"))
     msgbox(format("That must be it! But how did the iron get there in the first place?\NNadia, do you have anything else?"))
@@ -92,13 +92,13 @@ script ow_Kolchavi_Lab_2F_EventScript_Zelkova_GiftSelect {
     dynmultipush("BIDOOF", 1)
     dynmultistack(0, 0, TRUE, 2, FALSE, 0, DYN_MULTICHOICE_CB_NONE)
     switch (var(VAR_RESULT)) {
-        case 0: goto(ow_Kolchavi_Lab_2F_EventScript_Zelkova_ConfirmFurret)
+        case 0: goto(ow_Kolchavi_Lab_2F_EventScript_Zelkova_ConfirmSentret)
         case 1: goto(ow_Kolchavi_Lab_2F_EventScript_Zelkova_ConfirmBidoof)
     }
     end
 }
 
-script ow_Kolchavi_Lab_2F_EventScript_Zelkova_ConfirmFurret {
+script ow_Kolchavi_Lab_2F_EventScript_Zelkova_ConfirmSentret {
     showmonpic(SPECIES_SENTRET, 10, 3)
     playmoncry(SPECIES_SENTRET, CRY_MODE_NORMAL)
     bufferspeciesname(STR_VAR_1, SPECIES_SENTRET)

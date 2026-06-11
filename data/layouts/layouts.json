@@ -9663,6 +9663,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/ow_SowbackCave_2F/border.bin",
       "blockdata_filepath": "data/layouts/ow_SowbackCave_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_OW_KOLCHAVI_HOUSE5",
+      "name": "ow_Kolchavi_House5_Layout",
+      "width": 18,
+      "height": 18,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/ow_Kolchavi_House5/border.bin",
+      "blockdata_filepath": "data/layouts/ow_Kolchavi_House5/map.bin"
     }
   ]
 }

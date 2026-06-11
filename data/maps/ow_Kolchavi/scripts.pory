@@ -132,7 +132,7 @@ script ow_Kolchavi_EventScript_Researcher {
 
 script ow_Kolchavi_EventScript_Researcher_Active {
     setspeaker("Researcher")
-    msgbox(format("Zelkova's assistant Nadia has been in the Route 6 cave for days. Nobody seems worried except me.\pApparently this is normal."))
+    msgbox(format("Oh, are you going to Sowback Cave too? One of the Professor's assistants left to investigate it recently, too."))
     setspeaker(NULL)
     release
     end

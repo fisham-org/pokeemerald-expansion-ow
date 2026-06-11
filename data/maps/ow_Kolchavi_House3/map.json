@@ -13,7 +13,38 @@
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
-  "object_events": [],
+  "object_events": [
+    {
+      "local_id": "LOCALID_KOLCHAVI_HOUSE3_LUMBERJACK",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_5",
+      "x": 8,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ow_Kolchavi_House3_EventScript_Lumberjack",
+      "flag": "0",
+      "notes": "npc - lumberjack who has to live here because there's no space left in floran"
+    },
+    {
+      "local_id": "LOCALID_KOLCHAVI_HOUSE3_BIDOOF",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(BIDOOF)",
+      "x": 11,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ow_Kolchavi_House3_EventScript_Bidoof",
+      "flag": "0",
+      "notes": "pokemon - bidoof."
+    }
+  ],
   "warp_events": [
     {
       "x": 7,

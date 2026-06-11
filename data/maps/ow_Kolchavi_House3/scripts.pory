@@ -1,0 +1,19 @@
+mapscripts ow_Kolchavi_House3_MapScripts {}
+
+script ow_Kolchavi_House3_EventScript_Lumberjack {
+    lock
+    faceplayer
+    msgbox(format("There is no space left in Floran, so I had to find temporary accommodation here instead.\pLuckily, I was able to get assigned to the site just north of here."))
+    release
+    end
+}
+
+script ow_Kolchavi_House3_EventScript_Bidoof {
+    lock
+    faceplayer
+    playmoncry(SPECIES_BIDOOF, CRY_MODE_NORMAL)
+    msgbox(format("Bidoof!"), MSGBOX_DEFAULT)
+    waitmoncry
+    release
+    end
+}

@@ -1,0 +1,19 @@
+mapscripts ow_Kolchavi_House4_MapScripts {}
+
+script ow_Kolchavi_House4_EventScript_Fisherman {
+    lock
+    faceplayer
+    msgbox(format("The guild? In my grandfather's day it was just a tavern where crews traded tide talk over wine."))
+    msgbox(format("Somewhere along the way the talk became rules, and the rules became the guild."))
+    release
+    end
+}
+
+script ow_Kolchavi_House4_EventScript_Lady {
+    lock
+    faceplayer
+    msgbox(format("There are a lot of working Pokémon here.\NGurdurr help unload from the ships, Mudsdale to haul cargo up the coast."))
+    msgbox(format("If you don't have muscle, you won't get very far around here."))
+    release
+    end
+}

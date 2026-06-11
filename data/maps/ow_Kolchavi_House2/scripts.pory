@@ -1,0 +1,9 @@
+mapscripts ow_Kolchavi_House2_MapScripts {}
+
+script ow_Kolchavi_House2_EventScript_Hermit {
+    lock
+    faceplayer
+    msgbox(format("The deep forest isn't somewhere to prove yourself. The Pokémon there are tough, and don't trust us one bit.\pI don't blame them."))
+    release
+    end
+}
