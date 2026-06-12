@@ -7,7 +7,6 @@ mapscripts ow_r10_MapScripts {}
 script ow_r10_EventScript_Combeekeeper {
     lock
     faceplayer
-    setspeaker("Combeekeeper")
     goto_if_quest_complete(QUEST_HONEY, ow_r10_EventScript_Combeekeeper_Done)
     goto_if_quest_reward(QUEST_HONEY, ow_r10_EventScript_Combeekeeper_Reward)
     goto_if_quest_active(QUEST_HONEY, ow_r10_EventScript_Combeekeeper_Active)
@@ -18,7 +17,6 @@ script ow_r10_EventScript_Combeekeeper_Intro {
     msgbox(format("A powerful Heracross has broken into the apiary - it's tearing through the honey stores!"))
     msgbox(format("The bees scattered the moment it came crashing in.\NI tried to fend it off, but I'm not strong enough."))
     msgbox(format("Could you drive it off? My Combee won't return until it's gone."))
-    setspeaker(NULL)
     startquest(QUEST_HONEY)
     subquestmenu(QUEST_MENU_UNLOCK_QUEST, QUEST_HONEY, SUB_QUEST_HONEY_HERACROSS)
     clearflag(FLAG_HIDE_R10_HERACROSS)
@@ -38,14 +36,12 @@ script ow_r10_EventScript_Combeekeeper_HeracrossDown {
     msgbox(format("But the hives are still empty.\pMy Combee scattered when it came crashing in - they'll be in the nearby fields. Could you help me find them?"))
     setflag(FLAG_R10_HONEY_THANKED)
     subquestmenu(QUEST_MENU_UNLOCK_QUEST, QUEST_HONEY, SUB_QUEST_HONEY_COMBEE)
-    setspeaker(NULL)
     release
     end
 }
 
 script ow_r10_EventScript_Combeekeeper_HeracrossPending {
     msgbox(format("The Heracross is still rattling around the hives.\NIt's just south of here."))
-    setspeaker(NULL)
     release
     end
 }
@@ -53,7 +49,6 @@ script ow_r10_EventScript_Combeekeeper_HeracrossPending {
 script ow_r10_EventScript_Combeekeeper_CombeePending {
     buffernumberstring(STR_VAR_1, VAR_R10_HONEY_COMBEE)
     msgbox(format("You've brought {STR_VAR_1} of my Combee back so far.\pThey need someone to nudge them in the right direction to come home."))
-    setspeaker(NULL)
     release
     end
 }
@@ -62,7 +57,6 @@ script ow_r10_EventScript_Combeekeeper_AllCombeeIn {
     msgbox(format("All of them are home! I can hear the hive humming properly again."))
     msgbox(format("Take this - it's the least I owe you.\NIt's been in my family longer than the apiary has."))
     giveitem(ITEM_HM01)
-    setspeaker(NULL)
     completequest(QUEST_HONEY)
     call(ow_r10_EventScript_RevealAmbientCombee)
     release
@@ -73,7 +67,6 @@ script ow_r10_EventScript_Combeekeeper_Reward {
     msgbox(format("All of them are home! I can hear the hive humming properly again."))
     msgbox(format("Take this - it's the least I owe you.\NIt's been in my family longer than the apiary has."))
     giveitem(ITEM_HM01)
-    setspeaker(NULL)
     completequest(QUEST_HONEY)
     call(ow_r10_EventScript_RevealAmbientCombee)
     release
@@ -117,7 +110,6 @@ script ow_r10_EventScript_AmbientCombee {
 
 script ow_r10_EventScript_Combeekeeper_Done {
     msgbox(format("The hives are settled. The honey will keep flowing.\NThank you."))
-    setspeaker(NULL)
     release
     end
 }
@@ -129,17 +121,14 @@ script ow_r10_EventScript_Combeekeeper_Done {
 script ow_r10_EventScript_CombeekeeperApiary {
     lock
     faceplayer
-    setspeaker("Combeekeeper")
     goto_if_quest_complete(QUEST_HONEY, ow_r10_EventScript_CombeekeeperApiary_Done)
     msgbox(format("My poor bees.\NThey're scattered all over the route."))
-    setspeaker(NULL)
     release
     end
 }
 
 script ow_r10_EventScript_CombeekeeperApiary_Done {
     msgbox(format("Listen to them. That hum is the sound of a hive that knows it's safe."))
-    setspeaker(NULL)
     release
     end
 }
@@ -332,7 +321,6 @@ script ow_r10_EventScript_AllCombeeHome {
 script ow_r10_EventScript_HillTmNpc {
     lock
     faceplayer
-    setspeaker("Apiary Watcher")
     goto_if_set(FLAG_R10_HONEY_TRADED, ow_r10_EventScript_HillTmNpc_Done)
     msgbox(format("Smell that?\NMelli lets her bees forage amongst the wildflowers.\pThat's why her honey tastes different. It's the wildflowers."))
     checkitem(ITEM_HONEY, 1)
@@ -343,28 +331,24 @@ script ow_r10_EventScript_HillTmNpc {
     giveitem(ITEM_TM_GIGA_DRAIN)
     setflag(FLAG_R10_HONEY_TRADED)
     msgbox(format("That's a fair trade, in my book."))
-    setspeaker(NULL)
     release
     end
 }
 
 script ow_r10_EventScript_HillTmNpc_NoHoney {
     msgbox(format("If you ever get hold of a jar of hers, come find me.\NI've something I'd trade for it."))
-    setspeaker(NULL)
     release
     end
 }
 
 script ow_r10_EventScript_HillTmNpc_Declined {
     msgbox(format("Fair enough. Hold onto it."))
-    setspeaker(NULL)
     release
     end
 }
 
 script ow_r10_EventScript_HillTmNpc_Done {
     msgbox(format("That honey is delicious.\NThank you again."))
-    setspeaker(NULL)
     release
     end
 }
@@ -376,20 +360,17 @@ script ow_r10_EventScript_HillTmNpc_Done {
 script ow_r10_EventScript_Camper {
     lock
     faceplayer
-    setspeaker("Camper")
     goto_if_set(FLAG_R10_CAMPER_GIFT, ow_r10_EventScript_Camper_Done)
     msgbox(format("First time down this track?\pIt's quiet but the trees crowd in close.\NSome of the bug Pokémon get bold around here."))
     msgbox(format("Here - take this. It'll keep them off you for a bit."))
     giveitem(ITEM_REPEL)
     setflag(FLAG_R10_CAMPER_GIFT)
-    setspeaker(NULL)
     release
     end
 }
 
 script ow_r10_EventScript_Camper_Done {
     msgbox(format("Quiet down here, isn't it?\NI'm not in a rush to head back up."))
-    setspeaker(NULL)
     release
     end
 }
@@ -401,9 +382,7 @@ script ow_r10_EventScript_Camper_Done {
 script ow_r10_EventScript_HikerHilltop {
     lock
     faceplayer
-    setspeaker("Hiker")
     msgbox(format("There's a shortcut through the rocks east of the apiary.\NIt'll save a lot of time getting to Mirevari from here."))
-    setspeaker(NULL)
     release
     end
 }
@@ -415,9 +394,7 @@ script ow_r10_EventScript_HikerHilltop {
 script ow_r10_EventScript_HikerRockface {
     lock
     faceplayer
-    setspeaker("Hiker")
     msgbox(format("That rockface up there is a bit too sheer for me.\NBut a Pokémon with the right grip?\NIt could scramble straight past."))
-    setspeaker(NULL)
     release
     end
 }
@@ -429,20 +406,17 @@ script ow_r10_EventScript_HikerRockface {
 script ow_r10_EventScript_Nurse {
     lock
     faceplayer
-    setspeaker("Nurse")
     msgbox(format("You look like you've been at it a while.\NLet me take a look at your team."), MSGBOX_YESNO)
     goto_if_eq(VAR_RESULT, NO, ow_r10_EventScript_Nurse_Decline)
     closemessage
     call(Common_EventScript_OutOfCenterPartyHeal)
     msgbox(format("There you go. Mind how you step out there."))
-    setspeaker(NULL)
     release
     end
 }
 
 script ow_r10_EventScript_Nurse_Decline {
     msgbox(format("Alright. I'll be here if you change your mind."))
-    setspeaker(NULL)
     release
     end
 }

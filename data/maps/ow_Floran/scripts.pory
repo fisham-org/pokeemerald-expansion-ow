@@ -14,9 +14,7 @@ script ow_Floran_OnTransition {
 script ow_Floran_EventScript_Townsman {
     lock
     faceplayer
-    setspeaker("Townsman")
     msgbox(format("Most of the folk who live up this end don't work for Westmark.\pWhen the warehouse expanded, they built new houses for their new employees who moved here."))
-    setspeaker(NULL)
     release
     end
 }
@@ -28,9 +26,7 @@ script ow_Floran_EventScript_Townsman {
 script ow_Floran_EventScript_BoardwalkMan {
     lock
     faceplayer
-    setspeaker("Man")
     msgbox(format("On windy days, the sawdust drifts all the way up to the boardwalk.\NYou can practically taste it, if the wind's right."))
-    setspeaker(NULL)
     release
     end
 }
@@ -42,12 +38,10 @@ script ow_Floran_EventScript_BoardwalkMan {
 script ow_Floran_EventScript_GymGardenMan {
     lock
     faceplayer
-    setspeaker("Man")
     msgbox(format("You see this garden beside the gym?"))
     applymovement(LOCALID_FLORAN_GYM_GARDEN_MAN, moves(face_up))
     waitmovement
     msgbox(format("Vesna planted every one of those herself.\NSame way she works the wood - nothing rushed, nothing wasted."))
-    setspeaker(NULL)
     release
     end
 }
@@ -59,9 +53,7 @@ script ow_Floran_EventScript_GymGardenMan {
 script ow_Floran_EventScript_HQRumoursWoman {
     lock
     faceplayer
-    setspeaker("Woman")
     msgbox(format("They say the executives run everything from the top floor.\pNone of them ever come down to the lumberyard.\pIt must be a different world up there."))
-    setspeaker(NULL)
     release
     end
 }
@@ -73,9 +65,7 @@ script ow_Floran_EventScript_HQRumoursWoman {
 script ow_Floran_EventScript_PierFisherman {
     lock
     faceplayer
-    setspeaker("Fisherman")
     msgbox(format("I've been fishing this river for twenty years.\pSomething's off with the water now.\NI won't say it's the warehouse for certain, but it probably has something to do with it."))
-    setspeaker(NULL)
     release
     end
 }
@@ -87,9 +77,7 @@ script ow_Floran_EventScript_PierFisherman {
 script ow_Floran_EventScript_RunnerM {
     lock
     faceplayer
-    setspeaker("Triathlete")
     msgbox(format("Best training stretch in the region.\pFlat, long, good sea breeze.\NI come all the way from Kolchavi for it."))
-    setspeaker(NULL)
     release
     end
 }
@@ -101,9 +89,7 @@ script ow_Floran_EventScript_RunnerM {
 script ow_Floran_EventScript_SinteriSailor {
     lock
     faceplayer
-    setspeaker("Sailor")
     msgbox(format("Clear day today.\pYou can almost see Sinteri from here if you know where to look.\pEvery timber shipment from this pier ends up there eventually."))
-    setspeaker(NULL)
     release
     end
 }
@@ -115,9 +101,7 @@ script ow_Floran_EventScript_SinteriSailor {
 script ow_Floran_EventScript_RunnerF {
     lock
     faceplayer
-    setspeaker("Triathlete")
     msgbox(format("My Floatzel keeps pace with me on the river stretch.\pI can't shake it... not that I'm trying very hard."))
-    setspeaker(NULL)
     release
     end
 }
@@ -129,9 +113,7 @@ script ow_Floran_EventScript_RunnerF {
 script ow_Floran_EventScript_NorthFisherman {
     lock
     faceplayer
-    setspeaker("Fisherman")
     msgbox(format("Those runners thunder back and forth all day.\pDrives the water Pokemon straight down to the riverbed."))
-    setspeaker(NULL)
     release
     end
 }
@@ -143,7 +125,6 @@ script ow_Floran_EventScript_NorthFisherman {
 script ow_Floran_EventScript_HoneyWoman {
     lock
     faceplayer
-    setspeaker("Woman")
     goto_if_set(FLAG_FLORAN_HONEY_TRADE_DONE, ow_Floran_EventScript_HoneyWoman_Done)
     msgbox(format("There used to be a beehive just here.\pThe Combee are gone now - the noise drove them off.\NThis end of town smells of sawdust instead of flowers."))
     checkitem(ITEM_HONEY, 1)
@@ -155,28 +136,24 @@ script ow_Floran_EventScript_HoneyWoman {
     giveitem(ITEM_SILVER_POWDER, 1)
     setflag(FLAG_FLORAN_HONEY_TRADE_DONE)
     msgbox(format("Thank you.\pThat's what this whole town used to smell like."))
-    setspeaker(NULL)
     release
     end
 }
 
 script ow_Floran_EventScript_HoneyWoman_NoHoney {
     msgbox(format("If you ever find some honey from down the southern route, come find me.\NI might have something worth trading."))
-    setspeaker(NULL)
     release
     end
 }
 
 script ow_Floran_EventScript_HoneyWoman_Declined {
     msgbox(format("That's ok."))
-    setspeaker(NULL)
     release
     end
 }
 
 script ow_Floran_EventScript_HoneyWoman_Done {
     msgbox(format("Thank you again for the honey. I still miss the Combee, though."))
-    setspeaker(NULL)
     release
     end
 }
@@ -188,9 +165,7 @@ script ow_Floran_EventScript_HoneyWoman_Done {
 script ow_Floran_EventScript_BoatLumberjack {
     lock
     faceplayer
-    setspeaker("Lumberjack")
     msgbox(format("These boats are ready to be tested in the river. The bay is calmer here, makes for a good maiden voyage."))
-    setspeaker(NULL)
     release
     end
 }
@@ -202,9 +177,7 @@ script ow_Floran_EventScript_BoatLumberjack {
 script ow_Floran_EventScript_HousingLumberjack {
     lock
     faceplayer
-    setspeaker("Lumberjack")
     msgbox(format("Half the south end was forest two years ago.\pWe cleared it to make space for new worker houses.\NThe town was going to have to expand one way or another."))
-    setspeaker(NULL)
     release
     end
 }
@@ -272,9 +245,7 @@ script ow_Floran_EventScript_FarfetchdGalar2 {
 script ow_Floran_EventScript_LumberyardSailor {
     lock
     faceplayer
-    setspeaker("Sailor")
     msgbox(format("I'm supposed to be observing the Farfetch'd. But the Sirfetch'd does a good enough job by itself - it runs a tight ship! Ha ha!"))
-    setspeaker(NULL)
     release
     end
 }
@@ -330,9 +301,7 @@ movement ow_Floran_Movement_CombeeLeave {
 script ow_Floran_EventScript_GrimerScientist {
     lock
     faceplayer
-    setspeaker("Scientist")
     msgbox(format("We trialled Alolan Grimer to process the organic runoff from the warehouse.\pUnfortunately, they have a strong aversion to salt water.\NAnother hypothesis required!"))
-    setspeaker(NULL)
     release
     end
 }
@@ -358,9 +327,7 @@ script ow_Floran_EventScript_AlolanGrimer {
 script ow_Floran_EventScript_NewBoatSailor {
     lock
     faceplayer
-    setspeaker("Sailor")
     msgbox(format("I've been waiting three weeks for the hull of my new boat to cure properly.\NVesna promised she wouldn't rush it, but I'm getting impatient."))
-    setspeaker(NULL)
     release
     end
 }

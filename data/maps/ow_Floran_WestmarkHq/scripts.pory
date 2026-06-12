@@ -7,9 +7,7 @@ mapscripts ow_Floran_WestmarkHq_MapScripts {}
 script ow_Floran_WestmarkHq_EventScript_Receptionist {
     lock
     faceplayer
-    setspeaker("Receptionist")
     msgbox(format("Welcome to the headquarters of Westmark Logging Company.\pIf you are here for an appointment, please wait downstairs."))
-    setspeaker(NULL)
     release
     end
 }
@@ -21,9 +19,7 @@ script ow_Floran_WestmarkHq_EventScript_Receptionist {
 script ow_Floran_WestmarkHq_EventScript_Applicant {
     lock
     faceplayer
-    setspeaker("Woman")
     msgbox(format("I've spent two years monitoring potential harvest sites in the field.\pI think I've earned a desk with a view."))
-    setspeaker(NULL)
     release
     end
 }
@@ -35,9 +31,7 @@ script ow_Floran_WestmarkHq_EventScript_Applicant {
 script ow_Floran_WestmarkHq_EventScript_WarehouseMan {
     lock
     faceplayer
-    setspeaker("Man")
     msgbox(format("I spend most of my time on warehouse floor.\pCompared to this office, the two workplaces couldn't be more different."))
-    setspeaker(NULL)
     release
     end
 }
@@ -49,9 +43,7 @@ script ow_Floran_WestmarkHq_EventScript_WarehouseMan {
 script ow_Floran_WestmarkHq_EventScript_ReportAnalyst {
     lock
     faceplayer
-    setspeaker("Woman")
     msgbox(format("I need these figures to reconcile before end of week.\pSorry - I don't have time to speak right now."))
-    setspeaker(NULL)
     release
     end
 }
@@ -63,9 +55,7 @@ script ow_Floran_WestmarkHq_EventScript_ReportAnalyst {
 script ow_Floran_WestmarkHq_EventScript_SeniorAnalyst {
     lock
     faceplayer
-    setspeaker("Woman")
     msgbox(format("I've spent thirteen years spent working for this company.\NAnd still, the board went looking in Sinteri."))
-    setspeaker(NULL)
     release
     end
 }
@@ -77,9 +67,7 @@ script ow_Floran_WestmarkHq_EventScript_SeniorAnalyst {
 script ow_Floran_WestmarkHq_EventScript_LumberAnalyst {
     lock
     faceplayer
-    setspeaker("Man")
     msgbox(format("Output from the northern sites is up thirty percent on last quarter.\pThe numbers are correct.\NI just don't know how long that rate holds."))
-    setspeaker(NULL)
     release
     end
 }
@@ -125,9 +113,7 @@ script ow_Floran_WestmarkHq_EventScript_Lorenz {
 script ow_Floran_WestmarkHq_EventScript_JuniorEmployee {
     lock
     faceplayer
-    setspeaker("Westmark Employee")
     msgbox(format("I've been trying to get five minutes with my manager all morning.\pShe's been finishing a report for two hours and counting."))
-    setspeaker(NULL)
     release
     end
 }

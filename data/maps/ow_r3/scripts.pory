@@ -25,9 +25,7 @@ script ow_r3_EventScript_Woodcutter2 {
 script ow_r3_EventScript_PondChild {
     lock
     faceplayer
-    setspeaker("Child")
     msgbox(format("Bidoof doesn't care about the stumps.\pHe just finds the biggest puddle and dives in.\pI tried telling him that's not how ponds work."))
-    setspeaker(NULL)
     release
     end
 }
@@ -48,7 +46,6 @@ script ow_r3_EventScript_Bidoof {
 script ow_r3_EventScript_Painter {
     lock
     faceplayer
-    setspeaker("Painter")
     goto_if_set(FLAG_RECEIVED_R3_PAINTER_REWARD, ow_r3_EventScript_Painter_AlreadyGave)
     msgbox(format("I came here to paint the western coast.\pRed flowers, blue sea, yellow sands, the whole palette in one place.\NIf you've got Pokémon that match those colours, bring them over.\NI want to see how it all sits together."))
     specialvar(VAR_RESULT, CheckPartyHasRGBPokemon)
@@ -57,28 +54,24 @@ script ow_r3_EventScript_Painter {
     giveitem(ITEM_POKE_DOLL)
     goto_if_eq(VAR_RESULT, 0, ow_r3_EventScript_Painter_BagFull)
     setflag(FLAG_RECEIVED_R3_PAINTER_REWARD)
-    setspeaker(NULL)
     release
     end
 }
 
 script ow_r3_EventScript_Painter_NotReady {
     msgbox(format("Not quite - I need red, blue, and yellow\Nin your party. Three Pokémon, three colours."))
-    setspeaker(NULL)
     release
     end
 }
 
 script ow_r3_EventScript_Painter_BagFull {
     msgbox(format("Looks like you've got no room.\NCome back when you do."))
-    setspeaker(NULL)
     release
     end
 }
 
 script ow_r3_EventScript_Painter_AlreadyGave {
     msgbox(format("You have good taste.\NNot everyone would stop here."))
-    setspeaker(NULL)
     release
     end
 }
@@ -97,9 +90,7 @@ script ow_r3_EventScript_TuberBeachboy {
 script ow_r3_EventScript_BeachMother {
     lock
     faceplayer
-    setspeaker("Mother")
     msgbox(format("Matteo! Don't go past where I can see you!\p...Sorry. We try to get out of the city on weekends.\NOur kids enjoy the gentle waves here."))
-    setspeaker(NULL)
     release
     end
 }
@@ -114,9 +105,7 @@ script ow_r3_EventScript_BeachFather {
 script ow_r3_EventScript_BeachChild {
     lock
     faceplayer
-    setspeaker("Child")
     msgbox(format("The water's freezing but dad says\Nthat's just because we're not tough enough yet!\pHe went in up to his ankles\Nand made a very loud noise."))
-    setspeaker(NULL)
     release
     end
 }
@@ -135,7 +124,6 @@ script ow_r3_EventScript_Sailor {
 script ow_r3_EventScript_BattleRewarder {
     lock
     faceplayer
-    setspeaker("Watcher")
     goto_if_set(FLAG_RECEIVED_R3_MYSTIC_WATER, ow_r3_EventScript_BattleRewarder_Already)
     setvar(VAR_TEMP_0, 0)
     if (defeated(TRAINER_OW_R3_WOODCUTTER_1) == TRUE) {
@@ -158,28 +146,24 @@ script ow_r3_EventScript_BattleRewarder {
     giveitem(ITEM_MYSTIC_WATER)
     goto_if_eq(VAR_RESULT, 0, ow_r3_EventScript_BattleRewarder_BagFull)
     setflag(FLAG_RECEIVED_R3_MYSTIC_WATER)
-    setspeaker(NULL)
     release
     end
 }
 
 script ow_r3_EventScript_BattleRewarder_NotDone {
     msgbox(format("This stretch has good trainers on it\Nif you know where to look.\pTest yourself against all of them,\Nthen come find me again."))
-    setspeaker(NULL)
     release
     end
 }
 
 script ow_r3_EventScript_BattleRewarder_BagFull {
     msgbox(format("Looks like you've got no room.\NCome back when you do."))
-    setspeaker(NULL)
     release
     end
 }
 
 script ow_r3_EventScript_BattleRewarder_Already {
     msgbox(format("The view from here pays for itself, I think."))
-    setspeaker(NULL)
     release
     end
 }

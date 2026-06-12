@@ -31,9 +31,7 @@ script ow_r6_OnTransition_QuestDone {
 script ow_r6_EventScript_SurveyorBlock {
     lock
     faceplayer
-    setspeaker("Survey Crew")
     msgbox(format("Survey in progress - upper section's\Nrestricted until we've cleared it.\pWestmark's orders. You'll be able to\Npass once the results are filed."))
-    setspeaker(NULL)
     release
     end
 }

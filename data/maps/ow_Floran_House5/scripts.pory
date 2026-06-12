@@ -4,9 +4,7 @@ mapscripts ow_Floran_House5_MapScripts {
 script ow_Floran_House5_EventScript_NewWorker {
     lock
     faceplayer
-    setspeaker("Worker")
     msgbox(format("I started yesterday... haven't unpacked yet - I'm not sure if the room was mine to keep."))
-    setspeaker(NULL)
     release
     end
 }

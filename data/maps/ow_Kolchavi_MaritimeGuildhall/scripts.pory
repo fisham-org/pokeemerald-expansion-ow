@@ -3,10 +3,8 @@ mapscripts ow_Kolchavi_MaritimeGuildhall_MapScripts {}
 script ow_Kolchavi_MaritimeGuildhall_EventScript_Leader {
     lock
     faceplayer
-    setspeaker("Guild Leader")
     msgbox(format("I run the Maritime Guild. Every hull that drops anchor on this coast, every crate that moves through Kolchavi - it crosses my desk first."))
     msgbox(format("Tides, berths, manifests. Get those wrong and the whole western coast backs up behind us."))
-    setspeaker(NULL)
     release
     end
 }
@@ -22,11 +20,9 @@ script ow_Kolchavi_MaritimeGuildhall_EventScript_Sailor {
 script ow_Kolchavi_MaritimeGuildhall_EventScript_Fisherman {
     lock
     faceplayer
-    setspeaker("Fisherman")
     checkitem(ITEM_OLD_ROD, 1)
     goto_if_eq(VAR_RESULT, FALSE, ow_Kolchavi_MaritimeGuildhall_EventScript_Fisherman_GiveRod)
     msgbox(format("Tide's on the turn - good time to wet a line off the docks."))
-    setspeaker(NULL)
     release
     end
 }
@@ -36,14 +32,12 @@ script ow_Kolchavi_MaritimeGuildhall_EventScript_Fisherman_GiveRod {
     giveitem(ITEM_OLD_ROD)
     goto_if_eq(VAR_RESULT, 0, ow_Kolchavi_MaritimeGuildhall_EventScript_Fisherman_BagFull)
     msgbox(format("Go on, try it off the end of the dock."))
-    setspeaker(NULL)
     release
     end
 }
 
 script ow_Kolchavi_MaritimeGuildhall_EventScript_Fisherman_BagFull {
     msgbox(format("Your bag's full. Make some room and I'll set you up."))
-    setspeaker(NULL)
     release
     end
 }

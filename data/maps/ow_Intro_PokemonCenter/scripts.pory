@@ -4,9 +4,7 @@ script ow_Intro_PokemonCenter_EventScript_Nurse {
     lock
     faceplayer
     goto_if_set(FLAG_SYS_POKEMON_GET, LilycoveCity_PokemonCenter_1F_EventScript_Nurse)
-    setspeaker("Nurse")
     msgbox(format("Welcome! Once you've got a Pokémon of your own, I can take care of it for you."))
-    setspeaker(NULL)
     release
     end
 }
@@ -224,7 +222,6 @@ movement ow_Intro_PokemonCenter_Movement_PlayerStepBack {
 script ow_Intro_PokemonCenter_EventScript_NuzlockeNPC {
     lock
     faceplayer
-    setspeaker("Challenge Runner")
     goto_if_set(FLAG_NUZLOCKE, ow_Intro_PokemonCenter_EventScript_NuzlockeNPCActive)
     msgbox(format("Looking for a tougher run? I can set you up with Nuzlocke mode."))
     goto(ow_Intro_PokemonCenter_EventScript_NuzlockeMenu)
@@ -265,7 +262,6 @@ script ow_Intro_PokemonCenter_EventScript_NuzlockeToggle {
     setflag(FLAG_NUZLOCKE)
     playse(SE_PC_ON)
     msgbox(format("Nuzlocke mode is now ON. Good luck out there!"))
-    setspeaker(NULL)
     release
     end
 }
@@ -274,7 +270,6 @@ script ow_Intro_PokemonCenter_EventScript_NuzlockeDisable {
     clearflag(FLAG_NUZLOCKE)
     playse(SE_PC_OFF)
     msgbox(format("Nuzlocke mode is now OFF. Standard rules apply."))
-    setspeaker(NULL)
     release
     end
 }
@@ -291,7 +286,6 @@ script ow_Intro_PokemonCenter_EventScript_NuzlockeInfo {
 
 script ow_Intro_PokemonCenter_EventScript_NuzlockeCancel {
     msgbox(format("No worries. Come back if you change your mind."))
-    setspeaker(NULL)
     release
     end
 }
@@ -299,7 +293,6 @@ script ow_Intro_PokemonCenter_EventScript_NuzlockeCancel {
 script ow_Intro_PokemonCenter_EventScript_PerfectIVsNPC {
     lock
     faceplayer
-    setspeaker("Breeder")
     goto_if_set(FLAG_PERFECT_IVS_MODE, ow_Intro_PokemonCenter_EventScript_PerfectIVsNPCActive)
     msgbox(format("Want a smoother ride? I can guarantee every Pokémon you find or receive comes with perfect stats."))
     goto(ow_Intro_PokemonCenter_EventScript_PerfectIVsMenu)
@@ -341,7 +334,6 @@ script ow_Intro_PokemonCenter_EventScript_PerfectIVsToggle {
     special(MaxPartyIVs)
     playse(SE_PC_ON)
     msgbox(format("Perfect IVs mode is now ON. Every Pokémon in your party - and every one you find or receive from now on - will have flawless stats."))
-    setspeaker(NULL)
     release
     end
 }
@@ -350,7 +342,6 @@ script ow_Intro_PokemonCenter_EventScript_PerfectIVsDisable {
     clearflag(FLAG_PERFECT_IVS_MODE)
     playse(SE_PC_OFF)
     msgbox(format("Perfect IVs mode is now OFF. Pokémon will roll their stats normally."))
-    setspeaker(NULL)
     release
     end
 }
@@ -365,7 +356,6 @@ script ow_Intro_PokemonCenter_EventScript_PerfectIVsInfo {
 
 script ow_Intro_PokemonCenter_EventScript_PerfectIVsCancel {
     msgbox(format("Suit yourself. The luck of the roll has its own charm."))
-    setspeaker(NULL)
     release
     end
 }

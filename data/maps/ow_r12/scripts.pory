@@ -95,9 +95,7 @@ script ow_r12_EventScript_Hiker1 {
 script ow_r12_EventScript_Camper {
     lock
     faceplayer
-    setspeaker("Camper")
     msgbox(format("I made it out here without half my kit.\NMy Pokemon can't cut through those trees, and I left my climbing gear back in Mirevari."))
-    setspeaker(NULL)
     release
     end
 }
@@ -109,10 +107,8 @@ script ow_r12_EventScript_Camper {
 script ow_r12_EventScript_NinjaTutor {
     lock
     faceplayer
-    setspeaker("Ninja Master")
     msgbox(format("You found us.\NFew do."))
     msgbox(format("Return when you are ready to learn.\NI will be here."))
-    setspeaker(NULL)
     release
     end
 }
@@ -124,10 +120,8 @@ script ow_r12_EventScript_NinjaTutor {
 script ow_r12_EventScript_WomanQuiet {
     lock
     faceplayer
-    setspeaker("Woman")
     msgbox(format("There's no cutting noise here. No crews, no sawdust in the air.\pJust the bog and the birds."))
     msgbox(format("I walk this way on purpose."))
-    setspeaker(NULL)
     release
     end
 }
@@ -154,9 +148,7 @@ script ow_r12_EventScript_Vasil {
 script ow_r12_EventScript_VasilPartner {
     lock
     faceplayer
-    setspeaker("Woman")
     msgbox(format("These come up on their own, mostly. The soil stays wet enough that they don't need much from me.\pVasil does the real work - the herbs take knowing what you're doing."))
-    setspeaker(NULL)
     release
     end
 }

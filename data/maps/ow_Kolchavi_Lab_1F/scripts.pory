@@ -7,9 +7,7 @@ mapscripts ow_Kolchavi_Lab_1F_MapScripts {}
 script ow_Kolchavi_Lab_1F_EventScript_Greeter {
     lock
     faceplayer
-    setspeaker("Attendant")
     msgbox(format("Welcome to Professor Zelkova's collection. Anything on the ground floor is open to the public -- please don't tap the glass."))
-    setspeaker(NULL)
     release
     end
 }
@@ -17,9 +15,7 @@ script ow_Kolchavi_Lab_1F_EventScript_Greeter {
 script ow_Kolchavi_Lab_1F_EventScript_Counter {
     lock
     faceplayer
-    setspeaker("Attendant")
     msgbox(format("If a placard's faded or missing, that's on me -- the professor keeps swapping pieces in and out faster than I can rewrite them.\pHave a look around. The upstairs gallery is staff only, but most days nobody bothers to check."))
-    setspeaker(NULL)
     release
     end
 }
@@ -27,9 +23,7 @@ script ow_Kolchavi_Lab_1F_EventScript_Counter {
 script ow_Kolchavi_Lab_1F_EventScript_PokeballViewer {
     lock
     faceplayer
-    setspeaker("Visitor")
     msgbox(format("Hard to believe people trusted their lives to these things. Wood and twine and a prayer.\pMine's clipped to my belt and I never think about it. That's progress, I suppose. Or laziness."))
-    setspeaker(NULL)
     release
     end
 }
@@ -37,9 +31,7 @@ script ow_Kolchavi_Lab_1F_EventScript_PokeballViewer {
 script ow_Kolchavi_Lab_1F_EventScript_FossilChild {
     lock
     faceplayer
-    setspeaker("Child")
     msgbox(format("Mum, if it's a rock, why is it in a museum?\pIs IT the dinosaur, or did the dinosaur leave it behind?"))
-    setspeaker(NULL)
     release
     end
 }
@@ -47,9 +39,7 @@ script ow_Kolchavi_Lab_1F_EventScript_FossilChild {
 script ow_Kolchavi_Lab_1F_EventScript_FossilParent {
     lock
     faceplayer
-    setspeaker("Parent")
     msgbox(format("I told her this would be educational. She has asked me, in order, what it tastes like, whether it can come home with us, and if Pokémon ate rocks back then.\pThe placard does not cover any of these questions."))
-    setspeaker(NULL)
     release
     end
 }
@@ -57,9 +47,7 @@ script ow_Kolchavi_Lab_1F_EventScript_FossilParent {
 script ow_Kolchavi_Lab_1F_EventScript_UpstairsHint {
     lock
     faceplayer
-    setspeaker("Researcher")
     msgbox(format("The downstairs cases are what Professor Zelkova has finished thinking about. They're tidy because the arguments are over.\pUpstairs is where the work actually happens. Less to look at, but a great deal more to overhear."))
-    setspeaker(NULL)
     release
     end
 }

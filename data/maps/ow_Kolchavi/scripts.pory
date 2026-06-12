@@ -10,9 +10,7 @@ script ow_Kolchavi_OnTransition {
 script ow_Kolchavi_EventScript_NPC1 {
     lock
     faceplayer
-    setspeaker("Townsperson")
     msgbox(format("Not many people make it to Kolchavi overland. Most come in by ship. You get used to the smell of the sea pretty fast."))
-    setspeaker(NULL)
     release
     end
 }
@@ -20,9 +18,7 @@ script ow_Kolchavi_EventScript_NPC1 {
 script ow_Kolchavi_EventScript_Shopkeeper1 {
     lock
     faceplayer
-    setspeaker("Merchant")
     msgbox(format("Can I interest you in something? We keep a good stock for travellers coming through the port."))
-    setspeaker(NULL)
     pokemart(ow_Kolchavi_MartItems1)
     release
     end
@@ -42,9 +38,7 @@ mart ow_Kolchavi_MartItems1 {
 script ow_Kolchavi_EventScript_NPC2 {
     lock
     faceplayer
-    setspeaker("Shopper")
     msgbox(format("I heard the next ship from Khevan is bringing dried apricot. Haven't seen any in months."))
-    setspeaker(NULL)
     release
     end
 }
@@ -52,9 +46,7 @@ script ow_Kolchavi_EventScript_NPC2 {
 script ow_Kolchavi_EventScript_Shopkeeper2 {
     lock
     faceplayer
-    setspeaker("Merchant")
     msgbox(format("Everything here came in on the last supply ship. Freshest stock in Kolchavi."))
-    setspeaker(NULL)
     pokemart(ow_Kolchavi_MartItems2)
     release
     end
@@ -71,9 +63,7 @@ mart ow_Kolchavi_MartItems2 {
 script ow_Kolchavi_EventScript_CliffWatcher {
     lock
     faceplayer
-    setspeaker("Local")
     msgbox(format("I've seen Pokemon going up that cliff face. Not climbers, just... walking. Like they know a path nobody else does."))
-    setspeaker(NULL)
     release
     end
 }
@@ -81,9 +71,7 @@ script ow_Kolchavi_EventScript_CliffWatcher {
 script ow_Kolchavi_EventScript_NPC3 {
     lock
     faceplayer
-    setspeaker("Local")
     msgbox(format("The lab's been busier this season. More academics than I've seen in years. Not all of them stay long."))
-    setspeaker(NULL)
     release
     end
 }
@@ -91,9 +79,7 @@ script ow_Kolchavi_EventScript_NPC3 {
 script ow_Kolchavi_EventScript_Sailor1 {
     lock
     faceplayer
-    setspeaker("Sailor")
     msgbox(format("Three days out from Khevan, good wind the whole way. This is a fine port to put in at."))
-    setspeaker(NULL)
     release
     end
 }
@@ -101,9 +87,7 @@ script ow_Kolchavi_EventScript_Sailor1 {
 script ow_Kolchavi_EventScript_Sailor2 {
     lock
     faceplayer
-    setspeaker("Sailor")
     msgbox(format("Something moved under the water on the way in. Captain said not to log it. I logged it."))
-    setspeaker(NULL)
     release
     end
 }
@@ -111,9 +95,7 @@ script ow_Kolchavi_EventScript_Sailor2 {
 script ow_Kolchavi_EventScript_Fisherman {
     lock
     faceplayer
-    setspeaker("Fisherman")
     msgbox(format("Nothing yet. But the tide's just turning. That's always when they start moving."))
-    setspeaker(NULL)
     release
     end
 }
@@ -123,25 +105,19 @@ script ow_Kolchavi_EventScript_Researcher {
     faceplayer
     goto_if_quest_complete(QUEST_ZELKOVA, ow_Kolchavi_EventScript_Researcher_PostQuest)
     goto_if_quest_active(QUEST_ZELKOVA, ow_Kolchavi_EventScript_Researcher_Active)
-    setspeaker("Researcher")
     msgbox(format("Professor Zelkova hasn't reviewed my coastal survey notes yet. Three weeks. I can't start the eastern caves without her sign-off.\pShe's up in the lab -- second floor. If you're new to Kolchavi, it's worth the introduction. Her work is unlike anything else going on in this region."))
-    setspeaker(NULL)
     release
     end
 }
 
 script ow_Kolchavi_EventScript_Researcher_Active {
-    setspeaker("Researcher")
     msgbox(format("Oh, are you going to Sowback Cave too? One of the Professor's assistants left to investigate it recently, too."))
-    setspeaker(NULL)
     release
     end
 }
 
 script ow_Kolchavi_EventScript_Researcher_PostQuest {
-    setspeaker("Researcher")
     msgbox(format("Professor Zelkova finally reviewed my coastal survey notes. She had seventeen questions and no corrections.\pI'll take it."))
-    setspeaker(NULL)
     release
     end
 }
@@ -149,9 +125,7 @@ script ow_Kolchavi_EventScript_Researcher_PostQuest {
 script ow_Kolchavi_EventScript_NPC4 {
     lock
     faceplayer
-    setspeaker("Guild Member")
     msgbox(format("The guild sets tide windows for every vessel in harbour. Miss your slot, you wait a full day. Nobody argues with the tides."))
-    setspeaker(NULL)
     release
     end
 }
@@ -159,9 +133,7 @@ script ow_Kolchavi_EventScript_NPC4 {
 script ow_Kolchavi_EventScript_NPC5 {
     lock
     faceplayer
-    setspeaker("Trader")
     msgbox(format("Used to wait three weeks for a timber shipment out of Floran. Now the cutting's half a day north. Hard to complain about the price."))
-    setspeaker(NULL)
     release
     end
 }
@@ -169,9 +141,7 @@ script ow_Kolchavi_EventScript_NPC5 {
 script ow_Kolchavi_EventScript_Dockworker {
     lock
     faceplayer
-    setspeaker("Dockworker")
     msgbox(format("My Machop's been working this dock since it was barely bigger than a Timburr. Strongest loader on the waterfront now."))
-    setspeaker(NULL)
     release
     end
 }
@@ -179,9 +149,7 @@ script ow_Kolchavi_EventScript_Dockworker {
 script ow_Kolchavi_EventScript_NPC6 {
     lock
     faceplayer
-    setspeaker("Local")
     msgbox(format("Arcanine used to pull the sledges before the roads went in. My Growlithe's too young to remember any of that. Just as well, probably."))
-    setspeaker(NULL)
     release
     end
 }

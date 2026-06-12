@@ -82,9 +82,7 @@ script ow_SowbackCave_B1F_EventScript_Nosepass {
 
 script ow_SowbackCave_B1F_EventScript_Hiker {
     trainerbattle_single(TRAINER_OW_SOWBACK_B1F_HIKER, format("Ghahahaha! Found anything good in there? My Pokemon have been clearing a path all day.\pBet I've covered more ground than you!"), format("Good arm on you! Keep an eye on that far alcove - I cracked open a nice vein in there."))
-    setspeaker("Dragan")
     msgbox(format("Those Drilbur move fast when something disturbs them.\NMind the tunnels."))
-    setspeaker(NULL)
     release
     end
 }
@@ -95,9 +93,7 @@ script ow_SowbackCave_B1F_EventScript_Hiker {
 
 script ow_SowbackCave_B1F_EventScript_RuinManiac {
     trainerbattle_single(TRAINER_OW_SOWBACK_B1F_RUIN_MANIAC, format("Look at that smear in the rock! Iron, yes, but not the right kind for this geology!\pIf you want to study this chamber, break through my vanguard first!"), format("Remarkable!\pIron shouldn't be here - not this variety. Something carried it in."))
-    setspeaker("Oskar")
     msgbox(format("Limonite.\NBog iron.\NThis hill has a story it isn't telling us."))
-    setspeaker(NULL)
     release
     end
 }
@@ -108,9 +104,7 @@ script ow_SowbackCave_B1F_EventScript_RuinManiac {
 
 script ow_SowbackCave_B1F_EventScript_BlackBelt {
     trainerbattle_single(TRAINER_OW_SOWBACK_B1F_BLACK_BELT, format("KIIAAAI! The cave walls focus every sound.\pMy fists ring like iron in here. Test them if you dare!"), format("Hoo-hah! The echo threw my timing. Well fought."))
-    setspeaker("Stev")
     msgbox(format("The acoustics down here are extraordinary.\NI could train for months."))
-    setspeaker(NULL)
     release
     end
 }
@@ -121,9 +115,7 @@ script ow_SowbackCave_B1F_EventScript_BlackBelt {
 
 script ow_SowbackCave_B1F_EventScript_Firebreather {
     trainerbattle_single(TRAINER_OW_SOWBACK_B1F_FIREBREATHER, format("Fwoosh! The damp air makes the flames dance beautifully in here - can you feel the heat?\pMy partners are about to light this place up!"), format("Argh! Put out completely! The smoke must have got in my eyes."))
-    setspeaker("Igno")
     msgbox(format("The stone walls hold the heat beautifully.\NRemarkable location for practice."))
-    setspeaker(NULL)
     release
     end
 }

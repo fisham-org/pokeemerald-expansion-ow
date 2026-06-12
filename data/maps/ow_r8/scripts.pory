@@ -7,9 +7,7 @@ mapscripts ow_r8_MapScripts {}
 script ow_r8_EventScript_LumberjackScared {
     lock
     faceplayer
-    setspeaker("Lumberjack")
     msgbox(format("I tried to check out the forest further east, but the old couple got right up in my face! Make sure to steer clear of them."))
-    setspeaker(NULL)
     release
     end
 }
@@ -17,9 +15,7 @@ script ow_r8_EventScript_LumberjackScared {
 script ow_r8_EventScript_Passerby {
     lock
     faceplayer
-    setspeaker("Woman")
     msgbox(format("The forest starts thinning out ahead. It gets boggy pretty quickly after that."))
-    setspeaker(NULL)
     release
     end
 }
@@ -27,9 +23,7 @@ script ow_r8_EventScript_Passerby {
 script ow_r8_EventScript_HikerSwamp {
     lock
     faceplayer
-    setspeaker("Hiker")
     msgbox(format("Ghahaha! I can climb anything!\NBut this vegetation - I can't cut through it.\pSo I must wade. My boots are ruined."))
-    setspeaker(NULL)
     release
     end
 }
@@ -37,9 +31,7 @@ script ow_r8_EventScript_HikerSwamp {
 script ow_r8_EventScript_RuinManiac {
     lock
     faceplayer
-    setspeaker("Ruin Maniac")
     msgbox(format("I'm pretty sure there's some kind of cavern just below us, but it's too dangerous to scale the path down below."))
-    setspeaker(NULL)
     release
     end
 }
@@ -118,10 +110,8 @@ script ow_r8_EventScript_BugManiac {
 script ow_r8_EventScript_Fisherman {
     lock
     faceplayer
-    setspeaker("Old Man")
     msgbox(format("Swamp water's no good for fishing.\NToo cloudy, too shallow. So I dug this out myself."))
     msgbox(format("Took a season or two.\NThings moved in on their own after that.\pWater finds its own level."))
-    setspeaker(NULL)
     release
     end
 }

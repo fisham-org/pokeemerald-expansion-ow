@@ -166,25 +166,19 @@ script ow_Kolchavi_Lab_2F_EventScript_RecordKeeper {
     faceplayer
     goto_if_quest_complete(QUEST_ZELKOVA, ow_Kolchavi_Lab_2F_EventScript_RecordKeeper_PostQuest)
     goto_if_quest_active(QUEST_ZELKOVA, ow_Kolchavi_Lab_2F_EventScript_RecordKeeper_Active)
-    setspeaker("Assistant")
     msgbox(format("Nadia's still out in the field - longer than planned.\pProfessor Zelkova says our job is to document change, not prevent it."))
-    setspeaker(NULL)
     release
     end
 }
 
 script ow_Kolchavi_Lab_2F_EventScript_RecordKeeper_Active {
-    setspeaker("Assistant")
     msgbox(format("You're heading into Sowback Cave? The Drilbur concentrations shift near the older worked sections - Nadia will be wherever the most interesting thing is. That's how you find her."))
-    setspeaker(NULL)
     release
     end
 }
 
 script ow_Kolchavi_Lab_2F_EventScript_RecordKeeper_PostQuest {
-    setspeaker("Assistant")
     msgbox(format("I've been cross-referencing Nadia's soil samples with the pre-port land survey records.\pI think there are at least three other sites in the region with similar patterns. Professor Zelkova says to finish the Sowback analysis before drawing conclusions."))
-    setspeaker(NULL)
     release
     end
 }
@@ -222,9 +216,7 @@ script ow_Kolchavi_Lab_2F_EventScript_Nosepass {
 script ow_Kolchavi_Lab_2F_EventScript_WorkerNotes {
     lock
     faceplayer
-    setspeaker("Lab Researcher")
     msgbox(format("I'm cross-referencing Alolan Grimer sightings against urban waste records from Alola's industrialisation period.\pThe correlation is near-perfect. Pokémon don't just adapt to wilderness. They adapt to us."))
-    setspeaker(NULL)
     release
     end
 }
@@ -232,9 +224,7 @@ script ow_Kolchavi_Lab_2F_EventScript_WorkerNotes {
 script ow_Kolchavi_Lab_2F_EventScript_WorkerDating {
     lock
     faceplayer
-    setspeaker("Lab Researcher")
     msgbox(format("Dating? Oh... no.\NWith my workload, I gave up on that a while ago.\p...\pWait. You meant the machine.\pYes.\pThe machine dates things.\NThat's what it does."))
-    setspeaker(NULL)
     release
     end
 }
@@ -242,9 +232,7 @@ script ow_Kolchavi_Lab_2F_EventScript_WorkerDating {
 script ow_Kolchavi_Lab_2F_EventScript_WorkerCorsola {
     lock
     faceplayer
-    setspeaker("Lab Researcher")
     msgbox(format("Galarian Corsola is Professor Zelkova's most cited example. It didn't adapt - it died and left a ghost behind.\pShe uses it to argue that regional forms are evidence of successful cohabitation. The ecosystem was disrupted, but slowly enough that the population had time to respond. Galar's Corsola didn't have time."))
-    setspeaker(NULL)
     release
     end
 }
@@ -252,9 +240,7 @@ script ow_Kolchavi_Lab_2F_EventScript_WorkerCorsola {
 script ow_Kolchavi_Lab_2F_EventScript_WorkerSouth {
     lock
     faceplayer
-    setspeaker("Lab Researcher")
     msgbox(format("We found records of Corsola in Kavora's southern seas going back two centuries. They're gone now.\pDocuments show coastal communities stopped harvesting them about 180 years ago. Nobody recorded why. The practice simply stopped.\pProfessor Zelkova thinks they knew. Not consciously - but they knew."))
-    setspeaker(NULL)
     release
     end
 }

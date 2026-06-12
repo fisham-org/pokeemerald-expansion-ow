@@ -4,9 +4,8 @@ mapscripts ow_Floran_House3_MapScripts {
 script ow_Floran_House3_EventScript_Worker1 {
     lock
     faceplayer
-    setspeaker("Worker")
+
     msgbox(format("First season and I'm already saving more than I did back home.\pThe work's hard but it's honest.\NTimburr loves it - the whole yard smells like timber."))
-    setspeaker(NULL)
     release
     end
 }
@@ -14,9 +13,8 @@ script ow_Floran_House3_EventScript_Worker1 {
 script ow_Floran_House3_EventScript_Worker2 {
     lock
     faceplayer
-    setspeaker("Worker")
+
     msgbox(format("Three more seasons and I'll have enough to go home.\pMaybe two if the overtime keeps up.\NI keep saying that, though."))
-    setspeaker(NULL)
     release
     end
 }
