@@ -1097,18 +1097,18 @@ enum NationalDexOrder
     F(CHARMANDER) \
     F(CHARMELEON) \
     F(CHARIZARD) \
-    F(FROAKIE) \
-    F(FROGADIER) \
-    F(GRENINJA) \
+    F(POPPLIO) \
+    F(BRIONNE) \
+    F(PRIMARINA) \
     F(GROOKEY) \
     F(THWACKEY) \
     F(RILLABOOM) \
     F(CHIMCHAR) \
     F(MONFERNO) \
     F(INFERNAPE) \
-    F(POPPLIO) \
-    F(BRIONNE) \
-    F(PRIMARINA) \
+    F(FROAKIE) \
+    F(FROGADIER) \
+    F(GRENINJA) \
     F(PIKACHU) \
     F(RAICHU) \
     F(SANDSHREW) \

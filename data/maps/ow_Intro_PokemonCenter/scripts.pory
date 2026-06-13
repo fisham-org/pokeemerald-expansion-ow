@@ -23,12 +23,12 @@ script ow_Intro_PokemonCenter_EventScript_LeagueRep {
 script ow_Intro_PokemonCenter_EventScript_StarterSelect {
     dynmultipush("SPRIGATITO", 0)
     dynmultipush("CHARMANDER", 1)
-    dynmultipush("FROAKIE", 2)
+    dynmultipush("POPPLIO", 2)
     dynmultistack(0, 0, TRUE, 3, FALSE, 0, DYN_MULTICHOICE_CB_NONE)
     switch (var(VAR_RESULT)) {
         case 0: goto(ow_Intro_PokemonCenter_EventScript_ConfirmSprigatito)
         case 1: goto(ow_Intro_PokemonCenter_EventScript_ConfirmCharmander)
-        case 2: goto(ow_Intro_PokemonCenter_EventScript_ConfirmFroakie)
+        case 2: goto(ow_Intro_PokemonCenter_EventScript_ConfirmPopplio)
     }
     end
 }
@@ -71,10 +71,10 @@ script ow_Intro_PokemonCenter_EventScript_ConfirmCharmander {
     goto(ow_Intro_PokemonCenter_EventScript_AfterStarter)
 }
 
-script ow_Intro_PokemonCenter_EventScript_ConfirmFroakie {
-    showmonpic(SPECIES_FROAKIE, 10, 3)
-    playmoncry(SPECIES_FROAKIE, CRY_MODE_NORMAL)
-    bufferspeciesname(STR_VAR_1, SPECIES_FROAKIE)
+script ow_Intro_PokemonCenter_EventScript_ConfirmPopplio {
+    showmonpic(SPECIES_POPPLIO, 10, 3)
+    playmoncry(SPECIES_POPPLIO, CRY_MODE_NORMAL)
+    bufferspeciesname(STR_VAR_1, SPECIES_POPPLIO)
     msgbox(format("Are you sure you want {STR_VAR_1}?"), MSGBOX_YESNO)
     waitmoncry
     hidemonpic
@@ -85,7 +85,7 @@ script ow_Intro_PokemonCenter_EventScript_ConfirmFroakie {
     msgbox(format("{PLAYER} received {STR_VAR_1}!"))
     playfanfare(MUS_OBTAIN_ITEM)
     waitfanfare
-    givemon(SPECIES_FROAKIE, 5)
+    givemon(SPECIES_POPPLIO, 5)
     closemessage
     goto(ow_Intro_PokemonCenter_EventScript_AfterStarter)
 }
