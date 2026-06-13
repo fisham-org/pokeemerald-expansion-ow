@@ -1,4 +1,28 @@
-mapscripts ow_r3_MapScripts {}
+mapscripts ow_r3_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: ow_r3_OnTransition
+}
+
+// Syncs survey blocker / surveyor trainer visibility with VAR_CULTURE_STATE on every map entry.
+// Blockers are visible (flags clear) until phase 1 is done (state >= 4).
+// Surveyor trainer is hidden (flag set) until then.
+script ow_r3_OnTransition {
+    goto_if_ge(VAR_CULTURE_STATE, 4, ow_r3_OnTransition_QuestDone)
+    setflag(FLAG_HIDE_OW_R3_SURVEYOR_TRAINER)
+    clearflag(FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_1)
+    clearflag(FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_2)
+    clearflag(FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_3)
+    clearflag(FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_4)
+    end
+}
+
+script ow_r3_OnTransition_QuestDone {
+    clearflag(FLAG_HIDE_OW_R3_SURVEYOR_TRAINER)
+    setflag(FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_1)
+    setflag(FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_2)
+    setflag(FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_3)
+    setflag(FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_4)
+    end
+}
 
 // ============================================================
 // WOODCUTTERS (Westmark crew, cut-site cabin area)
@@ -164,6 +188,68 @@ script ow_r3_EventScript_BattleRewarder_BagFull {
 
 script ow_r3_EventScript_BattleRewarder_Already {
     msgbox(format("The view from here pays for itself, I think."))
+    release
+    end
+}
+
+// ============================================================
+// SURVEY BLOCKERS (west)
+// ============================================================
+
+script ow_r3_EventScript_SurveyorBlock1 {
+    lock
+    faceplayer
+    msgbox(format("Westmark is surveying this upper area.\pCome back once the report's filed.\NOtherwise, you can go through the cave."))
+    release
+    end
+}
+
+script ow_r3_EventScript_SurveyorBlock2 {
+    lock
+    faceplayer
+    msgbox(format("We can't let you through. The survey's still running up there.\pWestmark's job, not mine to explain.\NJust keeping the path clear."))
+    release
+    end
+}
+
+// ============================================================
+// SURVEY BLOCKERS (east)
+// ============================================================
+
+script ow_r3_EventScript_SurveyorBlock3 {
+    lock
+    faceplayer
+    msgbox(format("Survey zone. Upper shelf's off-limits\Ntill the assessment's done.\pGood timber up here. Hope they put\Nit to use."))
+    release
+    end
+}
+
+script ow_r3_EventScript_SurveyorBlock4 {
+    lock
+    faceplayer
+    msgbox(format("Path's closed - we have a crew on the ridge doing measurements.\pYou might need to venture through Sowback Cave to get by."))
+    release
+    end
+}
+
+// ============================================================
+// SURVEYOR TRAINER (hidden until VAR_CULTURE_STATE >= 4)
+// ============================================================
+
+script ow_r3_EventScript_SurveyorTrainer {
+    trainerbattle_single(TRAINER_OW_R3_SURVEYOR, format("Didn't expect to find someone up here this late in the season.\pThe survey's done. I've got nothing to do but wait for Westmark to decide what to do with my findings."), format("Ha. I spend too much time with my instruments and not enough with my team."))
+    msgbox(format("The data I gave them would cut a haul road\Nright through the lower ridge.\pWhether it gets built is someone else's\Nproblem now."))
+    release
+    end
+}
+
+// ============================================================
+// BUG CATCHER (clifftop hunter)
+// ============================================================
+
+script ow_r3_EventScript_BugCatcher {
+    trainerbattle_single(TRAINER_OW_R3_BUG_CATCHER, format("Be careful! Don't startle the Charjabugs!"), format("They scattered! You must have scared them all off!"))
+    msgbox(format("Grubbin and Charjabug spend most of their time underground, unlike Vikavolt, who are experts in aerial movement."))
     release
     end
 }

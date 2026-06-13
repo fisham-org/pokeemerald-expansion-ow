@@ -12,23 +12,7 @@
   "allow_running": false,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_OW_R3",
-      "offset": 0,
-      "direction": "down"
-    },
-    {
-      "map": "MAP_OW_R6",
-      "offset": 20,
-      "direction": "down"
-    },
-    {
-      "map": "MAP_OW_R9",
-      "offset": 0,
-      "direction": "right"
-    }
-  ],
+  "connections": null,
   "object_events": [],
   "warp_events": [],
   "coord_events": [],

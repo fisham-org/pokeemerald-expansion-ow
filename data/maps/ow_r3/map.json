@@ -19,14 +19,9 @@
       "direction": "down"
     },
     {
-      "map": "MAP_OW_R6",
+      "map": "MAP_OW_FLORAN",
       "offset": 0,
       "direction": "right"
-    },
-    {
-      "map": "MAP_OW_R2",
-      "offset": 0,
-      "direction": "up"
     }
   ],
   "object_events": [
@@ -269,9 +264,245 @@
       "script": "ow_r3_EventScript_BattleRewarder",
       "flag": "0",
       "notes": "npc - will reward the player if they battle 4 or more people on this route, giving a mystic water"
+    },
+    {
+      "local_id": "LOCALID_R3_SURVEYOR_BLOCK_2",
+      "graphics_id": "OBJ_EVENT_GFX_MANIAC",
+      "x": 52,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ow_r3_EventScript_SurveyorBlock2",
+      "flag": "FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_2",
+      "notes": "Local hired hand. Flat, uninvested. Blocks west choke until VAR_CULTURE_STATE >= 4."
+    },
+    {
+      "local_id": "LOCALID_R3_SURVEYOR_BLOCK_1",
+      "graphics_id": "OBJ_EVENT_GFX_LUMBERJACK",
+      "x": 52,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ow_r3_EventScript_SurveyorBlock1",
+      "flag": "FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_1",
+      "notes": "Westmark site manager. Authoritative, pro-logging. Blocks west choke until VAR_CULTURE_STATE >= 4."
+    },
+    {
+      "local_id": "LOCALID_R3_SURVEYOR_BLOCK_3",
+      "graphics_id": "OBJ_EVENT_GFX_LUMBERJACK",
+      "x": 67,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ow_r3_EventScript_SurveyorBlock3",
+      "flag": "FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_3",
+      "notes": "Logger doing tree-line assessment. Knows the area, pro-logging. Blocks east choke until VAR_CULTURE_STATE >= 4."
+    },
+    {
+      "local_id": "LOCALID_R3_SURVEYOR_BLOCK_4",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_4",
+      "x": 67,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ow_r3_EventScript_SurveyorBlock4",
+      "flag": "FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_4",
+      "notes": "Local worker. Understands what a haul road means. Blocks east choke until VAR_CULTURE_STATE >= 4."
+    },
+    {
+      "local_id": "LOCALID_R3_SURVEYOR_TRAINER",
+      "graphics_id": "OBJ_EVENT_GFX_MANIAC",
+      "x": 59,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "ow_r3_EventScript_SurveyorTrainer",
+      "flag": "FLAG_HIDE_OW_R3_SURVEYOR_TRAINER",
+      "notes": "the npc who was previously blocking the player from progressing, now is a trainer"
+    },
+    {
+      "local_id": "LOCALID_R3_BUG_CATCHER",
+      "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+      "x": 74,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "ow_r3_EventScript_BugCatcher",
+      "flag": "0",
+      "notes": "bug catcher trainer"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
+      "x": 58,
+      "y": 36,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_RockSmash",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 59,
+      "y": 36,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "FLAG_TEMP_2"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 60,
+      "y": 35,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "FLAG_TEMP_3"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
+      "x": 60,
+      "y": 36,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_RockSmash",
+      "flag": "FLAG_TEMP_4"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 60,
+      "y": 37,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "FLAG_TEMP_5"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
+      "x": 61,
+      "y": 35,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_RockSmash",
+      "flag": "FLAG_TEMP_6"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 61,
+      "y": 36,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "FLAG_TEMP_7"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
+      "x": 61,
+      "y": 37,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_RockSmash",
+      "flag": "FLAG_TEMP_8"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
+      "x": 62,
+      "y": 35,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_RockSmash",
+      "flag": "FLAG_TEMP_9"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 49,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_OW_SOWBACK_CAVE_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 57,
+      "y": 32,
+      "elevation": 0,
+      "dest_map": "MAP_OW_SOWBACK_CAVE_1F",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 63,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_OW_SOWBACK_CAVE_2F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 76,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_OW_SOWBACK_CAVE_1F",
+      "dest_warp_id": "1"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }

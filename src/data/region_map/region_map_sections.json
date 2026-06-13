@@ -1637,7 +1637,7 @@
     },
     {
       "id": "MAPSEC_OW_R3",
-      "name": "R3",
+      "name": "HAUL ROAD",
       "x": 2,
       "y": 9,
       "width": 1,
@@ -1657,7 +1657,7 @@
     },
     {
       "id": "MAPSEC_OW_R10",
-      "name": "R10",
+      "name": "HONEYWOOD TRAIL",
       "x": 5,
       "y": 10,
       "width": 1,
@@ -1665,7 +1665,7 @@
     },
     {
       "id": "MAPSEC_OW_R8",
-      "name": "R8",
+      "name": "EDGEWATER PATH",
       "x": 5,
       "y": 13,
       "width": 4,
@@ -1673,7 +1673,7 @@
     },
     {
       "id": "MAPSEC_OW_R12",
-      "name": "R12",
+      "name": "BOGWOOD TRACK",
       "x": 5,
       "y": 10,
       "width": 4,

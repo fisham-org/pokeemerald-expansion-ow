@@ -80,6 +80,7 @@
       "flag": "FLAG_TEMP_5"
     },
     {
+      "local_id": "LOCALID_SOWBACK_1F_CAMPER",
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
       "x": 13,
       "y": 12,
@@ -91,10 +92,10 @@
       "trainer_sight_or_berry_tree_id": "4",
       "script": "ow_SowbackCave_1F_EventScript_Camper",
       "flag": "0",
-      "notes": "trainer - camper exploring cave",
-      "local_id": "LOCALID_SOWBACK_1F_CAMPER"
+      "notes": "trainer - camper exploring cave"
     },
     {
+      "local_id": "LOCALID_SOWBACK_1F_HIKER_1",
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
       "x": 18,
       "y": 23,
@@ -106,25 +107,25 @@
       "trainer_sight_or_berry_tree_id": "4",
       "script": "ow_SowbackCave_1F_EventScript_Hiker1",
       "flag": "0",
-      "notes": "trainer - hiker exploring cave. he wants to climb up the nearby rock face to get to the upper level",
-      "local_id": "LOCALID_SOWBACK_1F_HIKER_1"
+      "notes": "trainer - hiker exploring cave. he wants to climb up the nearby rock face to get to the upper level"
     },
     {
+      "local_id": "LOCALID_SOWBACK_1F_HIKER_2",
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
-      "x": 27,
+      "x": 28,
       "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_LEFT_AND_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
+      "trainer_sight_or_berry_tree_id": "3",
       "script": "ow_SowbackCave_1F_EventScript_Hiker2",
       "flag": "0",
-      "notes": "trainer - hiker exploring cave, is very close to floran exit",
-      "local_id": "LOCALID_SOWBACK_1F_HIKER_2"
+      "notes": "trainer - hiker exploring cave, is very close to floran exit"
     },
     {
+      "local_id": "LOCALID_SOWBACK_1F_BUG_CATCHER",
       "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
       "x": 32,
       "y": 6,
@@ -136,10 +137,10 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ow_SowbackCave_1F_EventScript_BugCatcher",
       "flag": "0",
-      "notes": "npc - bug catcher who walked into cave to explore but is scared of the dark",
-      "local_id": "LOCALID_SOWBACK_1F_BUG_CATCHER"
+      "notes": "npc - bug catcher who walked into cave to explore but is scared of the dark"
     },
     {
+      "local_id": "LOCALID_SOWBACK_1F_HIKER_NPC",
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
       "x": 23,
       "y": 32,
@@ -151,10 +152,10 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ow_SowbackCave_1F_EventScript_HikerNPC",
       "flag": "0",
-      "notes": "npc - hiker walking around, commenting he thought he heard a collapse up ahead.",
-      "local_id": "LOCALID_SOWBACK_1F_HIKER_NPC"
+      "notes": "npc - hiker walking around, commenting he thought he heard a collapse up ahead."
     },
     {
+      "local_id": "LOCALID_SOWBACK_1F_DUSK_BALL",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 19,
       "y": 18,
@@ -166,10 +167,10 @@
       "trainer_sight_or_berry_tree_id": "ITEM_DUSK_BALL",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_OW_SOWBACK_1F_DUSK_BALL",
-      "notes": "this is an item that can be found in a cave",
-      "local_id": "LOCALID_SOWBACK_1F_DUSK_BALL"
+      "notes": "this is an item that can be found in a cave"
     },
     {
+      "local_id": "LOCALID_SOWBACK_1F_ESCAPE_ROPE",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 20,
       "y": 4,
@@ -181,10 +182,10 @@
       "trainer_sight_or_berry_tree_id": "ITEM_ESCAPE_ROPE",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_OW_SOWBACK_1F_ESCAPE_ROPE",
-      "notes": "this is an item that can be found in a cave",
-      "local_id": "LOCALID_SOWBACK_1F_ESCAPE_ROPE"
+      "notes": "this is an item that can be found in a cave"
     },
     {
+      "local_id": "LOCALID_SOWBACK_1F_REVIVE",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 26,
       "y": 32,
@@ -196,8 +197,7 @@
       "trainer_sight_or_berry_tree_id": "ITEM_REVIVE",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_OW_SOWBACK_1F_REVIVE",
-      "notes": "this is an item that can be found in a cave",
-      "local_id": "LOCALID_SOWBACK_1F_REVIVE"
+      "notes": "this is an item that can be found in a cave"
     }
   ],
   "warp_events": [
@@ -205,22 +205,22 @@
       "x": 9,
       "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_OW_R6",
+      "dest_map": "MAP_OW_R3",
       "dest_warp_id": "0"
     },
     {
       "x": 32,
       "y": 9,
       "elevation": 0,
-      "dest_map": "MAP_OW_R6",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_OW_R3",
+      "dest_warp_id": "3"
     },
     {
       "x": 21,
       "y": 9,
       "elevation": 0,
-      "dest_map": "MAP_OW_R6",
-      "dest_warp_id": "2"
+      "dest_map": "MAP_OW_R3",
+      "dest_warp_id": "1"
     },
     {
       "x": 20,

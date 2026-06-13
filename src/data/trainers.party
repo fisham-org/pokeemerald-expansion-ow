@@ -17191,7 +17191,7 @@ Tags: Ace
 - Recover
 - Protect
 
-=== TRAINER_OW_R6_BUG_CATCHER ===
+=== TRAINER_OW_R3_BUG_CATCHER ===
 Name: FERDO
 Class: Bug Catcher
 Pic: Bug Catcher
@@ -17319,7 +17319,7 @@ Party Size: 2
 Pool Rules: Doubles
 AI: Check Bad Move / Try To Faint
 
-Graveler @ Rocky Helmet
+Golem-Alola @ Rocky Helmet
 Level: 100
 Ability: Sturdy
 Nature: Impish
@@ -17329,7 +17329,7 @@ EVs: 252 HP / 252 Def / 4 SpD
 - Bulldoze
 - Explosion
 
-Boldore @ Eviolite
+Gigalith @ Sitrus Berry
 Level: 100
 Ability: Sturdy
 Nature: Brave
@@ -17339,7 +17339,7 @@ EVs: 252 HP / 252 Atk / 4 Def
 - Smack Down
 - Stealth Rock
 
-Nosepass @ Leftovers
+Probopass @ Leftovers
 Level: 100
 Ability: Sturdy
 Nature: Bold
@@ -17350,7 +17350,7 @@ Tags: Ace
 - Rest
 - Protect
 
-Drilbur @ Eviolite
+Excadrill @ Soft Sand
 Level: 100
 Ability: Mold Breaker
 Nature: Adamant
@@ -17660,7 +17660,7 @@ EVs: 4 HP / 252 SpA / 252 Spe
 - Bug Buzz
 - Protect
 
-=== TRAINER_OW_R6_SURVEYOR ===
+=== TRAINER_OW_R3_SURVEYOR ===
 Name: YERVANT
 Class: Ruin Maniac
 Pic: Ruin Maniac
