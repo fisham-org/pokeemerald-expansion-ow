@@ -149,7 +149,7 @@
     },
     {
       "local_id": "LOCALID_R6_SURVEYOR_BLOCK_1",
-      "graphics_id": "OBJ_EVENT_GFX_MAN_4",
+      "graphics_id": "OBJ_EVENT_GFX_LUMBERJACK",
       "x": 8,
       "y": 15,
       "elevation": 0,
@@ -158,13 +158,13 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ow_r6_EventScript_SurveyorBlock",
+      "script": "ow_r6_EventScript_SurveyorBlock1",
       "flag": "FLAG_HIDE_OW_R6_SURVEYOR_BLOCK_1",
-      "notes": "temporary npc1 - blocks player from progressing until zelkova quest complete. tells player there is surveying going on to determine what trees can be cut here"
+      "notes": "Westmark site manager. Authoritative, pro-logging. Blocks west choke until VAR_CULTURE_STATE >= 4."
     },
     {
       "local_id": "LOCALID_R6_SURVEYOR_BLOCK_2",
-      "graphics_id": "OBJ_EVENT_GFX_MAN_4",
+      "graphics_id": "OBJ_EVENT_GFX_MANIAC",
       "x": 8,
       "y": 14,
       "elevation": 0,
@@ -173,9 +173,9 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ow_r6_EventScript_SurveyorBlock",
+      "script": "ow_r6_EventScript_SurveyorBlock2",
       "flag": "FLAG_HIDE_OW_R6_SURVEYOR_BLOCK_2",
-      "notes": "temporary npc2 - blocks player from progressing until zelkova quest complete. tells player there is surveying going on to determine what trees can be cut here"
+      "notes": "Local hired hand. Flat, uninvested. Blocks west choke until VAR_CULTURE_STATE >= 4."
     },
     {
       "local_id": "LOCALID_R6_SURVEYOR_TRAINER",
@@ -194,7 +194,7 @@
     },
     {
       "local_id": "LOCALID_R6_SURVEYOR_BLOCK_3",
-      "graphics_id": "OBJ_EVENT_GFX_MAN_4",
+      "graphics_id": "OBJ_EVENT_GFX_LUMBERJACK",
       "x": 23,
       "y": 13,
       "elevation": 0,
@@ -203,9 +203,9 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ow_r6_EventScript_SurveyorBlock",
+      "script": "ow_r6_EventScript_SurveyorBlock3",
       "flag": "FLAG_HIDE_OW_R6_SURVEYOR_BLOCK_3",
-      "notes": "temporary npc3 - blocks player from progressing until zelkova quest complete. tells player there is surveying going on to determine what trees can be cut here"
+      "notes": "Logger doing tree-line assessment. Knows the area, pro-logging. Blocks east choke until VAR_CULTURE_STATE >= 4."
     },
     {
       "local_id": "LOCALID_R6_SURVEYOR_BLOCK_4",
@@ -218,9 +218,9 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ow_r6_EventScript_SurveyorBlock",
+      "script": "ow_r6_EventScript_SurveyorBlock4",
       "flag": "FLAG_HIDE_OW_R6_SURVEYOR_BLOCK_4",
-      "notes": "temporary npc4 - blocks player from progressing until zelkova quest complete. tells player there is surveying going on to determine what trees can be cut here"
+      "notes": "Local worker. Understands what a haul road means. Blocks east choke until VAR_CULTURE_STATE >= 4."
     },
     {
       "local_id": "LOCALID_R6_BUG_CATCHER",

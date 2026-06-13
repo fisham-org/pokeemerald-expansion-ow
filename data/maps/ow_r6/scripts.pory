@@ -25,13 +25,41 @@ script ow_r6_OnTransition_QuestDone {
 }
 
 // ============================================================
-// SURVEY BLOCKERS (shared script - all four use this)
+// SURVEY BLOCKERS (west)
 // ============================================================
 
-script ow_r6_EventScript_SurveyorBlock {
+script ow_r6_EventScript_SurveyorBlock1 {
     lock
     faceplayer
-    msgbox(format("Survey in progress - upper section's\Nrestricted until we've cleared it.\pWestmark's orders. You'll be able to\Npass once the results are filed."))
+    msgbox(format("Westmark is surveying this upper area.\pCome back once the report's filed.\NOtherwise, you can go through the cave."))
+    release
+    end
+}
+
+script ow_r6_EventScript_SurveyorBlock2 {
+    lock
+    faceplayer
+    msgbox(format("We can't let you through. The survey's still running up there.\pWestmark's job, not mine to explain.\NJust keeping the path clear."))
+    release
+    end
+}
+
+// ============================================================
+// SURVEY BLOCKERS (east)
+// ============================================================
+
+script ow_r6_EventScript_SurveyorBlock3 {
+    lock
+    faceplayer
+    msgbox(format("Survey zone. Upper shelf's off-limits\Ntill the assessment's done.\pGood timber up here. Hope they put\Nit to use."))
+    release
+    end
+}
+
+script ow_r6_EventScript_SurveyorBlock4 {
+    lock
+    faceplayer
+    msgbox(format("Path's closed - we have a crew on the ridge doing measurements.\pYou might need to venture through Sowback Cave to get by."))
     release
     end
 }
@@ -52,8 +80,8 @@ script ow_r6_EventScript_SurveyorTrainer {
 // ============================================================
 
 script ow_r6_EventScript_BugCatcher {
-    trainerbattle_single(TRAINER_OW_R6_BUG_CATCHER, format("There are Caterpie up here that have never seen a person before!\pThe perfect specimens - and they're going to be MINE!"), format("They scattered! The noise scared them all off!"))
-    msgbox(format("Come back in spring - the winged ones\Ncome through the gap in the cliffs.\NWorth the climb."))
+    trainerbattle_single(TRAINER_OW_R6_BUG_CATCHER, format("Be careful! Don't startle the Charjabugs!"), format("They scattered! You must have scared them all off!"))
+    msgbox(format("Grubbin and Charjabug spend most of their time underground, unlike Vikavolt, who are experts in aerial movement."))
     release
     end
 }
