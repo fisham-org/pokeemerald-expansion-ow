@@ -301,13 +301,13 @@ script ow_r10_EventScript_Combee6 {
 script ow_r10_EventScript_CombeeReturnedMsg {
     goto_if_eq(VAR_R10_HONEY_COMBEE, 6, ow_r10_EventScript_AllCombeeHome)
     buffernumberstring(STR_VAR_1, VAR_R10_HONEY_COMBEE)
-    msgbox(format("The Combee returned to the hives.\n{STR_VAR_1} of 6 gathered so far."), MSGBOX_DEFAULT)
+    msgbox(format("The Combee returned to the hives.\N{STR_VAR_1} of 6 gathered so far."), MSGBOX_DEFAULT)
     release
     end
 }
 
 script ow_r10_EventScript_AllCombeeHome {
-    msgbox(format("The Combee returned to the hives.\nAll six are home."), MSGBOX_DEFAULT)
+    msgbox(format("The Combee returned to the hives.\NAll six are home."), MSGBOX_DEFAULT)
     completesubquest(QUEST_HONEY, SUB_QUEST_HONEY_COMBEE)
     questmenu(QUEST_MENU_SET_REWARD, QUEST_HONEY)
     release
@@ -382,7 +382,7 @@ script ow_r10_EventScript_Camper_Done {
 script ow_r10_EventScript_HikerHilltop {
     lock
     faceplayer
-    msgbox(format("There's a shortcut through the rocks east of the apiary.\NIt'll save a lot of time getting to Mirevari from here."))
+    msgbox(format("There's a shortcut through the rocks east of the apiary.\NQuicker than doubling back along Honeywood Trail."))
     release
     end
 }

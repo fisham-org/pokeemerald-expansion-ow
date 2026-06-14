@@ -28,7 +28,7 @@ script ow_SowbackCave_1F_EventScript_Hiker1 {
 
 script ow_SowbackCave_1F_EventScript_Hiker2 {
     trainerbattle_single(TRAINER_OW_SOWBACK_1F_HIKER_2, format("Ghahahaha! I've tramped the whole forest and half this mountain today!\pMy Pokemon need one more battle before I head out to Floran!"), format("Good one. Kolchavi folk?\pThought so."))
-    msgbox(format("There's a track just past the cave mouth.\NFaster than going back through the trees."))
+    msgbox(format("The Haul Road is just past the cave mouth.\NFaster than going back through the trees."))
     release
     end
 }

@@ -12,7 +12,7 @@ script ow_Kolchavi_MaritimeGuildhall_EventScript_Leader {
 script ow_Kolchavi_MaritimeGuildhall_EventScript_Sailor {
     lock
     faceplayer
-    msgbox(format("Kavora is a self-sufficient region. We are far away from most other large regions, so we make do with what we have."))
+    msgbox(format("Everything Kavora needs, it grows or catches or hauls itself.\pTook me a few runs to realise how rare that is."))
     release
     end
 }

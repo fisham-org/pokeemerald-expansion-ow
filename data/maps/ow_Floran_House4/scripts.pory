@@ -15,7 +15,7 @@ script ow_Floran_House4_EventScript_Kilowattrel {
     faceplayer
     playmoncry(SPECIES_KILOWATTREL, CRY_MODE_NORMAL)
     waitmoncry
-    msgbox(format("Kilowattrel: Kiiiwa!"))
+    msgbox(format("Kiiwa!"))
     release
     end
 }

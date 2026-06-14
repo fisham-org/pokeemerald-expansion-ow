@@ -7,7 +7,7 @@ mapscripts ow_r8_MapScripts {}
 script ow_r8_EventScript_LumberjackScared {
     lock
     faceplayer
-    msgbox(format("I tried to check out the forest further east, but the old couple got right up in my face! Make sure to steer clear of them."))
+    msgbox(format("Phew! Stay away from the eastern forest.\pThe old couple up there don't take kindly to visitors."))
     release
     end
 }
@@ -15,7 +15,7 @@ script ow_r8_EventScript_LumberjackScared {
 script ow_r8_EventScript_Passerby {
     lock
     faceplayer
-    msgbox(format("The forest starts thinning out ahead. It gets boggy pretty quickly after that."))
+    msgbox(format("Trees thin out just ahead.\NBoggy ground not far after that."))
     release
     end
 }
@@ -31,7 +31,7 @@ script ow_r8_EventScript_HikerSwamp {
 script ow_r8_EventScript_RuinManiac {
     lock
     faceplayer
-    msgbox(format("I'm pretty sure there's some kind of cavern just below us, but it's too dangerous to scale the path down below."))
+    msgbox(format("Something hollow beneath us, I'd bet.\NSounds wrong underfoot.\pThe drop below is too steep for me to get down."))
     release
     end
 }
@@ -63,7 +63,7 @@ script ow_r8_EventScript_RunnerF {
 
 script ow_r8_EventScript_BeekeeperPatrol {
     trainerbattle_single(TRAINER_OW_R8_BEEKEEPER_PATROL, format("I'm searching for bees.\pI don't think you're a bee, but you're making some kind of buzz!"), format("Fair enough. Mind the hum on your way past."))
-    msgbox(format("Melli sends me down here to scout.\NThe ground's wrong for hives, but the flowers are good."))
+    msgbox(format("Melli sends me down Edgewater Path to scout.\NWrong ground for hives, but the flowers are good."))
     release
     end
 }
@@ -90,7 +90,7 @@ script ow_r8_EventScript_RangerM {
 }
 
 script ow_r8_EventScript_Camper {
-    trainerbattle_single(TRAINER_OW_R8_CAMPER, format("I've been practicing here in the bog for hours!."), format("Hah! Knocked clean over. At least I was already filthy."))
+    trainerbattle_single(TRAINER_OW_R8_CAMPER, format("I've been practicing here in the bog for hours!"), format("Hah! Knocked clean over. At least I was already filthy."))
     msgbox(format("Mud washes off.\NA dry tent is overrated."))
     release
     end
@@ -98,7 +98,7 @@ script ow_r8_EventScript_Camper {
 
 script ow_r8_EventScript_BugManiac {
     trainerbattle_single(TRAINER_OW_R8_BUG_MANIAC, format("Wahaha! Look out for my bugs!"), format("You overcame our offenses..."))
-    msgbox(format("The swamp is a good location to train."))
+    msgbox(format("Wahaha! The bog mud is hard on my Pokemon's footing.\NThat's exactly what makes it good training!"))
     release
     end
 }

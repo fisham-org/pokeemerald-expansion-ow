@@ -4,7 +4,7 @@ mapscripts ow_Floran_House1_MapScripts {
 script ow_Floran_House1_EventScript_BoatBuilder {
     lock
     faceplayer
-    msgbox(format("The gym leader of Floran, Vesna, is an expert craftswoman.\NShe sources her own materials and meticulously controls each part of the manufacturing process.\NIt's not often we see that kind of commitment, these days."))
+    msgbox(format("Oh, you've seen Vesna's work?\pGym leader and boatwright - same hands.\NShe sources her own timber, builds every piece herself.\pThat kind of care is rare."))
     release
     end
 }

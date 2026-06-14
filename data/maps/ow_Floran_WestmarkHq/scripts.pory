@@ -55,7 +55,7 @@ script ow_Floran_WestmarkHq_EventScript_ReportAnalyst {
 script ow_Floran_WestmarkHq_EventScript_SeniorAnalyst {
     lock
     faceplayer
-    msgbox(format("I've spent thirteen years spent working for this company.\NAnd still, the board went looking in Sinteri."))
+    msgbox(format("Thirteen years working for this company.\NAnd still, the board went looking in Sinteri."))
     release
     end
 }

@@ -238,7 +238,7 @@ script ow_r3_EventScript_SurveyorBlock4 {
 
 script ow_r3_EventScript_SurveyorTrainer {
     trainerbattle_single(TRAINER_OW_R3_SURVEYOR, format("Didn't expect to find someone up here this late in the season.\pThe survey's done. I've got nothing to do but wait for Westmark to decide what to do with my findings."), format("Ha. I spend too much time with my instruments and not enough with my team."))
-    msgbox(format("The data I gave them would cut a haul road\Nright through the lower ridge.\pWhether it gets built is someone else's\Nproblem now."))
+    msgbox(format("The data I gave them would extend the Haul Road\Nright through the lower ridge.\pWhether it gets built is someone else's\Nproblem now."))
     release
     end
 }
@@ -249,7 +249,7 @@ script ow_r3_EventScript_SurveyorTrainer {
 
 script ow_r3_EventScript_BugCatcher {
     trainerbattle_single(TRAINER_OW_R3_BUG_CATCHER, format("Be careful! Don't startle the Charjabugs!"), format("They scattered! You must have scared them all off!"))
-    msgbox(format("Grubbin and Charjabug spend most of their time underground, unlike Vikavolt, who are experts in aerial movement."))
+    msgbox(format("Grubbin and Charjabug stay underground mostly.\NVikavolt are the ones to watch up in the air!"))
     release
     end
 }

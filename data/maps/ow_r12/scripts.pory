@@ -95,7 +95,7 @@ script ow_r12_EventScript_Hiker1 {
 script ow_r12_EventScript_Camper {
     lock
     faceplayer
-    msgbox(format("I made it out here without half my kit.\NMy Pokemon can't cut through those trees, and I left my climbing gear back in Mirevari."))
+    msgbox(format("Made it out on Bogwood Track without half my kit.\NMy Pokemon can't hack through those trees.\NLeft the climbing gear back in Mirevari, too."))
     release
     end
 }

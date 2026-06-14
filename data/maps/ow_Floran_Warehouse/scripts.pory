@@ -7,7 +7,7 @@ mapscripts ow_Floran_Warehouse_MapScripts {}
 script ow_Floran_Warehouse_EventScript_Foreman {
     lock
     faceplayer
-    msgbox(format("Watch yourself near the conveyor.\nLast thing I need is a trainer caught in the rollers."))
+    msgbox(format("Watch yourself near the conveyor.\NLast thing I need is a trainer caught in the rollers."))
     release
     end
 }
@@ -15,7 +15,7 @@ script ow_Floran_Warehouse_EventScript_Foreman {
 script ow_Floran_Warehouse_EventScript_Lumberjack {
     lock
     faceplayer
-    msgbox(format("Good lumber needs a clean cut or it warps in the dry season.\nScyther gets that. Took about a day to train."))
+    msgbox(format("Good lumber needs a clean cut or it warps in the dry season.\NScyther gets that. Took about a day to train."))
     release
     end
 }
@@ -23,7 +23,7 @@ script ow_Floran_Warehouse_EventScript_Lumberjack {
 script ow_Floran_Warehouse_EventScript_Manager {
     lock
     faceplayer
-    msgbox(format("Is the belt running? It sounds like the belt's running.\nSomeone should check if the belt's running."))
+    msgbox(format("Is the belt running? It sounds like the belt's running.\NSomeone should check if the belt's running."))
     release
     end
 }

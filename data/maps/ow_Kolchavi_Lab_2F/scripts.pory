@@ -17,12 +17,12 @@ script ow_Kolchavi_Lab_2F_EventScript_Zelkova {
 
 script ow_Kolchavi_Lab_2F_EventScript_Zelkova_Intro {
     setspeaker("Prof. Zelkova")
-    msgbox(format("You're not one of my students, aren't you?"))
+    msgbox(format("You're not one of my students, are you?"))
     msgbox(format("I'm Professor Zelkova.\pI study anthropokology - how humans and Pokémon have shaped each other, biologically and culturally."))
-    msgbox(format("I've begun a new study recently, investigating the relationship between Pokémon, humans, and our nearby forests."))
-    msgbox(format("We are proud of our large forests, and producing the best timber in all of Kavora.\pBut what makes our forests special?"))
-    msgbox(format("My hypothesis: to the north is a large cave system named Sowback Cave, which extends under the forest.\pSomehow, the trees are being fed from below."))
-    msgbox(format("I sent my assistant Nadia in three days ago to investigate.\pShe was well prepared, but three days is long - even for her."))
+    msgbox(format("I've recently begun a study on the relationship between Pokémon, humans, and the forest."))
+    msgbox(format("Kavora's forests are the envy of the region.\pThe timber is famous. But what makes it grow so well?"))
+    msgbox(format("My hypothesis: Sowback Cave, just north of here, runs beneath the entire forest.\pSomehow, it's feeding the trees from below."))
+    msgbox(format("I sent my assistant Nadia in three days ago to investigate.\pShe was well prepared. But three days is long - even for her."))
     msgbox(format("Would you head in after her?\NBring back whatever she's found."))
     setspeaker(NULL)
     setflag(FLAG_CULTURE_ZELKOVA_MET)
@@ -64,13 +64,13 @@ script ow_Kolchavi_Lab_2F_EventScript_Zelkova_Reward {
     waitmovement(0)
     setspeaker("Nadia")
     msgbox(format("Hi, Professor. Sorry for my delay."))
-    msgbox(format("At first, I was just observing the local Drilbur population, digging and playing amongst themselves."))
+    msgbox(format("At first, I was just watching the Drilbur - digging and playing amongst themselves."))
     msgbox(format("But I noticed there were small flecks of something metallic in the nearby cave walls."))
     msgbox(format("One of the Drilbur was playing with a small chunk of iron!\pIt looks like it came from the swamp."))
     setspeaker("Prof. Zelkova")
     msgbox(format("But Drilbur don't like the damp swamp.\NHow did they find bog iron?"))
     setspeaker("Nadia")
-    msgbox(format("I think something has placed it there deliberately to encourage the Drilbur to dig deeper caves!"))
+    msgbox(format("I think something placed it there deliberately to make the Drilbur dig deeper!"))
     setspeaker("Prof. Zelkova")
     msgbox(format("Which aerates and adds nutrients to the soil... Directly below the Floran forests!"))
     msgbox(format("That must be it! But how did the iron get there in the first place?\NNadia, do you have anything else?"))
@@ -80,7 +80,7 @@ script ow_Kolchavi_Lab_2F_EventScript_Zelkova_Reward {
     applymovement(LOCALID_KOLCHAVI_LAB_2F_ZELKOVA, Common_Movement_FacePlayer)
     msgbox(format("Thank you, you two. This is a great discovery."))
     msgbox(format("But one warren doesn't explain itself.\pSomeone moved the iron and left it there. We've found the arrangement - not who built it."))
-    msgbox(format("If you're willing, I'd like you to keep looking. Anywhere in Kavora that the land doesn't quite add up - tell me."))
+    msgbox(format("If you're willing, keep looking.\pAnywhere in Kavora the land doesn't quite add up - bring it to me."))
     msgbox(format("Before you go - take one of these.\NA field assistant of your own."))
     setspeaker(NULL)
     closemessage
@@ -231,16 +231,32 @@ script ow_Kolchavi_Lab_2F_EventScript_WorkerDating {
 
 script ow_Kolchavi_Lab_2F_EventScript_WorkerCorsola {
     lock
-    faceplayer
-    msgbox(format("Galarian Corsola is Professor Zelkova's most cited example. It didn't adapt - it died and left a ghost behind.\pShe uses it to argue that regional forms are evidence of successful cohabitation. The ecosystem was disrupted, but slowly enough that the population had time to respond. Galar's Corsola didn't have time."))
-    release
-    end
+    goto(ow_Kolchavi_Lab_2F_EventScript_WorkerDebate)
 }
 
 script ow_Kolchavi_Lab_2F_EventScript_WorkerSouth {
     lock
-    faceplayer
-    msgbox(format("We found records of Corsola in Kavora's southern seas going back two centuries. They're gone now.\pDocuments show coastal communities stopped harvesting them about 180 years ago. Nobody recorded why. The practice simply stopped.\pProfessor Zelkova thinks they knew. Not consciously - but they knew."))
+    goto(ow_Kolchavi_Lab_2F_EventScript_WorkerDebate)
+}
+
+script ow_Kolchavi_Lab_2F_EventScript_WorkerDebate {
+    setspeaker("Sorren")
+    msgbox(format("The ghost form is the adaptation.\NThe Corsola line changed. It persisted.\NThat supports the thesis."))
+    setspeaker("Mira")
+    msgbox(format("The Pokémon's side of it, yes."))
+    setspeaker("Sorren")
+    msgbox(format("...The humans?"))
+    setspeaker("Mira")
+    msgbox(format("Did Galarian communities change how they related to Corsola\Nwhen it became Ghost-type?\pOr did they step around it and move on?"))
+    setspeaker("Sorren")
+    msgbox(format("You're saying the Pokémon adapted.\NBut the question is whether the relationship did."))
+    setspeaker("Mira")
+    msgbox(format("That's always the question.\NCohabitation means both sides move."))
+    setspeaker("Sorren")
+    msgbox(format("Hmm.\NSo the ghost is evidence. But evidence of what, exactly."))
+    setspeaker("Mira")
+    msgbox(format("That's what she's trying to work out."))
+    setspeaker(NULL)
     release
     end
 }
@@ -271,7 +287,7 @@ script ow_Kolchavi_Lab_2F_Sign_Bookshelf1 {
         case 0:
             msgbox(format("'Drilbur Distribution and Soil Enrichment Across Kavora.'\pZelkova argues the richest western timber consistently grows above Drilbur warrens, and that the relationship is older than the foresters realise.\pA pencilled annotation in the margin reads: 'Arrangement outlasts designer. Cf. Sowback.'"))
         case 1:
-            msgbox(format("'Galarian Corsola: Rapid Adaptation, or Collapse?'\pYou flip to a folded plate. A bleached white Corsola is photographed beside a healthy pink one. The caption is one line:\p'A regional form is a record of survival. Galar's Corsola left no record.'"))
+            msgbox(format("'Galarian Corsola: Rapid Adaptation, or Collapse?'\pA bleached white Corsola is photographed beside a healthy pink one. The caption reads:\p'A regional form is what persists when the world changes first.\NWhat the relationship becomes - that is a different question.'"))
         case 2:
             msgbox(format("'Agricultural Practices of Pre-Port Kolchavi Communities.'\pBefore the deepwater dock, the city traded forest goods overland to Floran on pack-horse trails. Honey, dyes, medicinal plants.\pThe chapter ends mid-thought: 'What did they take from the forest that the forest agreed to give?'"))
         default:
@@ -290,7 +306,7 @@ script ow_Kolchavi_Lab_2F_Sign_Bookshelf2 {
     dynmultistack(0, 0, FALSE, 4, FALSE, 0, DYN_MULTICHOICE_CB_NONE)
     switch (var(VAR_RESULT)) {
         case 0:
-            msgbox(format("'Records of the Southern Coastal Survey, Year 412.'\pA fishing census. Catch weights by village, by season. Corsola appear in every column through summer of that year.\pThe following volume on the shelf - Year 413 - has the Corsola column drawn in, but every row is blank. No one wrote down why."))
+            msgbox(format("'Records of the Southern Coastal Survey, Year 412.'\pA marine habitat log. Reef extent, species range by season. Corsola in the distribution columns through spring of that year.\pThe following volume - Year 413 - continues the same columns. The Corsola rows are blank. No annotation. The surveyors kept recording. There was simply nothing to record."))
         case 1:
             msgbox(format("'Traditions of the Western Forest Communities.'\pOral histories collected before the logging road was cut. The compiler notes that some communities refused certain trees, certain clearings, certain seasons - not from belief, but from inherited practice.\pA pressed leaf marks a chapter titled 'What the Foresters Stopped Doing.'"))
         case 2:

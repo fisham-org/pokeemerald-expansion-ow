@@ -67,12 +67,12 @@ script ow_Kolchavi_Lab_1F_Sign_OldMap {
 }
 
 script ow_Kolchavi_Lab_1F_Sign_RegionMap {
-    msgbox(format("A large painted map of Kavora. Trade routes are inked in red, shipping lanes in blue. The western forest is shaded with hatching marks; an unlabelled pin sits north of Kolchavi, on the line of the new logging road."), MSGBOX_SIGN)
+    msgbox(format("A large painted map of Kavora. Trade routes are inked in red, shipping lanes in blue. The western forest is shaded with hatching marks; an unlabelled pin sits north of Kolchavi, on the line of the Haul Road."), MSGBOX_SIGN)
     end
 }
 
 script ow_Kolchavi_Lab_1F_Sign_HorseShoe {
-    msgbox(format("A curved iron shoe, pitted with rust. The placard reads:\p'Worked iron, c. 250 years old. Recovered from a pack trail between Kolchavi and Floran. Before Mudbray and Mudsdale teams replaced the practice, goods were hauled by horses bred for the work.'"), MSGBOX_SIGN)
+    msgbox(format("A curved iron shoe, pitted with rust. The placard reads:\p'Worked iron, c. 250 years old. Recovered from the old pack trail between Kolchavi and Floran - the route the Haul Road now follows. Before Mudbray and Mudsdale teams replaced the practice, goods were hauled by horses bred for the work.'"), MSGBOX_SIGN)
     end
 }
 

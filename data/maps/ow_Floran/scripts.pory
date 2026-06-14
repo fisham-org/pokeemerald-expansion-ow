@@ -14,7 +14,7 @@ script ow_Floran_OnTransition {
 script ow_Floran_EventScript_Townsman {
     lock
     faceplayer
-    msgbox(format("Most of the folk who live up this end don't work for Westmark.\pWhen the warehouse expanded, they built new houses for their new employees who moved here."))
+    msgbox(format("Most folk at this end of town don't work for Westmark.\pThe new houses on the south end, though - those are for Westmark's people."))
     release
     end
 }
@@ -26,7 +26,7 @@ script ow_Floran_EventScript_Townsman {
 script ow_Floran_EventScript_BoardwalkMan {
     lock
     faceplayer
-    msgbox(format("On windy days, the sawdust drifts all the way up to the boardwalk.\NYou can practically taste it, if the wind's right."))
+    msgbox(format("On windy days, the sawdust drifts all the way up to the boardwalk.\pYou can practically taste it, if the wind's right."))
     release
     end
 }
@@ -41,7 +41,7 @@ script ow_Floran_EventScript_GymGardenMan {
     msgbox(format("You see this garden beside the gym?"))
     applymovement(LOCALID_FLORAN_GYM_GARDEN_MAN, moves(face_up))
     waitmovement
-    msgbox(format("Vesna planted every one of those herself.\NSame way she works the wood - nothing rushed, nothing wasted."))
+    msgbox(format("Vesna planted every one of those herself.\pSame way she works the wood - nothing rushed, nothing wasted."))
     release
     end
 }
@@ -126,10 +126,10 @@ script ow_Floran_EventScript_HoneyWoman {
     lock
     faceplayer
     goto_if_set(FLAG_FLORAN_HONEY_TRADE_DONE, ow_Floran_EventScript_HoneyWoman_Done)
-    msgbox(format("There used to be a beehive just here.\pThe Combee are gone now - the noise drove them off.\NThis end of town smells of sawdust instead of flowers."))
+    msgbox(format("There used to be a beehive just here.\pThe Combee are gone now - the noise drove them off.\pThis end of town smells of sawdust instead of flowers."))
     checkitem(ITEM_HONEY, 1)
     goto_if_eq(VAR_RESULT, FALSE, ow_Floran_EventScript_HoneyWoman_NoHoney)
-    msgbox(format("Hmm, that smell! Is that honey? I haven't seen a jar like that since the apiary moved south..."))
+    msgbox(format("Hmm, that smell! Is that honey?\pI haven't seen a jar like that since the apiary moved south..."))
     msgbox(format("Would you part with it?\NI have a Silver Powder I'd trade you for it."), MSGBOX_YESNO)
     goto_if_eq(VAR_RESULT, NO, ow_Floran_EventScript_HoneyWoman_Declined)
     removeitem(ITEM_HONEY, 1)
@@ -147,7 +147,7 @@ script ow_Floran_EventScript_HoneyWoman_NoHoney {
 }
 
 script ow_Floran_EventScript_HoneyWoman_Declined {
-    msgbox(format("That's ok."))
+    msgbox(format("Keep it safe, then.\NHoney like that is worth holding onto."))
     release
     end
 }

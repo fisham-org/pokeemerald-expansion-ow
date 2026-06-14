@@ -105,7 +105,7 @@ script ow_Kolchavi_EventScript_Researcher {
     faceplayer
     goto_if_quest_complete(QUEST_ZELKOVA, ow_Kolchavi_EventScript_Researcher_PostQuest)
     goto_if_quest_active(QUEST_ZELKOVA, ow_Kolchavi_EventScript_Researcher_Active)
-    msgbox(format("Professor Zelkova hasn't reviewed my coastal survey notes yet. Three weeks. I can't start the eastern caves without her sign-off.\pShe's up in the lab -- second floor. If you're new to Kolchavi, it's worth the introduction. Her work is unlike anything else going on in this region."))
+    msgbox(format("Ugh. Three weeks and still no word from the Professor on my coastal survey notes.\NI can't start the eastern caves without her sign-off.\pShe's upstairs in the lab. Worth introducing yourself, if you're new here."))
     release
     end
 }
@@ -133,7 +133,7 @@ script ow_Kolchavi_EventScript_NPC4 {
 script ow_Kolchavi_EventScript_NPC5 {
     lock
     faceplayer
-    msgbox(format("Used to wait three weeks for a timber shipment out of Floran. Now the cutting's half a day north. Hard to complain about the price."))
+    msgbox(format("Used to wait three weeks for a timber shipment out of Floran. Now the cutting's right up the Haul Road. Hard to complain about the price."))
     release
     end
 }

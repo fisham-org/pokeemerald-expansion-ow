@@ -52,7 +52,7 @@ script ow_r10_House1_EventScript_Melli_Honey {
 script ow_r10_House1_EventScript_Melli_Westmark {
     msgbox(format("I used to work out of Floran. Kept my hives on the eastern edge of the city - good forage, close to market."))
     msgbox(format("Then Westmark started clearing the forest around the city. Sawdust in the air, trees gone. The Combee stopped bringing back what they used to. The honey changed. Not for the better."))
-    msgbox(format("I packed up and moved down here. That was six years ago.\pNow they have a cut site on this route too.\NI don't know where they plan to stop."))
+    msgbox(format("I packed up and moved down here. That was six years ago.\pNow they have a cut site on Honeywood Trail too.\NI don't know where they plan to stop."))
     goto(ow_r10_House1_EventScript_MelliMenu)
 }
 

@@ -20,7 +20,7 @@ script ow_Kolchavi_House1_EventScript_Boy {
     lock
     faceplayer
     # goto_if_set(FLAG_RECEIVED_DIVE_BALL_FROM_FEN, ow_Kolchavi_House1_EventScript_Boy_AlreadyGave)
-    msgbox(format("I found this by the dock. One of the sailors dropped it, I think. I don't have any Pokemon yet so you can have it."))
+    msgbox(format("I found this by the dock - a sailor must have dropped it.\NI don't have any Pokemon, so here."))
     giveitem(ITEM_DIVE_BALL, 1)
     goto_if_eq(VAR_RESULT, 0, ow_Kolchavi_House1_EventScript_Boy_BagFull)
     # setflag(FLAG_RECEIVED_DIVE_BALL_FROM_FEN)
