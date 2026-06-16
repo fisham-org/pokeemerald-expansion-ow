@@ -19,11 +19,11 @@ script ow_Kolchavi_House1_EventScript_Mother {
 script ow_Kolchavi_House1_EventScript_Boy {
     lock
     faceplayer
-    # goto_if_set(FLAG_RECEIVED_DIVE_BALL_FROM_FEN, ow_Kolchavi_House1_EventScript_Boy_AlreadyGave)
+    goto_if_set(FLAG_RECEIVED_LURE_BALL_FROM_FEN, ow_Kolchavi_House1_EventScript_Boy_AlreadyGave)
     msgbox(format("I found this by the dock - a sailor must have dropped it.\NI don't have any Pokemon, so here."))
-    giveitem(ITEM_DIVE_BALL, 1)
+    giveitem(ITEM_LURE_BALL, 1)
     goto_if_eq(VAR_RESULT, 0, ow_Kolchavi_House1_EventScript_Boy_BagFull)
-    # setflag(FLAG_RECEIVED_DIVE_BALL_FROM_FEN)
+    setflag(FLAG_RECEIVED_LURE_BALL_FROM_FEN)
     msgbox(format("The guild boss is also the gym leader, by the way. Dad says that's how they keep everyone in line."))
     release
     end

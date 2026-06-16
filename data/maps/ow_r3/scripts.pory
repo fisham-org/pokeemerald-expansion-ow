@@ -8,19 +8,13 @@ mapscripts ow_r3_MapScripts {
 script ow_r3_OnTransition {
     goto_if_ge(VAR_CULTURE_STATE, 4, ow_r3_OnTransition_QuestDone)
     setflag(FLAG_HIDE_OW_R3_SURVEYOR_TRAINER)
-    clearflag(FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_1)
-    clearflag(FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_2)
-    clearflag(FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_3)
-    clearflag(FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_4)
+    clearflag(FLAG_HIDE_OW_R3_SURVEYOR_BLOCK)
     end
 }
 
 script ow_r3_OnTransition_QuestDone {
     clearflag(FLAG_HIDE_OW_R3_SURVEYOR_TRAINER)
-    setflag(FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_1)
-    setflag(FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_2)
-    setflag(FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_3)
-    setflag(FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_4)
+    setflag(FLAG_HIDE_OW_R3_SURVEYOR_BLOCK)
     end
 }
 
