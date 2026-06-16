@@ -109,7 +109,7 @@ script ow_Kolchavi_EventScript_Researcher {
     faceplayer
     goto_if_quest_complete(QUEST_ZELKOVA, ow_Kolchavi_EventScript_Researcher_PostQuest)
     goto_if_quest_active(QUEST_ZELKOVA, ow_Kolchavi_EventScript_Researcher_Active)
-    msgbox(format("Ugh. Three weeks and still no word from the Professor on my coastal survey notes.\NI can't start the eastern caves without her sign-off.\pShe's upstairs in the lab. Worth introducing yourself, if you're new here."))
+    msgbox(format("Ugh. Three weeks and still no word from the Professor on my survey notes.\pI can't start the eastern caves without her sign-off.\pShe's upstairs in the lab. Worth introducing yourself, if you're new."))
     release
     end
 }
