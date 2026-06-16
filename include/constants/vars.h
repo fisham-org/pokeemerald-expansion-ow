@@ -281,7 +281,7 @@
 #define VAR_DEXNAV_SPECIES                               0x4101
 #define VAR_DEXNAV_STEPCOUNTER                           0x4102
 #define VAR_R10_HONEY_COMBEE                             0x4103
-#define VAR_OW_UNUSED_0x4104                             0x4104
+#define VAR_HOMETOWN                                     0x4104 // Player's chosen starting town (1 = Kolchavi, 2 = Floran)
 #define VAR_OW_UNUSED_0x4105                             0x4105
 #define VAR_OW_UNUSED_0x4106                             0x4106
 #define VAR_OW_UNUSED_0x4107                             0x4107

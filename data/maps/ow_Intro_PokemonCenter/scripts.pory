@@ -101,10 +101,10 @@ script ow_Intro_PokemonCenter_EventScript_AfterStarter {
     }
     msgbox(format("Here are some supplies to get you started."))
     additem(ITEM_POKE_BALL, 10)
-    additem(ITEM_POTION, 3)
+    additem(ITEM_POTION, 5)
     playfanfare(MUS_OBTAIN_ITEM)
     setspeaker(NULL)
-    message(format("Steven gave you 10 Poké Balls and 3 Potions!"))
+    message(format("Steven gave you 10 Poké Balls and 5 Potions!"))
     waitmessage
     waitfanfare
     closemessage
@@ -182,6 +182,7 @@ script ow_Intro_PokemonCenter_EventScript_ConfirmKolchavi {
     setspeaker("Steven")
     msgbox(format("Good luck out there, {PLAYER}!"))
     setspeaker(NULL)
+    setvar(VAR_HOMETOWN, 1)
     closemessage
     fadescreen(FADE_TO_BLACK)
     warp(MAP_OW_KOLCHAVI, 0)
@@ -199,6 +200,7 @@ script ow_Intro_PokemonCenter_EventScript_ConfirmFloran {
     setspeaker("Steven")
     msgbox(format("Good luck out there, {PLAYER}!"))
     setspeaker(NULL)
+    setvar(VAR_HOMETOWN, 2)
     closemessage
     playse(SE_DOOR)
     fadescreen(FADE_TO_BLACK)
