@@ -33,6 +33,7 @@ script ow_Kolchavi_Lab_2F_EventScript_Zelkova_Intro {
 
 script ow_Kolchavi_Lab_2F_EventScript_Zelkova_StartQuest {
     startquest(QUEST_ZELKOVA)
+    setvar(VAR_CULTURE_STATE, 2)
     clearflag(FLAG_HIDE_SOWBACK_B1F_NADIA)
     return
 }
@@ -143,6 +144,8 @@ script ow_Kolchavi_Lab_2F_EventScript_Zelkova_AfterGift {
     setspeaker(NULL)
     setflag(FLAG_HIDE_SOWBACK_B1F_NADIA)
     completequest(QUEST_ZELKOVA)
+    // Phase 1 complete: this clears the Haul Road (r3) survey blockers on next entry.
+    setvar(VAR_CULTURE_STATE, 4)
     release
     end
 }

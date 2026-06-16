@@ -277,7 +277,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ow_r3_EventScript_SurveyorBlock2",
-      "flag": "FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_2",
+      "flag": "FLAG_HIDE_OW_R3_SURVEYOR_BLOCK",
       "notes": "Local hired hand. Flat, uninvested. Blocks west choke until VAR_CULTURE_STATE >= 4."
     },
     {
@@ -292,7 +292,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ow_r3_EventScript_SurveyorBlock1",
-      "flag": "FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_1",
+      "flag": "FLAG_HIDE_OW_R3_SURVEYOR_BLOCK",
       "notes": "Westmark site manager. Authoritative, pro-logging. Blocks west choke until VAR_CULTURE_STATE >= 4."
     },
     {
@@ -307,7 +307,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ow_r3_EventScript_SurveyorBlock3",
-      "flag": "FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_3",
+      "flag": "FLAG_HIDE_OW_R3_SURVEYOR_BLOCK",
       "notes": "Logger doing tree-line assessment. Knows the area, pro-logging. Blocks east choke until VAR_CULTURE_STATE >= 4."
     },
     {
@@ -322,7 +322,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ow_r3_EventScript_SurveyorBlock4",
-      "flag": "FLAG_HIDE_OW_R3_SURVEYOR_BLOCK_4",
+      "flag": "FLAG_HIDE_OW_R3_SURVEYOR_BLOCK",
       "notes": "Local worker. Understands what a haul road means. Blocks east choke until VAR_CULTURE_STATE >= 4."
     },
     {

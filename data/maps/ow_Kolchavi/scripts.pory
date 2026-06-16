@@ -4,6 +4,14 @@ mapscripts ow_Kolchavi_MapScripts {
 
 script ow_Kolchavi_OnTransition {
     setflag(FLAG_VISITED_KOLCHAVI)
+    // Culture questline: arriving in Kolchavi unlocks the quest (state 0 -> 1).
+    // Guarded so re-entering Kolchavi never regresses a later state.
+    goto_if_eq(VAR_CULTURE_STATE, 0, ow_Kolchavi_OnTransition_UnlockCulture)
+    end
+}
+
+script ow_Kolchavi_OnTransition_UnlockCulture {
+    setvar(VAR_CULTURE_STATE, 1)
     end
 }
 
@@ -25,14 +33,10 @@ script ow_Kolchavi_EventScript_Shopkeeper1 {
 }
 
 mart ow_Kolchavi_MartItems1 {
-    ITEM_POKE_BALL
-    ITEM_POTION
-    ITEM_ANTIDOTE
-    ITEM_PARALYZE_HEAL
-    ITEM_AWAKENING
-    ITEM_BURN_HEAL
-    ITEM_ESCAPE_ROPE
-    ITEM_REPEL
+    ITEM_BLACK_FLUTE
+    ITEM_WHITE_FLUTE
+    ITEM_SUPER_REPEL
+    ITEM_SUPER_LURE
 }
 
 script ow_Kolchavi_EventScript_NPC2 {
@@ -53,11 +57,11 @@ script ow_Kolchavi_EventScript_Shopkeeper2 {
 }
 
 mart ow_Kolchavi_MartItems2 {
-    ITEM_POKE_BALL
-    ITEM_GREAT_BALL
-    ITEM_SUPER_POTION
-    ITEM_REPEL
-    ITEM_DIVE_BALL
+    ITEM_LAVA_COOKIE
+    ITEM_RAGE_CANDY_BAR
+    ITEM_PEWTER_CRUNCHIES
+    ITEM_OLD_GATEAU
+    ITEM_CASTELIACONE
 }
 
 script ow_Kolchavi_EventScript_CliffWatcher {
@@ -141,7 +145,7 @@ script ow_Kolchavi_EventScript_NPC5 {
 script ow_Kolchavi_EventScript_Dockworker {
     lock
     faceplayer
-    msgbox(format("My Machop's been working this dock since it was barely bigger than a Timburr. Strongest loader on the waterfront now."))
+    msgbox(format("My Hariyama's been working this dock since it was a little Makuhita. Strongest loader on the waterfront now."))
     release
     end
 }
@@ -149,7 +153,7 @@ script ow_Kolchavi_EventScript_Dockworker {
 script ow_Kolchavi_EventScript_NPC6 {
     lock
     faceplayer
-    msgbox(format("Arcanine used to pull the sledges before the roads went in. My Growlithe's too young to remember any of that. Just as well, probably."))
+    msgbox(format("Mudsdale used to pull the sledges before the roads went in. My Mudbray's too young to remember any of that. Just as well, probably."))
     release
     end
 }

@@ -17650,14 +17650,14 @@ EVs: 252 HP / 252 SpA / 4 SpD
 - Stealth Rock
 - Protect
 
-Volcarona @ Life Orb
+Houndoom @ Life Orb
 Level: 100
-Ability: Flame Body
+Ability: Flash Fire
 Nature: Timid
 EVs: 4 HP / 252 SpA / 252 Spe
-- Quiver Dance
+- Nasty Plot
 - Flamethrower
-- Bug Buzz
+- Dark Pulse
 - Protect
 
 === TRAINER_OW_R3_SURVEYOR ===

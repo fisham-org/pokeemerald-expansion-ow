@@ -54,6 +54,8 @@ script ow_SowbackCave_B1F_EventScript_Nadia_Cutscene {
     setspeaker(NULL)
     closemessage
     questmenu(QUEST_MENU_SET_REWARD, QUEST_ZELKOVA)
+    // Culture questline: sample received, return to Zelkova (state 2 -> 3).
+    setvar(VAR_CULTURE_STATE, 3)
     release
     end
 }
@@ -94,7 +96,7 @@ script ow_SowbackCave_B1F_EventScript_Hiker {
 // ============================================================
 
 script ow_SowbackCave_B1F_EventScript_RuinManiac {
-    trainerbattle_single(TRAINER_OW_SOWBACK_B1F_RUIN_MANIAC, format("Look at that smear in the rock! Iron, yes, but not the right kind for this geology!\pIf you want to study this chamber, break through my vanguard first!"), format("Remarkable!\pIron shouldn't be here - not this variety. Something carried it in."))
+    trainerbattle_single(TRAINER_OW_SOWBACK_B1F_RUIN_MANIAC, format("Look at that smear in the rock! Iron, yes, but not the right kind for this geology!"), format("Remarkable!\pIron shouldn't be here - not this variety. Something carried it in."))
     msgbox(format("Limonite.\NBog iron.\NThis hill has a story it isn't telling us."))
     release
     end

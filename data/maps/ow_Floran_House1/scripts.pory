@@ -4,7 +4,7 @@ mapscripts ow_Floran_House1_MapScripts {
 script ow_Floran_House1_EventScript_BoatBuilder {
     lock
     faceplayer
-    msgbox(format("Oh, you've seen Vesna's work?\pGym leader and boatwright - same hands.\NShe sources her own timber, builds every piece herself.\pThat kind of care is rare."))
+    msgbox(format("Floran runs on boats, and the best of them come from one workshop.\pGym leader and boatwright - same hands. Sources her own timber, builds every piece herself.\pThat kind of care is rare."))
     release
     end
 }
