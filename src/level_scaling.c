@@ -477,7 +477,7 @@ u16 CalculateWildScaledSpecies(u16 species, u8 scaledLevel)
     #endif
 }
 
-// Proportional EV scaling: budget = min(level * 10, 510). If defined EVs total <= budget, leave as-is.
+// Proportional EV scaling: budget = min(max(level - 3, 0) * 10, 510). If defined EVs total <= budget, leave as-is.
 // Otherwise scale each stat by budget/baseTotal. Truncation residual is dropped (negligible).
 bool32 TryApplyScaledTrainerEVs(struct Pokemon *mon, const u8 *baseEVs, u16 trainerId, u8 scaledLevel)
 {
@@ -490,7 +490,9 @@ bool32 TryApplyScaledTrainerEVs(struct Pokemon *mon, const u8 *baseEVs, u16 trai
     for (i = 0; i < 6; i++)
         baseTotal += baseEVs[i];
 
-    u32 budget = (u32)scaledLevel * 10;
+    // Budget = max(level - 3, 0) * 10, capped at 510. The -3 offset keeps
+    // early-game enemies from arriving with a fully min-maxed EV spread.
+    u32 budget = (scaledLevel > 3) ? ((u32)(scaledLevel - 3) * 10) : 0;
     if (budget > 510)
         budget = 510;
 
