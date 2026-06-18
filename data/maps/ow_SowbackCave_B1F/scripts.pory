@@ -49,7 +49,7 @@ script ow_SowbackCave_B1F_EventScript_Nadia_Cutscene {
     applymovement(LOCALID_SOWBACK_CAVE_B1F_NADIA, Common_Movement_FaceRight)
     applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
     msgbox(format("Look -"))
-    msgbox(format("Can you run the sample back to the prof?\I that something is leaving iron out for the Drilbur to dig up."))
+    msgbox(format("Can you run the sample back to the prof?\pI think that something is leaving iron out for the Drilbur to dig up."))
     msgbox(format("I want to finish documenting my observations before I leave."))
     setspeaker(NULL)
     closemessage

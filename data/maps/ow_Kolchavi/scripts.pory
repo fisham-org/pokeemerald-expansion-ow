@@ -1,11 +1,13 @@
 mapscripts ow_Kolchavi_MapScripts {
     MAP_SCRIPT_ON_TRANSITION: ow_Kolchavi_OnTransition
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        // applies only when the player's 'hometown' is kolchavi
+        VAR_HOMETOWN, 1: ow_Kolchavi_EventScript_HelperIntroTrigger
+    ]
 }
 
 script ow_Kolchavi_OnTransition {
     setflag(FLAG_VISITED_KOLCHAVI)
-    // Culture questline: arriving in Kolchavi unlocks the quest (state 0 -> 1).
-    // Guarded so re-entering Kolchavi never regresses a later state.
     goto_if_eq(VAR_CULTURE_STATE, 0, ow_Kolchavi_OnTransition_UnlockCulture)
     end
 }
@@ -67,7 +69,7 @@ mart ow_Kolchavi_MartItems2 {
 script ow_Kolchavi_EventScript_CliffWatcher {
     lock
     faceplayer
-    msgbox(format("I've seen Pokemon going up that cliff face. Not climbers, just... walking. Like they know a path nobody else does."))
+    msgbox(format("Call me crazy, but I think it would be possible to climb down that cliff if you had the right tools."))
     release
     end
 }
@@ -156,4 +158,165 @@ script ow_Kolchavi_EventScript_NPC6 {
     msgbox(format("Mudsdale used to pull the sledges before the roads went in. My Mudbray's too young to remember any of that. Just as well, probably."))
     release
     end
+}
+
+script ow_Kolchavi_EventScript_Mudbray {
+    lock
+    faceplayer
+    playmoncry(SPECIES_MUDBRAY, CRY_MODE_NORMAL)
+    msgbox(format("Mud, mudbray!"))
+    waitmoncry
+    release
+    end
+}
+
+script ow_Kolchavi_EventScript_Hariyama {
+    lock
+    faceplayer
+    playmoncry(SPECIES_HARIYAMA, CRY_MODE_NORMAL)
+    msgbox(format("Hari... HARIYAMA!"))
+    waitmoncry
+    // It hauls an unseen crate overhead and drives it into the dock; the
+    // planks shudder underfoot.
+    applymovement(LOCALID_KOLCHAVI_HARIYAMA, moves(jump_in_place_down, delay_16))
+    waitmovement(0)
+    playse(SE_M_VITAL_THROW)
+    setvar(VAR_0x8004, 1)   // vertical pan
+    setvar(VAR_0x8005, 1)   // horizontal pan
+    setvar(VAR_0x8006, 6)   // number of shakes
+    setvar(VAR_0x8007, 4)   // shake delay
+    special(ShakeCamera)
+    waitstate
+    release
+    end
+}
+
+// --- New-player helper outside the PokeCenter ---------------------------
+// Coord trigger at (40,14), gated on VAR_HOMETOWN == 1, so only players who
+// started the game in Kolchavi ever fire it. Runs once, gated by a flag.
+
+script ow_Kolchavi_EventScript_Helper {
+    lock
+    faceplayer
+    msgbox(format("Haul Road north, market and the guild to the south. You'll find your feet in no time."))
+    release
+    end
+}
+
+script ow_Kolchavi_EventScript_HelperIntroTrigger {
+    goto_if_set(FLAG_KOLCHAVI_HELPER_INTRO_DONE, ow_Kolchavi_EventScript_HelperIntroSkip)
+    lockall
+    // He spots the player exiting the PokeCenter (cf. Petalburg gym guide).
+    applymovement(LOCALID_KOLCHAVI_HELPER, moves(face_left))
+    waitmovement(0)
+    playse(SE_PIN)
+    applymovement(LOCALID_KOLCHAVI_HELPER, moves(emote_exclamation_mark, delay_16, delay_16, delay_16))
+    waitmovement(0)
+    playbgm(MUS_FOLLOW_ME, FALSE)
+    applymovement(LOCALID_KOLCHAVI_HELPER, moves(walk_left))
+    applymovement(LOCALID_PLAYER, moves(face_right))
+    waitmovement(0)
+    msgbox(format("Oh! Are you new here?\pDo you need a hand finding your way around?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, ow_Kolchavi_EventScript_HelperIntroDeclined)
+    goto(ow_Kolchavi_EventScript_HelperIntroAccepted)
+}
+
+script ow_Kolchavi_EventScript_HelperIntroSkip {
+    end
+}
+
+script ow_Kolchavi_EventScript_HelperIntroDeclined {
+    msgbox(format("No trouble at all. Enjoy your stay in Kolchavi."))
+    applymovement(LOCALID_KOLCHAVI_HELPER, ow_Kolchavi_Movement_HelperReturnToPost)
+    waitmovement(0)
+    fadedefaultbgm
+    setflag(FLAG_KOLCHAVI_HELPER_INTRO_DONE)
+    releaseall
+    end
+}
+
+script ow_Kolchavi_EventScript_HelperIntroAccepted {
+    msgbox(format("Welcome, then! Kolchavi's a shipping town."))
+    closemessage
+    // The pan scrolls the helper off-screen, which respawns him from his
+    // template (42,14 facing down). Commit his current spot/facing first so he
+    // stays put at (41,14) facing the player when the camera returns.
+    setobjectxyperm(LOCALID_KOLCHAVI_HELPER, 41, 14)
+    setobjectmovementtype(LOCALID_KOLCHAVI_HELPER, MOVEMENT_TYPE_FACE_LEFT)
+    // Pan the camera south to show off the market/maritime guild
+    special(SpawnCameraObject)
+    applymovement(LOCALID_CAMERA, ow_Kolchavi_Movement_CameraPanSouth)
+    waitmovement(0)
+    msgbox(format("The market is just south of here, where you can stock up on exotic supplies."))
+    closemessage
+    applymovement(LOCALID_CAMERA, ow_Kolchavi_Movement_CameraPanSouth)
+    waitmovement(0)
+    msgbox(format("Further south is the Maritime Guild - home to sailors and fishermen alike."))
+    closemessage
+    applymovement(LOCALID_CAMERA, ow_Kolchavi_Movement_CameraPanBack)
+    waitmovement(0)
+    special(RemoveCameraObject)
+    msgbox(format("Haul Road to the north will take you to Floran and to the rest of Kavora, once you're ready for it."))
+    msgbox(format("But before that, I'll show you to Professor Zelkova's lab!"))
+    closemessage
+    applymovement(LOCALID_KOLCHAVI_HELPER, ow_Kolchavi_Movement_HelperReposition)
+    waitmovement(0)
+    applymovement(LOCALID_KOLCHAVI_HELPER, ow_Kolchavi_Movement_HelperLeadToLab)
+    applymovement(LOCALID_PLAYER, ow_Kolchavi_Movement_PlayerFollowToLab)
+    waitmovement(0)
+    applymovement(LOCALID_KOLCHAVI_HELPER, moves(face_right))
+    applymovement(LOCALID_PLAYER, moves(face_left))
+    waitmovement(0)
+    msgbox(format("This is it! Professor Zelkova is always on the lookout for new research assistants."))
+    closemessage
+    // Both turn to look up at the lab (cf. the gym-sign beat in Petalburg).
+    applymovement(LOCALID_KOLCHAVI_HELPER, moves(walk_in_place_faster_up))
+    applymovement(LOCALID_PLAYER, moves(walk_in_place_faster_up))
+    waitmovement(0)
+    msgbox(format("I'd head in and introduce yourself, if I were you. It's well worth your while.\pGood luck out there!"))
+    closemessage
+    setflag(FLAG_KOLCHAVI_HELPER_INTRO_DONE)
+    fadedefaultbgm
+    applymovement(LOCALID_KOLCHAVI_HELPER, ow_Kolchavi_Movement_HelperReturnFromLab)
+    waitmovement(0)
+    // He's walked offscreen by now; restore his original post (template +
+    // live position + facing) so the earlier perm override doesn't linger.
+    setobjectxyperm(LOCALID_KOLCHAVI_HELPER, 42, 14)
+    setobjectmovementtype(LOCALID_KOLCHAVI_HELPER, MOVEMENT_TYPE_FACE_DOWN)
+    setobjectxy(LOCALID_KOLCHAVI_HELPER, 42, 14)
+    releaseall
+    end
+}
+
+movement ow_Kolchavi_Movement_HelperReturnToPost {
+    walk_right
+    face_down
+}
+
+movement ow_Kolchavi_Movement_CameraPanSouth {
+    walk_down * 9
+}
+
+movement ow_Kolchavi_Movement_CameraPanBack {
+    walk_fast_up * 18
+}
+
+movement ow_Kolchavi_Movement_HelperReposition {
+    walk_down
+    walk_left
+}
+
+movement ow_Kolchavi_Movement_HelperLeadToLab {
+    walk_down
+    walk_left * 23
+}
+
+movement ow_Kolchavi_Movement_PlayerFollowToLab {
+    walk_down * 2
+    walk_left * 22
+}
+
+movement ow_Kolchavi_Movement_HelperReturnFromLab {
+    walk_down
+    walk_right * 14
 }

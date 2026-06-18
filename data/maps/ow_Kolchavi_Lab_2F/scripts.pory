@@ -24,11 +24,10 @@ script ow_Kolchavi_Lab_2F_EventScript_Zelkova_Intro {
     msgbox(format("My hypothesis: Sowback Cave, just north of here, runs beneath the entire forest.\pSomehow, it's feeding the trees from below."))
     msgbox(format("I sent my assistant Nadia in three days ago to investigate.\pShe was well prepared. But three days is long - even for her."))
     msgbox(format("Would you head in after her?\NBring back whatever she's found."))
+    msgbox(format("Before you go - take one of these.\NA field assistant of your own."))
     setspeaker(NULL)
-    setflag(FLAG_CULTURE_ZELKOVA_MET)
-    call_if_quest_not_active(QUEST_ZELKOVA, ow_Kolchavi_Lab_2F_EventScript_Zelkova_StartQuest)
-    release
-    end
+    closemessage
+    goto(ow_Kolchavi_Lab_2F_EventScript_Zelkova_GiftSelect)
 }
 
 script ow_Kolchavi_Lab_2F_EventScript_Zelkova_StartQuest {
@@ -49,6 +48,7 @@ script ow_Kolchavi_Lab_2F_EventScript_Zelkova_Active {
 
 script ow_Kolchavi_Lab_2F_EventScript_Zelkova_Reward {
     lock
+    hidefollower
     setspeaker("Prof. Zelkova")
     msgbox(format("You're back."))
     msgbox(format("Did you find her?"))
@@ -57,10 +57,30 @@ script ow_Kolchavi_Lab_2F_EventScript_Zelkova_Reward {
     playse(SE_DOOR)
     clearflag(FLAG_HIDE_KOLCHAVI_LAB_2F_NADIA)
     addobject(LOCALID_KOLCHAVI_LAB_2F_NADIA)
-    addobject(LOCALID_KOLCHAVI_LAB_2F_NOSEPASS)
     delay(150)
-    moveobjecttocoords(LOCALID_KOLCHAVI_LAB_2F_NADIA, 6, 6, DIR_NORTH)
-    waitmovement
+    // Nadia walks in from the doorway (12,10), heading left along row 10. Her
+    // final leg depends on which side the player approached Zelkova from so she
+    // never lands on the player's tile. Stash the facing for her exit too.
+    specialvar(VAR_RESULT, GetPlayerFacingDirection)
+    copyvar(VAR_TEMP_0, VAR_RESULT)
+    switch (var(VAR_TEMP_0)) {
+        case DIR_WEST:
+        case DIR_EAST:
+            // Player is beside Zelkova; Nadia stops at (4,8).
+            applymovement(LOCALID_KOLCHAVI_LAB_2F_NADIA, moves(walk_left, walk_left, walk_left, walk_left, walk_left, walk_left, walk_left, walk_left, walk_up, walk_up))
+        default:
+            // Player faces up/down and may be on (5,7); Nadia stops at (5,8).
+            applymovement(LOCALID_KOLCHAVI_LAB_2F_NADIA, moves(walk_left, walk_left, walk_left, walk_left, walk_left, walk_left, walk_left, walk_up, walk_up))
+    }
+    waitmovement(0)
+    // Nosepass follows Nadia in through the same door and settles at its home
+    // tile (4,10). Spawn it hidden at (4,10), teleport to the door, then walk in.
+    addobject(LOCALID_KOLCHAVI_LAB_2F_NOSEPASS)
+    hideobjectat(LOCALID_KOLCHAVI_LAB_2F_NOSEPASS, MAP_OW_KOLCHAVI_LAB_2F)
+    setobjectxy(LOCALID_KOLCHAVI_LAB_2F_NOSEPASS, 13, 10)
+    showobjectat(LOCALID_KOLCHAVI_LAB_2F_NOSEPASS, MAP_OW_KOLCHAVI_LAB_2F)
+    applymovement(LOCALID_KOLCHAVI_LAB_2F_NOSEPASS, moves(walk_left, walk_left, walk_left, walk_left, walk_left, walk_left, walk_left, walk_left, walk_left, face_up))
+    waitmovement(0)
     applymovement(LOCALID_KOLCHAVI_LAB_2F_ZELKOVA, Common_Movement_FaceDown)
     waitmovement(0)
     setspeaker("Nadia")
@@ -80,27 +100,40 @@ script ow_Kolchavi_Lab_2F_EventScript_Zelkova_Reward {
     applymovement(LOCALID_KOLCHAVI_LAB_2F_ZELKOVA, Common_Movement_FacePlayer)
     msgbox(format("Thank you, you two. This is a great discovery."))
     msgbox(format("If you're willing, keep looking.\pAnywhere in Kavora the land doesn't quite add up - bring it to me."))
-    msgbox(format("Before you go - take one of these.\NA field assistant of your own."))
     setspeaker(NULL)
     closemessage
-    goto(ow_Kolchavi_Lab_2F_EventScript_Zelkova_GiftSelect)
+    switch (var(VAR_TEMP_0)) {
+        case DIR_WEST:
+        case DIR_EAST:
+            applymovement(LOCALID_KOLCHAVI_LAB_2F_NADIA, moves(walk_down, walk_down, face_up))
+        default:
+            applymovement(LOCALID_KOLCHAVI_LAB_2F_NADIA, moves(walk_down, walk_down, walk_left, face_up))
+    }
+    waitmovement(0)
+    setflag(FLAG_HIDE_SOWBACK_B1F_NADIA)
+    completequest(QUEST_ZELKOVA)
+    // Phase 1 complete: this clears the Haul Road (r3) survey blockers on next entry.
+    setvar(VAR_CULTURE_STATE, 4)
+    callnative(UpdateFollowingPokemon)
+    release
+    end
 }
 
 script ow_Kolchavi_Lab_2F_EventScript_Zelkova_GiftSelect {
-    dynmultipush("SENTRET", 0)
-    dynmultipush("BIDOOF", 1)
+    dynmultipush("CUTIEFLY", 0)
+    dynmultipush("WATTREL", 1)
     dynmultistack(0, 0, TRUE, 2, FALSE, 0, DYN_MULTICHOICE_CB_NONE)
     switch (var(VAR_RESULT)) {
-        case 0: goto(ow_Kolchavi_Lab_2F_EventScript_Zelkova_ConfirmSentret)
-        case 1: goto(ow_Kolchavi_Lab_2F_EventScript_Zelkova_ConfirmBidoof)
+        case 0: goto(ow_Kolchavi_Lab_2F_EventScript_Zelkova_ConfirmCutiefly)
+        case 1: goto(ow_Kolchavi_Lab_2F_EventScript_Zelkova_ConfirmWattrel)
     }
     end
 }
 
-script ow_Kolchavi_Lab_2F_EventScript_Zelkova_ConfirmSentret {
-    showmonpic(SPECIES_SENTRET, 10, 3)
-    playmoncry(SPECIES_SENTRET, CRY_MODE_NORMAL)
-    bufferspeciesname(STR_VAR_1, SPECIES_SENTRET)
+script ow_Kolchavi_Lab_2F_EventScript_Zelkova_ConfirmCutiefly {
+    showmonpic(SPECIES_CUTIEFLY, 10, 3)
+    playmoncry(SPECIES_CUTIEFLY, CRY_MODE_NORMAL)
+    bufferspeciesname(STR_VAR_1, SPECIES_CUTIEFLY)
     msgbox(format("Are you sure you want {STR_VAR_1}?"), MSGBOX_YESNO)
     waitmoncry
     hidemonpic
@@ -111,15 +144,15 @@ script ow_Kolchavi_Lab_2F_EventScript_Zelkova_ConfirmSentret {
     msgbox(format("{PLAYER} received {STR_VAR_1}!"))
     playfanfare(MUS_OBTAIN_ITEM)
     waitfanfare
-    givemon(SPECIES_SENTRET, 5)
+    givemon(SPECIES_CUTIEFLY, 5)
     closemessage
     goto(ow_Kolchavi_Lab_2F_EventScript_Zelkova_AfterGift)
 }
 
-script ow_Kolchavi_Lab_2F_EventScript_Zelkova_ConfirmBidoof {
-    showmonpic(SPECIES_BIDOOF, 10, 3)
-    playmoncry(SPECIES_BIDOOF, CRY_MODE_NORMAL)
-    bufferspeciesname(STR_VAR_1, SPECIES_BIDOOF)
+script ow_Kolchavi_Lab_2F_EventScript_Zelkova_ConfirmWattrel {
+    showmonpic(SPECIES_WATTREL, 10, 3)
+    playmoncry(SPECIES_WATTREL, CRY_MODE_NORMAL)
+    bufferspeciesname(STR_VAR_1, SPECIES_WATTREL)
     msgbox(format("Are you sure you want {STR_VAR_1}?"), MSGBOX_YESNO)
     waitmoncry
     hidemonpic
@@ -130,20 +163,18 @@ script ow_Kolchavi_Lab_2F_EventScript_Zelkova_ConfirmBidoof {
     msgbox(format("{PLAYER} received {STR_VAR_1}!"))
     playfanfare(MUS_OBTAIN_ITEM)
     waitfanfare
-    givemon(SPECIES_BIDOOF, 5)
+    givemon(SPECIES_WATTREL, 5)
     closemessage
     goto(ow_Kolchavi_Lab_2F_EventScript_Zelkova_AfterGift)
 }
 
 script ow_Kolchavi_Lab_2F_EventScript_Zelkova_AfterGift {
     setspeaker("Prof. Zelkova")
-    msgbox(format("Good. Take care of it."))
-    msgbox(format("And keep your eyes open out there.\NTell me what you find."))
+    msgbox(format("Good. Take care of it.\NIt'll watch your back down there."))
+    msgbox(format("Now - head into Sowback Cave.\NBring Nadia back to me."))
     setspeaker(NULL)
-    setflag(FLAG_HIDE_SOWBACK_B1F_NADIA)
-    completequest(QUEST_ZELKOVA)
-    // Phase 1 complete: this clears the Haul Road (r3) survey blockers on next entry.
-    setvar(VAR_CULTURE_STATE, 4)
+    setflag(FLAG_CULTURE_ZELKOVA_MET)
+    call_if_quest_not_active(QUEST_ZELKOVA, ow_Kolchavi_Lab_2F_EventScript_Zelkova_StartQuest)
     release
     end
 }
@@ -243,19 +274,19 @@ script ow_Kolchavi_Lab_2F_EventScript_WorkerSouth {
 script ow_Kolchavi_Lab_2F_EventScript_WorkerDebate {
     // 
     setspeaker("Sorren")
-    msgbox(format("I don't understand your argument!\NThe Corsola adapted to the new realities of their environment."))
+    msgbox(format("I don't understand your argument!\NThe Corsola adapted to the realities of their changing environment."))
     setspeaker("Mira")
     msgbox(format("If, by new realities, you mean... the extinction of their species as we know it?"))
     setspeaker("Sorren")
-    msgbox(format("But they aren't extinct! They did adapt.\NGranted, in a much more incorporeal state."))
+    msgbox(format("But they aren't extinct! They did adapt.\pGranted, in a much more incorporeal state."))
     setspeaker("Mira")
     msgbox(format("The Hoennians of Pacifidlog Town live atop of a reef of Corsola.\NDo you think they mind if the Corsola are incorporeal?"))
     setspeaker("Sorren")
     msgbox(format("Well, they would adapt too!"))
     setspeaker("Mira")
-    msgbox(format("What, into ghosts too?"))
+    msgbox(format("What, into ghosts!?"))
     setspeaker("Sorren")
-    msgbox(format("Ugh. That is besides the point.\pThe Corsola adapt to their conditions, and so too does humanity.\pWe are here to study how."))
+    msgbox(format("Ugh.\pThat is besides the point.\pThe Corsola adapt to their conditions, and so too does humanity.\pWe are here to study how."))
     setspeaker("Mira")
     msgbox(format("Fine. But I prefer conservation to inaction. Not all species adapt."))
     setspeaker(NULL)

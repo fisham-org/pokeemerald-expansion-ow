@@ -88,7 +88,7 @@
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND_SLOWER",
       "movement_range_x": 2,
-      "movement_range_y": 0,
+      "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ow_Kolchavi_EventScript_CliffWatcher",
@@ -143,15 +143,15 @@
     {
       "local_id": "LOCALID_KOLCHAVI_HARIYAMA",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(HARIYAMA)",
-      "x": 45,
+      "x": 46,
       "y": 44,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "ow_Kolchavi_EventScript_Hariyama",
       "flag": "0",
       "notes": "hariyama standing at end of dock with its trainer"
     },
@@ -188,12 +188,12 @@
     {
       "local_id": "LOCALID_KOLCHAVI_RESEARCHER",
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
-      "x": 22,
-      "y": 16,
+      "x": 23,
+      "y": 14,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 2,
-      "movement_range_y": 0,
+      "movement_range_x": 1,
+      "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ow_Kolchavi_EventScript_Researcher",
@@ -247,19 +247,19 @@
       "notes": "man standing at end of kolchavi dock next to his machop"
     },
     {
-      "local_id": "LOCALID_KOLCHAVI_GROWLITHE",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(GROWLITHE)",
+      "local_id": "LOCALID_KOLCHAVI_MUDBRAY",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MUDBRAY)",
       "x": 16,
       "y": 28,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "ow_Kolchavi_EventScript_Mudbray",
       "flag": "0",
-      "notes": "growlithe next to trainer"
+      "notes": "mudbray next to trainer"
     },
     {
       "local_id": "LOCALID_KOLCHAVI_NPC6",
@@ -275,6 +275,21 @@
       "script": "ow_Kolchavi_EventScript_NPC6",
       "flag": "0",
       "notes": "npc making generic comments, standing next to partner growlithe"
+    },
+    {
+      "local_id": "LOCALID_KOLCHAVI_HELPER",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_3",
+      "x": 42,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ow_Kolchavi_EventScript_Helper",
+      "flag": "0",
+      "notes": "npc to do a brief intro for a new player"
     }
   ],
   "warp_events": [

@@ -1646,7 +1646,7 @@
 #define FLAG_HIDE_SOWBACK_B1F_NADIA                 (OW_FLAGS_START + 1)
 #define FLAG_HIDE_KOLCHAVI_LAB_2F_NADIA             (OW_FLAGS_START + 2)
 #define FLAG_HIDE_OW_R3_SURVEYOR_BLOCK              (OW_FLAGS_START + 3) // Single flag for all four survey blockers (they toggle together)
-#define FLAG_OW_UNUSED_4                            (OW_FLAGS_START + 4)
+#define FLAG_KOLCHAVI_HELPER_INTRO_DONE            (OW_FLAGS_START + 4) // Kolchavi PokeCenter helper has given the new-player intro
 #define FLAG_OW_UNUSED_5                            (OW_FLAGS_START + 5)
 #define FLAG_OW_UNUSED_6                            (OW_FLAGS_START + 6)
 #define FLAG_HIDE_OW_R3_SURVEYOR_TRAINER            (OW_FLAGS_START + 7)
