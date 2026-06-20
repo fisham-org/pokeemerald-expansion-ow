@@ -35,6 +35,8 @@ script ow_Floran_Gym_EventScript_GymGuide {
 
 script ow_Floran_Gym_EventScript_StartChallenge {
     closemessage
+    // Lock the player into the challenge: the select-mons screen can't be cancelled.
+    setflag(FLAG_SELECTMONS_NO_CANCEL)
     // Fresh run: clear defeat flags so already-won trainers re-battle.
     cleartrainerflag(TRAINER_OW_FLORAN_GYM_1)
     cleartrainerflag(TRAINER_OW_FLORAN_GYM_2)
@@ -190,6 +192,7 @@ script ow_Floran_Gym_EventScript_VesnaWon {
     msgbox(format("Take this TM. Put its edge to good use."))
     setspeaker(NULL)
     setvar(VAR_FLORAN_GYM_STATE, 1)
+    clearflag(FLAG_SELECTMONS_NO_CANCEL)
     release
     end
 }
@@ -197,6 +200,7 @@ script ow_Floran_Gym_EventScript_VesnaWon {
 // ---------------- Loss ----------------
 
 script ow_Floran_Gym_EventScript_WhiteOut {
+    clearflag(FLAG_SELECTMONS_NO_CANCEL)
     fadescreen(FADE_TO_BLACK)
     special(SetCB2WhiteOut)
     waitstate
