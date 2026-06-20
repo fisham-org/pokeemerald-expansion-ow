@@ -141,7 +141,7 @@
 #define P_FAMILY_LEDYBA                  FALSE
 #define P_FAMILY_SPINARAK                FALSE
 #define P_FAMILY_CHINCHOU                FALSE
-#define P_FAMILY_TOGEPI                  FALSE
+#define P_FAMILY_TOGEPI                  TRUE
 #define P_FAMILY_NATU                    FALSE
 #define P_FAMILY_MAREEP                  FALSE
 #define P_FAMILY_MARILL                  FALSE

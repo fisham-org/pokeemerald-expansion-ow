@@ -19235,3 +19235,153 @@ Tags: Ace
 - Lunge
 - Protect
 - X-Scissor
+
+=== TRAINER_OW_FLORAN_GYM_1 ===
+Name: Bran
+Class: Lumberjack
+Pic: Lumberjack
+Gender: Male
+Double Battle: Yes
+Party Size: 3
+Pool Rules: Doubles
+AI: Check Bad Move / Try To Faint / Smart Switching
+
+Sirfetch'd @ Leek
+Level: 100
+Ability: Scrappy
+Nature: Adamant
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Lead / Ace
+- Focus Energy
+- Close Combat
+- Night Slash
+- First Impression
+
+Honchkrow @ Scope Lens
+Level: 100
+Ability: Super Luck
+Nature: Jolly
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Lead / Ace
+- Night Slash
+- Sucker Punch
+- Drill Peck
+- Tailwind
+
+Togekiss @ Scope Lens
+Level: 100
+Ability: Super Luck
+Nature: Timid
+EVs: 4 HP / 252 SpA / 252 Spe
+Tags: Ace
+- Air Slash
+- Dazzling Gleam
+- Aura Sphere
+- Roost
+
+=== TRAINER_OW_FLORAN_GYM_2 ===
+Name: Edda
+Class: OW Lumberjack F
+Pic: OW Lumberjack F
+Gender: Female
+Double Battle: Yes
+Party Size: 3
+Pool Rules: Doubles
+AI: Check Bad Move / Try To Faint / Smart Switching
+
+Leavanny @ Scope Lens
+Level: 100
+Ability: Swarm
+Nature: Jolly
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Lead / Ace
+- Leaf Blade
+- X-Scissor
+- Swords Dance
+- Protect
+
+Drapion @ Scope Lens
+Level: 100
+Ability: Sniper
+Nature: Jolly
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Ace
+- Focus Energy
+- Cross Poison
+- Night Slash
+- Knock Off
+
+Kingdra @ Scope Lens
+Level: 100
+Ability: Sniper
+Nature: Modest
+EVs: 4 HP / 252 SpA / 252 Spe
+Tags: Ace
+- Focus Energy
+- Draco Meteor
+- Hydro Pump
+- Ice Beam
+
+=== TRAINER_OW_FLORAN_VESNA ===
+Name: Vesna
+Class: OW Lumberjack F
+Pic: OW Lumberjack F
+Gender: Female
+Double Battle: Yes
+Party Size: 4
+Pool Rules: Basic
+AI: Smart Trainer / Prediction
+
+Meowscarada @ Life Orb
+Level: 100
+Ability: Protean
+Nature: Jolly
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Lead
+- Flower Trick
+- Knock Off
+- Triple Axel
+- Sucker Punch
+
+Aegislash @ Weakness Policy
+Level: 100
+Ability: Stance Change
+Nature: Brave
+IVs: 0 Spe
+EVs: 252 HP / 252 Atk / 4 SpD
+- Sacred Sword
+- Shadow Sneak
+- Iron Head
+- King's Shield
+
+Sirfetch'd @ Leek
+Level: 100
+Ability: Scrappy
+Nature: Adamant
+EVs: 4 HP / 252 Atk / 252 Spe
+- Focus Energy
+- Close Combat
+- Night Slash
+- First Impression
+
+Kingambit @ Black Glasses
+Level: 100
+Ability: Supreme Overlord
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+Tags: Ace
+- Kowtow Cleave
+- Sucker Punch
+- Iron Head
+- Swords Dance
+
+Kleavor @ Liechi Berry
+Level: 100
+Ability: Sharpness
+Nature: Jolly
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Ace
+- Stone Axe
+- X-Scissor
+- Night Slash
+- Close Combat

@@ -9673,6 +9673,16 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/ow_Kolchavi_House5/border.bin",
       "blockdata_filepath": "data/layouts/ow_Kolchavi_House5/map.bin"
+    },
+    {
+      "id": "LAYOUT_OW_FLORAN_GYM",
+      "name": "ow_Floran_Gym_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PetalburgGym",
+      "border_filepath": "data/layouts/ow_Floran_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/ow_Floran_Gym/map.bin"
     }
   ]
 }

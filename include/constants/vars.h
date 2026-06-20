@@ -289,7 +289,7 @@
 #define VAR_OW_UNUSED_0x4109                             0x4109
 #define VAR_OW_UNUSED_0x410A                             0x410A
 #define VAR_CULTURE_STATE                                0x410B // Culture questline state machine (see docs/11-ow/quests/culture/culture.md)
-#define VAR_OW_UNUSED_0x410C                             0x410C // etc.
+#define VAR_FLORAN_GYM_STATE                             0x410C // Floran Gym: 0 = not cleared, 1 = gym cleared
 #define VAR_OW_UNUSED_0x410D                             0x410D
 #define VAR_OW_UNUSED_0x410E                             0x410E
 

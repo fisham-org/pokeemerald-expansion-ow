@@ -1,0 +1,249 @@
+mapscripts ow_Floran_Gym_MapScripts {}
+
+// ============================================================
+// FLORAN GYM - challenge flow
+// Player talks to the Gym Guide to begin. They battle two gym
+// trainers in sequence (select 3 Pokemon each), then Vesna the
+// leader (select 4). Each win heals the party and advances; any
+// loss whites the player out, forcing a restart from trainer 1
+// on re-entry. Beating Vesna awards a TM and ends the event.
+//
+// The whole run is one continuous locked script - no partial
+// progress is saved, so on whiteout the map reloads with all
+// objects back at their home tiles and the only persistent state
+// is VAR_FLORAN_GYM_STATE (1 = gym cleared).
+//
+// NOTE TO ME COMING BACK TO THIS:
+// The level scaling feature is 'fine' but makes balance difficult
+// and kind of takes the fun out of the gym. Consider manually
+// creating at least the leader's team, if not all challengers.
+// e.g. Scyther/Absol can be at level 16 if its moves are appropriate.
+// ============================================================
+
+script ow_Floran_Gym_EventScript_GymGuide {
+    lock
+    faceplayer
+    if (var(VAR_FLORAN_GYM_STATE) == 1) {
+        msgbox(format("You've already bested Vesna. The garden's yours to wander."))
+        release
+        end
+    }
+    specialvar(VAR_RESULT, GetCurrentLevelCap)
+    buffernumberstring(STR_VAR_1, VAR_RESULT)
+    msgbox(format("Welcome to the Floran Gym!\pTo take the challenge you'll face two of our trainers, then Vesna herself.\pYour team should be around Lv. {STR_VAR_1}, and you'll want at least four Pokemon. Ready?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+        msgbox(format("Come back when you're ready."))
+        release
+        end
+    }
+    goto(ow_Floran_Gym_EventScript_StartChallenge)
+}
+
+script ow_Floran_Gym_EventScript_StartChallenge {
+    closemessage
+    hidefollower
+    // Lock the player into the challenge: the select-mons screen can't be cancelled.
+    setflag(FLAG_SELECTMONS_NO_CANCEL)
+    // Fresh run: clear defeat flags so already-won trainers re-battle.
+    cleartrainerflag(TRAINER_OW_FLORAN_GYM_1)
+    cleartrainerflag(TRAINER_OW_FLORAN_GYM_2)
+    cleartrainerflag(TRAINER_OW_FLORAN_VESNA)
+    moveobjecttocoords(LOCALID_PLAYER, 6, 5, DIR_EAST)
+    waitmovement(0)
+    goto(ow_Floran_Gym_EventScript_Trainer1)
+}
+
+// Camera helpers. SpawnCameraObject/RemoveCameraObject only re-attach the
+// follow target - they never re-center the map - so the view is moved purely
+// by panning the camera object. The pan to the arena is left in place through
+// the battle (which is hidden behind the battle transition) and undone by an
+// equal-and-opposite pan afterwards.
+script ow_Floran_Gym_EventScript_PanCameraToArena {
+    special(SpawnCameraObject)
+    applymovement(LOCALID_CAMERA, ow_Floran_Gym_Movement_CameraToArena)
+    waitmovement(0)
+    special(RemoveCameraObject)
+    return
+}
+
+script ow_Floran_Gym_EventScript_ResetCamera {
+    special(SpawnCameraObject)
+    applymovement(LOCALID_CAMERA, ow_Floran_Gym_Movement_CameraToPlayer)
+    waitmovement(0)
+    special(RemoveCameraObject)
+    return
+}
+
+// Attendant walks over to the player, heals (Poke Center jingle), walks back.
+script ow_Floran_Gym_EventScript_AttendantHeal {
+    applymovement(LOCALID_FLORAN_GYM_GUIDE, ow_Floran_Gym_Movement_AttendantApproach)
+    waitmovement(0)
+    applymovement(LOCALID_PLAYER, moves(face_down))
+    msgbox(format("Good battle! Let me heal your team."))
+    playfanfare(MUS_HEAL)
+    special(HealPlayerParty)
+    waitfanfare
+    closemessage
+    applymovement(LOCALID_FLORAN_GYM_GUIDE, ow_Floran_Gym_Movement_AttendantReturn)
+    waitmovement(0)
+    applymovement(LOCALID_PLAYER, moves(face_right))
+    return
+}
+
+// ---------------- Trainer 1 ----------------
+
+script ow_Floran_Gym_EventScript_Trainer1 {
+    moveobjecttocoords(LOCALID_FLORAN_GYM_TRAINER_1, 12, 5, DIR_WEST)
+    waitmovement(0)
+    call(ow_Floran_Gym_EventScript_PanCameraToArena)
+    trainerbattle_selectmons(TRAINER_OW_FLORAN_GYM_1, format("Let's see how you handle a sharpened blade!"), format("Augh, you cut me down to size."), ow_Floran_Gym_EventScript_Trainer1PostBattle, 3)
+    end
+}
+
+script ow_Floran_Gym_EventScript_Trainer1PostBattle {
+    if (var(VAR_RESULT) == 1) {
+        goto(ow_Floran_Gym_EventScript_Trainer1Won)
+    }
+    goto(ow_Floran_Gym_EventScript_WhiteOut)
+}
+
+script ow_Floran_Gym_EventScript_Trainer1Won {
+    call(ow_Floran_Gym_EventScript_ResetCamera)
+    moveobjecttocoords(LOCALID_FLORAN_GYM_TRAINER_1, 6, 2, DIR_SOUTH)
+    waitmovement(0)
+    call(ow_Floran_Gym_EventScript_AttendantHeal)
+    goto(ow_Floran_Gym_EventScript_Trainer2)
+}
+
+// ---------------- Trainer 2 ----------------
+
+script ow_Floran_Gym_EventScript_Trainer2 {
+    moveobjecttocoords(LOCALID_FLORAN_GYM_TRAINER_2, 12, 5, DIR_WEST)
+    waitmovement(0)
+    call(ow_Floran_Gym_EventScript_PanCameraToArena)
+    trainerbattle_selectmons(TRAINER_OW_FLORAN_GYM_2, format("My edge is keener than the last. Show me yours!"), format("Sharp... too sharp for me."), ow_Floran_Gym_EventScript_Trainer2PostBattle, 3)
+    end
+}
+
+script ow_Floran_Gym_EventScript_Trainer2PostBattle {
+    if (var(VAR_RESULT) == 1) {
+        goto(ow_Floran_Gym_EventScript_Trainer2Won)
+    }
+    goto(ow_Floran_Gym_EventScript_WhiteOut)
+}
+
+script ow_Floran_Gym_EventScript_Trainer2Won {
+    call(ow_Floran_Gym_EventScript_ResetCamera)
+    moveobjecttocoords(LOCALID_FLORAN_GYM_TRAINER_2, 12, 2, DIR_SOUTH)
+    waitmovement(0)
+    call(ow_Floran_Gym_EventScript_AttendantHeal)
+    goto(ow_Floran_Gym_EventScript_VesnaSequence)
+}
+
+// ---------------- Gym Leader Vesna ----------------
+
+script ow_Floran_Gym_EventScript_VesnaSequence {
+    moveobjecttocoords(LOCALID_FLORAN_GYM_VESNA, 7, 5, DIR_WEST)
+    waitmovement(0)
+    setspeaker("Vesna")
+    msgbox(format("So you cut your way to me. Good.\pLet me show you a true edge."))
+    setspeaker(NULL)
+    closemessage
+    moveobjecttocoords(LOCALID_FLORAN_GYM_VESNA, 12, 5, DIR_WEST)
+    waitmovement(0)
+    call(ow_Floran_Gym_EventScript_PanCameraToArena)
+    trainerbattle_selectmons(TRAINER_OW_FLORAN_VESNA, format("Bring your four best. Hold nothing back."), format("A clean cut. I yield."), ow_Floran_Gym_EventScript_VesnaPostBattle, 4)
+    end
+}
+
+script ow_Floran_Gym_EventScript_VesnaPostBattle {
+    if (var(VAR_RESULT) == 1) {
+        goto(ow_Floran_Gym_EventScript_VesnaWon)
+    }
+    goto(ow_Floran_Gym_EventScript_WhiteOut)
+}
+
+script ow_Floran_Gym_EventScript_VesnaWon {
+    call(ow_Floran_Gym_EventScript_ResetCamera)
+    moveobjecttocoords(LOCALID_FLORAN_GYM_VESNA, 7, 5, DIR_WEST)
+    waitmovement(0)
+    setspeaker("Vesna")
+    msgbox(format("Sharp instincts and sharper Pokemon. You've earned this."))
+    setspeaker(NULL)
+    giveitem(ITEM_TM01)
+    setspeaker("Vesna")
+    msgbox(format("Take this TM. Put its edge to good use."))
+    setspeaker(NULL)
+    setvar(VAR_FLORAN_GYM_STATE, 1)
+    clearflag(FLAG_SELECTMONS_NO_CANCEL)
+    release
+    end
+}
+
+// ---------------- Loss ----------------
+
+script ow_Floran_Gym_EventScript_WhiteOut {
+    // No flag cleanup needed: DoWhiteOut clears FLAG_SELECTMONS_NO_CANCEL automatically.
+    fadescreen(FADE_TO_BLACK)
+    special(SetCB2WhiteOut)
+    end
+}
+
+// ---------------- Idle / direct-talk dialogue ----------------
+
+script ow_Floran_Gym_EventScript_GymTrainer {
+    lock
+    faceplayer
+    msgbox(format("Talk to the gym guide by the door if you want to take the challenge."))
+    release
+    end
+}
+
+script ow_Floran_Gym_EventScript_VesnaIdle {
+    lock
+    faceplayer
+    setspeaker("Vesna")
+    if (var(VAR_FLORAN_GYM_STATE) == 1) {
+        msgbox(format("Come back any time you want another bout."))
+    } else {
+        msgbox(format("Beat my trainers first. Then we'll talk steel."))
+    }
+    setspeaker(NULL)
+    release
+    end
+}
+
+script ow_Floran_Gym_EventScript_Greeter {
+    lock
+    faceplayer
+    msgbox(format("Welcome to the Floran Gym!\pWe're woodcutters here - our Pokemon fight with the edge of an axe."))
+    release
+    end
+}
+
+script ow_Floran_Gym_EventScript_Statue {
+    lockall
+    msgbox(format("A statue of a woodcutter mid-swing, axe biting into a great log."))
+    releaseall
+    end
+}
+
+// ---------------- Movement ----------------
+
+movement ow_Floran_Gym_Movement_CameraToArena {
+    walk_fast_right * 3
+}
+
+movement ow_Floran_Gym_Movement_CameraToPlayer {
+    walk_fast_left * 3
+}
+
+movement ow_Floran_Gym_Movement_AttendantApproach {
+    walk_right
+    face_up
+}
+
+movement ow_Floran_Gym_Movement_AttendantReturn {
+    walk_left
+    face_right
+}

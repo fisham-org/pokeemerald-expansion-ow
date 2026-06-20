@@ -1958,3 +1958,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/scripts/wild_encounter.inc"
 
 	.include "data/maps/ow_Kolchavi_House5/scripts.inc"
+
+	.include "data/maps/ow_Floran_Gym/scripts.inc"
