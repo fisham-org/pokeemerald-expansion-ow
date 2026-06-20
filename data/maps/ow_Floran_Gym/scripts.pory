@@ -200,7 +200,7 @@ script ow_Floran_Gym_EventScript_VesnaWon {
 // ---------------- Loss ----------------
 
 script ow_Floran_Gym_EventScript_WhiteOut {
-    clearflag(FLAG_SELECTMONS_NO_CANCEL)
+    // No flag cleanup needed: DoWhiteOut clears FLAG_SELECTMONS_NO_CANCEL automatically.
     fadescreen(FADE_TO_BLACK)
     special(SetCB2WhiteOut)
     waitstate
