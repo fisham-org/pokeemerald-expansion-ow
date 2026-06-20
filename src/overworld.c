@@ -395,6 +395,9 @@ static void (*const sMovementStatusHandler[])(struct LinkPlayerObjectEvent *, st
 void DoWhiteOut(void)
 {
     RunScriptImmediately(EventScript_WhiteOut);
+    // Whiting out abandons any forced-selection challenge (e.g. a gym), so always
+    // unlock the select-mons screen. Lets challenge scripts skip a manual clear on loss.
+    FlagClear(FLAG_SELECTMONS_NO_CANCEL);
     HealPlayerParty();
     
     // Handle Nuzlocke whiteout - mark all party Pokemon as dead
