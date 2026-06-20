@@ -19235,3 +19235,243 @@ Tags: Ace
 - Lunge
 - Protect
 - X-Scissor
+
+=== TRAINER_OW_FLORAN_GYM_1 ===
+Name: Bran
+Class: Lumberjack
+Pic: Lumberjack
+Gender: Male
+Double Battle: Yes
+Party Size: 4
+Pool Rules: Doubles
+AI: Check Bad Move / Try To Faint / Smart Switching
+
+Scyther @ Eviolite
+Level: 100
+Ability: Technician
+Nature: Jolly
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Lead
+- Aerial Ace
+- Fury Cutter
+- Dual Wingbeat
+- U-turn
+
+Leavanny @ Life Orb
+Level: 100
+Ability: Chlorophyll
+Nature: Jolly
+EVs: 252 Atk / 4 Def / 252 Spe
+Tags: Lead
+- Leaf Blade
+- Lunge
+- X-Scissor
+- Protect
+
+Pawniard @ Black Glasses
+Level: 100
+Ability: Defiant
+Nature: Adamant
+EVs: 252 Atk / 4 Def / 252 Spe
+Tags: Ace
+- Iron Head
+- Night Slash
+- Sucker Punch
+- Swords Dance
+
+Absol @ Scope Lens
+Level: 100
+Ability: Super Luck
+Nature: Jolly
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Ace
+- Night Slash
+- Psycho Cut
+- Sucker Punch
+- Swords Dance
+
+=== TRAINER_OW_FLORAN_GYM_2 ===
+Name: Edda
+Class: Lumberjack
+Pic: Lumberjack
+Gender: Female
+Double Battle: Yes
+Party Size: 4
+Pool Rules: Doubles
+AI: Check Bad Move / Try To Faint / Smart Switching
+
+Honchkrow @ Scope Lens
+Level: 100
+Ability: Super Luck
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+Tags: Lead
+- Night Slash
+- Drill Peck
+- Sucker Punch
+- Tailwind
+
+Weavile @ Razor Claw
+Level: 100
+Ability: Pickpocket
+Nature: Jolly
+EVs: 252 Atk / 4 Def / 252 Spe
+Tags: Lead
+- Triple Axel
+- Knock Off
+- Night Slash
+- Ice Shard
+
+Scizor @ Choice Band
+Level: 100
+Ability: Technician
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 Spe
+Tags: Ace
+- Bullet Punch
+- U-turn
+- Knock Off
+- Close Combat
+
+Meowscarada @ Life Orb
+Level: 100
+Ability: Protean
+Nature: Jolly
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Ace
+- Flower Trick
+- Knock Off
+- Triple Axel
+- Sucker Punch
+
+=== TRAINER_OW_FLORAN_GYM_3 ===
+Name: Holt
+Class: Lumberjack
+Pic: Lumberjack
+Gender: Male
+Double Battle: Yes
+Party Size: 4
+Pool Rules: Doubles
+AI: Check Bad Move / Try To Faint / Smart Switching
+
+Kleavor @ Liechi Berry
+Level: 100
+Ability: Sharpness
+Nature: Jolly
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Lead
+- Stone Axe
+- X-Scissor
+- Night Slash
+- Close Combat
+
+Sirfetch'd @ Leek
+Level: 100
+Ability: Scrappy
+Nature: Adamant
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Lead
+- Slash
+- First Impression
+- Brick Break
+- Knock Off
+
+Kingambit @ Black Glasses
+Level: 100
+Ability: Supreme Overlord
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+Tags: Ace
+- Kowtow Cleave
+- Stone Edge
+- Sucker Punch
+- Iron Head
+
+Aegislash @ Weakness Policy
+Level: 100
+Ability: Stance Change
+Nature: Brave
+IVs: 0 Spe
+EVs: 252 HP / 252 Atk / 4 SpD
+Tags: Ace
+- Sacred Sword
+- Shadow Sneak
+- Iron Head
+- King's Shield
+
+=== TRAINER_OW_FLORAN_VESNA ===
+Name: Vesna
+Class: Lumberjack
+Pic: Lumberjack
+Gender: Female
+Double Battle: Yes
+Party Size: 4
+Pool Rules: Doubles
+AI: Check Bad Move / Try To Faint / Smart Switching / Force Setup First Turn
+
+Kleavor @ Liechi Berry
+Level: 100
+Ability: Sharpness
+Nature: Jolly
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Lead
+- Stone Axe
+- X-Scissor
+- Night Slash
+- Close Combat
+
+Gallade @ Scope Lens
+Level: 100
+Ability: Sharpness
+Nature: Jolly
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Lead
+- Sacred Sword
+- Psycho Cut
+- Leaf Blade
+- Night Slash
+
+Sneasler @ Razor Claw
+Level: 100
+Ability: Poison Touch
+Nature: Jolly
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Lead
+- Close Combat
+- Dire Claw
+- Throat Chop
+- Aerial Ace
+
+Haxorus @ Life Orb
+Level: 100
+Ability: Mold Breaker
+Nature: Jolly
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Lead
+- Dragon Cheer
+- Dragon Claw
+- Earthquake
+- Iron Head
+
+Kingambit @ Black Glasses
+Level: 100
+Ability: Supreme Overlord
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+Tags: Ace
+- Kowtow Cleave
+- Stone Edge
+- Sucker Punch
+- Iron Head
+
+Aegislash @ Weakness Policy
+Level: 100
+Ability: Stance Change
+Nature: Brave
+IVs: 0 Spe
+EVs: 252 HP / 252 Atk / 4 SpD
+Tags: Ace
+- Sacred Sword
+- Shadow Sneak
+- Iron Head
+- King's Shield

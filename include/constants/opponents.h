@@ -896,10 +896,14 @@
 #define TRAINER_OW_R12_NINJA_1              889
 #define TRAINER_OW_R12_HIKER_1              890
 #define TRAINER_OW_R12_BUG_CATCHER_1        891
+#define TRAINER_OW_FLORAN_GYM_1             892
+#define TRAINER_OW_FLORAN_GYM_2             893
+#define TRAINER_OW_FLORAN_GYM_3             894
+#define TRAINER_OW_FLORAN_VESNA             895
 
 // NOTE: MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space (1 bit per trainer in SaveBlock1)
 
-#define TRAINERS_COUNT_EMERALD     892
+#define TRAINERS_COUNT_EMERALD     896
 #define MAX_TRAINERS_COUNT_EMERALD 1300
 
 #if IS_FRLG
