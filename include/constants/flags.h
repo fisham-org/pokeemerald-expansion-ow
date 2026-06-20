@@ -1647,7 +1647,7 @@
 #define FLAG_HIDE_KOLCHAVI_LAB_2F_NADIA             (OW_FLAGS_START + 2)
 #define FLAG_HIDE_OW_R3_SURVEYOR_BLOCK              (OW_FLAGS_START + 3) // Single flag for all four survey blockers (they toggle together)
 #define FLAG_KOLCHAVI_HELPER_INTRO_DONE            (OW_FLAGS_START + 4) // Kolchavi PokeCenter helper has given the new-player intro
-#define FLAG_OW_UNUSED_5                            (OW_FLAGS_START + 5)
+#define FLAG_SELECTMONS_NO_CANCEL                  (OW_FLAGS_START + 5) // When set, the select-mons party screen can't be cancelled (forced challenges)
 #define FLAG_OW_UNUSED_6                            (OW_FLAGS_START + 6)
 #define FLAG_HIDE_OW_R3_SURVEYOR_TRAINER            (OW_FLAGS_START + 7)
 #define FLAG_RECEIVED_R3_PAINTER_REWARD             (OW_FLAGS_START + 8)

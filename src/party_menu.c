@@ -49,6 +49,7 @@
 #include "party_menu.h"
 #include "player_pc.h"
 #include "pokemon.h"
+#include "nuzlocke.h"
 #include "pokemon_icon.h"
 #include "pokemon_jump.h"
 #include "pokemon_storage_system.h"
@@ -1672,6 +1673,13 @@ static bool8 DoesSelectedMonKnowHM(u8 *slotPtr)
 
 static void HandleChooseMonCancel(u8 taskId, s8 *slotPtr)
 {
+    // Forced select-mons challenges (e.g. gyms) disallow backing out of the selection.
+    if (gPartyMenu.menuType == PARTY_MENU_TYPE_CHOOSE_HALF && FlagGet(FLAG_SELECTMONS_NO_CANCEL))
+    {
+        PlaySE(SE_FAILURE);
+        return;
+    }
+
     switch (gPartyMenu.action)
     {
     case PARTY_ACTION_SEND_OUT:
@@ -7383,6 +7391,12 @@ static u8 GetPartySlotEntryStatus(s8 slot)
 static bool8 GetBattleEntryEligibility(struct Pokemon *mon)
 {
     u32 species;
+
+    // In Nuzlocke mode, a dead (permanently fainted) Pokemon is not eligible for battle.
+    // Note for me: this assumes Nuzlocke code exists - if publishing update to
+    // standalone branch, will probably need to skip this.
+    if (IsNuzlockeActive() && IsMonDead(mon))
+        return FALSE;
 
     if (GetMonData(mon, MON_DATA_IS_EGG)
         || GetMonData(mon, MON_DATA_LEVEL) > GetBattleEntryLevelCap()

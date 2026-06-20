@@ -247,13 +247,20 @@ void NuzlockeHandleWhiteout(void)
         return;
     
     int i;
-    
-    // Mark all party Pokemon as dead
+
+    // Only mark Pokemon that actually fainted as dead. By the time this runs,
+    // HealPlayerParty (called first in DoWhiteOut) has already restored every
+    // non-dead mon to full HP, so HP == 0 reliably means "fainted/dead". This
+    // matters for select-mons battles, where the party is restored to its full
+    // size and the mons that were left behind (never sent into battle) must stay
+    // alive. In a normal whiteout every party mon fainted, so behaviour is
+    // unchanged.
     for (i = 0; i < PARTY_SIZE; i++)
     {
         struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][i];
-        if (GetMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE && 
-            !GetMonData(mon, MON_DATA_SANITY_IS_EGG))
+        if (GetMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE &&
+            !GetMonData(mon, MON_DATA_SANITY_IS_EGG) &&
+            GetMonData(mon, MON_DATA_HP) == 0)
         {
             SetMonDead(mon, TRUE);
         }
