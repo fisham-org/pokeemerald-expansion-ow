@@ -1278,6 +1278,9 @@ enum NationalDexOrder
     F(MISMAGIUS) \
     F(PINECO) \
     F(FORRETRESS) \
+    F(TOGEPI) \
+    F(TOGETIC) \
+    F(TOGEKISS) \
     F(GLIGAR) \
     F(GLISCOR) \
     F(SHUCKLE) \

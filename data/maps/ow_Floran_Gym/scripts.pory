@@ -2,7 +2,7 @@ mapscripts ow_Floran_Gym_MapScripts {}
 
 // ============================================================
 // FLORAN GYM - challenge flow
-// Player talks to the Gym Guide to begin. They battle three gym
+// Player talks to the Gym Guide to begin. They battle two gym
 // trainers in sequence (select 3 Pokemon each), then Vesna the
 // leader (select 4). Each win heals the party and advances; any
 // loss whites the player out, forcing a restart from trainer 1
@@ -12,6 +12,12 @@ mapscripts ow_Floran_Gym_MapScripts {}
 // progress is saved, so on whiteout the map reloads with all
 // objects back at their home tiles and the only persistent state
 // is VAR_FLORAN_GYM_STATE (1 = gym cleared).
+//
+// NOTE TO ME COMING BACK TO THIS:
+// The level scaling feature is 'fine' but makes balance difficult
+// and kind of takes the fun out of the gym. Consider manually
+// creating at least the leader's team, if not all challengers.
+// e.g. Scyther/Absol can be at level 16 if its moves are appropriate.
 // ============================================================
 
 script ow_Floran_Gym_EventScript_GymGuide {
@@ -24,7 +30,7 @@ script ow_Floran_Gym_EventScript_GymGuide {
     }
     specialvar(VAR_RESULT, GetCurrentLevelCap)
     buffernumberstring(STR_VAR_1, VAR_RESULT)
-    msgbox(format("Welcome to the Floran Gym!\pTo take the challenge you'll face three of our trainers, then Vesna herself.\pYour team should be around Lv. {STR_VAR_1}, and you'll want at least four Pokemon. Ready?"), MSGBOX_YESNO)
+    msgbox(format("Welcome to the Floran Gym!\pTo take the challenge you'll face two of our trainers, then Vesna herself.\pYour team should be around Lv. {STR_VAR_1}, and you'll want at least four Pokemon. Ready?"), MSGBOX_YESNO)
     if (var(VAR_RESULT) == NO) {
         msgbox(format("Come back when you're ready."))
         release
@@ -35,12 +41,12 @@ script ow_Floran_Gym_EventScript_GymGuide {
 
 script ow_Floran_Gym_EventScript_StartChallenge {
     closemessage
+    hidefollower
     // Lock the player into the challenge: the select-mons screen can't be cancelled.
     setflag(FLAG_SELECTMONS_NO_CANCEL)
     // Fresh run: clear defeat flags so already-won trainers re-battle.
     cleartrainerflag(TRAINER_OW_FLORAN_GYM_1)
     cleartrainerflag(TRAINER_OW_FLORAN_GYM_2)
-    cleartrainerflag(TRAINER_OW_FLORAN_GYM_3)
     cleartrainerflag(TRAINER_OW_FLORAN_VESNA)
     moveobjecttocoords(LOCALID_PLAYER, 6, 5, DIR_EAST)
     waitmovement(0)
@@ -72,6 +78,7 @@ script ow_Floran_Gym_EventScript_ResetCamera {
 script ow_Floran_Gym_EventScript_AttendantHeal {
     applymovement(LOCALID_FLORAN_GYM_GUIDE, ow_Floran_Gym_Movement_AttendantApproach)
     waitmovement(0)
+    applymovement(LOCALID_PLAYER, moves(face_down))
     msgbox(format("Good battle! Let me heal your team."))
     playfanfare(MUS_HEAL)
     special(HealPlayerParty)
@@ -79,6 +86,7 @@ script ow_Floran_Gym_EventScript_AttendantHeal {
     closemessage
     applymovement(LOCALID_FLORAN_GYM_GUIDE, ow_Floran_Gym_Movement_AttendantReturn)
     waitmovement(0)
+    applymovement(LOCALID_PLAYER, moves(face_right))
     return
 }
 
@@ -127,31 +135,6 @@ script ow_Floran_Gym_EventScript_Trainer2PostBattle {
 script ow_Floran_Gym_EventScript_Trainer2Won {
     call(ow_Floran_Gym_EventScript_ResetCamera)
     moveobjecttocoords(LOCALID_FLORAN_GYM_TRAINER_2, 12, 2, DIR_SOUTH)
-    waitmovement(0)
-    call(ow_Floran_Gym_EventScript_AttendantHeal)
-    goto(ow_Floran_Gym_EventScript_Trainer3)
-}
-
-// ---------------- Trainer 3 ----------------
-
-script ow_Floran_Gym_EventScript_Trainer3 {
-    moveobjecttocoords(LOCALID_FLORAN_GYM_TRAINER_3, 12, 5, DIR_WEST)
-    waitmovement(0)
-    call(ow_Floran_Gym_EventScript_PanCameraToArena)
-    trainerbattle_selectmons(TRAINER_OW_FLORAN_GYM_3, format("Beat me and you've earned a shot at Vesna!"), format("You've got the better blade today."), ow_Floran_Gym_EventScript_Trainer3PostBattle, 3)
-    end
-}
-
-script ow_Floran_Gym_EventScript_Trainer3PostBattle {
-    if (var(VAR_RESULT) == 1) {
-        goto(ow_Floran_Gym_EventScript_Trainer3Won)
-    }
-    goto(ow_Floran_Gym_EventScript_WhiteOut)
-}
-
-script ow_Floran_Gym_EventScript_Trainer3Won {
-    call(ow_Floran_Gym_EventScript_ResetCamera)
-    moveobjecttocoords(LOCALID_FLORAN_GYM_TRAINER_3, 13, 2, DIR_SOUTH)
     waitmovement(0)
     call(ow_Floran_Gym_EventScript_AttendantHeal)
     goto(ow_Floran_Gym_EventScript_VesnaSequence)
@@ -203,7 +186,6 @@ script ow_Floran_Gym_EventScript_WhiteOut {
     // No flag cleanup needed: DoWhiteOut clears FLAG_SELECTMONS_NO_CANCEL automatically.
     fadescreen(FADE_TO_BLACK)
     special(SetCB2WhiteOut)
-    waitstate
     end
 }
 
